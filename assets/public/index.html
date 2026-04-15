@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Tailwind Configuration -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563EB",
+            "on-primary": "#ffffff",
+            "primary-container": "#DBEafe",
+            "on-primary-container": "#1E40AF",
+            secondary: "#475569",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#F1F5F9",
+            "on-secondary-container": "#334155",
+            tertiary: "#0F172A",
+            "on-tertiary": "#ffffff",
+            background: "#F8FAFC",
+            "on-background": "#0F172A",
+            surface: "#ffffff",
+            "on-surface": "#0F172A",
+            "surface-variant": "#F1F5F9",
+            "on-surface-variant": "#475569",
+            outline: "#CBD5E1",
+            error: "#EF4444",
+            "surface-container-low": "#F8FAFC",
+            "surface-container": "#F1F5F9",
+            "surface-container-high": "#E2E8F0",
+            "surface-container-highest": "#CBD5E1",
+          },
+          borderRadius: {
+            DEFAULT: "0px",
+            lg: "0px",
+            xl: "0px",
+            full: "0px",
+          },
+          fontFamily: {
+            headline: ["Inter"],
+            body: ["Inter"],
+            label: ["Inter"],
+          },
+        },
+      },
+    };
+  </script>
+ 
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+
+  <!-- Side Navigation Bar -->
+  <aside class="fixed left-0 top-0 h-full flex flex-col p-6 bg-white dark:bg-slate-900 w-64 border-r border-outline border-opacity-30 z-50">
+    <!-- Brand Section -->
+    <div class="mb-12">
+      <h2 class="uppercase text-[10px] font-bold tracking-widest text-primary">Navigation</h2>
+      <p class="text-[10px] text-slate-500 uppercase tracking-widest">Academic Ledger</p>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="flex flex-col gap-2 flex-grow">
+      <!-- Dashboard (Active) -->
+      <a class="flex items-center gap-4 px-4 py-3 bg-surface text-on-primary transition-all duration-75" href="#">
+        <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+        <span class="uppercase text-[10px] font-bold tracking-widest">Dashboard</span>
+      </a>
+
+      <!-- Assignments -->
+      <a class="flex items-center gap-4 px-4 py-3 text-secondary hover:bg-surface-container transition-all duration-75" href="/assets/pages/Assignments.html">
+        <span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+        <span class="uppercase text-[10px] font-bold tracking-widest">Assignments</span>
+      </a>
+
+      <!-- Schedule -->
+      <a class="flex items-center gap-4 px-4 py-3 text-secondary hover:bg-surface-container transition-all duration-75" href="/assets/pages/Schedule.html">
+        <span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+        <span class="uppercase text-[10px] font-bold tracking-widest">Schedule</span>
+      </a>
+
+      <!-- Resources -->
+      <a class="flex items-center gap-4 px-4 py-3 text-secondary hover:bg-surface-container transition-all duration-75" href="/assets/pages/Resources.html">
+        <span class="material-symbols-outlined" data-icon="folder">folder</span>
+        <span class="uppercase text-[10px] font-bold tracking-widest">Resources</span>
+      </a>
+    </nav>
+
+    <!-- Settings -->
+    <div class="mt-auto">
+      <a class="flex items-center gap-4 px-4 py-3 text-secondary hover:bg-surface-container transition-all duration-75" href="/assets/pages/Settings.html">
+        <span class="material-symbols-outlined" data-icon="settings">settings</span>
+        <span class="uppercase text-[10px] font-bold tracking-widest">Settings</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="flex-grow ml-64 flex flex-col min-h-screen">
+
+    <!-- Top App Bar -->
+    <header class="flex items-center justify-between px-8 py-4 w-full bg-white dark:bg-slate-900 border-b border-outline border-opacity-30 sticky top-0 z-40">
+      <div class="flex items-center gap-12">
+        <!-- App Title -->
+        <span class="text-xl font-bold tracking-tighter text-primary">ClassTeams</span>
+
+        <!-- Search Bar -->
+        <div class="relative w-64">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="search">search</span>
+          <input class="w-full bg-slate-50 border border-outline border-opacity-40 px-10 py-2 text-[10px] font-mono focus:outline-none focus:border-primary uppercase tracking-wider" placeholder="SEARCH ENTITIES..." type="text" />
+        </div>
+      </div>
+
+      <!-- Header Actions -->
+      <div class="flex items-center gap-6">
+        <button class="text-slate-500 hover:text-primary transition-colors duration-150">
+          <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+        </button>
+        <button class="text-slate-500 hover:text-primary transition-colors duration-150">
+          <span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+        </button>
+      </div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main class="p-12 flex-grow bg-background">
+      <div class="max-w-6xl mx-auto">
+
+        <!-- Page Header -->
+        <div class="mb-16">
+          <h1 class="text-6xl font-extrabold tracking-tighter uppercase mb-2 text-on-background">Academic Ledger</h1>
+          <p class="text-sm font-mono text-primary tracking-widest uppercase">Structural Assignment Management // Fall 2024</p>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid grid-cols-12 gap-8">
+
+          <!-- Tasks Column -->
+          <div class="col-span-8 flex flex-col gap-12">
+
+            <!-- Task Card 1 -->
+            <div class="group">
+              <div class="flex items-start justify-between bg-surface-container-high p-6 mb-[1px]">
+                <div>
+                  <span class="text-[10px] font-mono text-primary uppercase tracking-widest mb-1 block">CODE: ARCH-402</span>
+                  <h3 class="text-2xl font-bold tracking-tight uppercase text-on-background">Structural Brutalism Analysis</h3>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] font-bold text-primary uppercase tracking-widest border border-primary px-2 py-1">
+                    PENDING
+                  </span>
+                </div>
+              </div>
+              <div class="bg-white p-6 flex justify-between items-end border-b border-outline border-opacity-20">
+                <div class="flex gap-12">
+                  <div>
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Deadline</p>
+                    <p class="font-mono text-sm uppercase text-on-surface">OCT 24, 2024</p>
+                  </div>
+                  <div>
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Instructor</p>
+                    <p class="font-mono text-sm uppercase text-on-surface">Prof. K. Malevich</p>
+                  </div>
+                </div>
+                <button class="bg-primary text-on-primary px-6 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-blue-700 transition-colors">
+                  Open Case
+                </button>
+              </div>
+            </div>
+
+            <!-- Task Card 2 -->
+            <div class="group">
+              <div class="flex items-start justify-between bg-surface-container-high p-6 mb-[1px]">
+                <div>
+                  <span class="text-[10px] font-mono text-primary uppercase tracking-widest mb-1 block">CODE: ENG-109</span>
+                  <h3 class="text-2xl font-bold tracking-tight uppercase text-on-background">Material Stress Calculations</h3>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest border border-outline border-opacity-30 px-2 py-1">
+                    SUBMITTED
+                  </span>
+                </div>
+              </div>
+              <div class="bg-white p-6 flex justify-between items-end border-b border-outline border-opacity-20">
+                <div class="flex gap-12">
+                  <div>
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Deadline</p>
+                    <p class="font-mono text-sm uppercase text-on-surface">OCT 12, 2024</p>
+                  </div>
+                  <div>
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Type</p>
+                    <p class="font-mono text-sm uppercase text-on-surface">Quantitative Lab</p>
+                  </div>
+                </div>
+                <button class="border border-outline text-secondary px-6 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors">
+                  Review Docs
+                </button>
+              </div>
+            </div>
+
+            <!-- Task Card 3 -->
+            <div class="group">
+              <div class="flex items-start justify-between bg-surface-container-high p-6 mb-[1px]">
+                <div>
+                  <span class="text-[10px] font-mono text-primary uppercase tracking-widest mb-1 block">CODE: HIS-220</span>
+                  <h3 class="text-2xl font-bold tracking-tight uppercase text-on-background">Modernist Foundations Essay</h3>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] font-bold text-primary uppercase tracking-widest border border-primary px-2 py-1">
+                    PENDING
+                  </span>
+                </div>
+              </div>
+              <div class="bg-white p-6 flex justify-between items-end border-b border-outline border-opacity-20">
+                <div class="flex gap-12">
+                  <div>
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Deadline</p>
+                    <p class="font-mono text-sm uppercase text-on-surface">NOV 02, 2024</p>
+                  </div>
+                  <div>
+                    <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Priority</p>
+                    <p class="font-mono text-sm uppercase text-error">CRITICAL</p>
+                  </div>
+                </div>
+                <button class="bg-primary text-on-primary px-6 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-blue-700 transition-colors">
+                  Open Case
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Sidebar Stats -->
+          <div class="col-span-4 flex flex-col gap-8">
+
+            <!-- Ledger Summary -->
+            <div class="bg-tertiary p-8 text-on-tertiary">
+              <h4 class="text-[10px] font-mono uppercase tracking-[0.2em] mb-8 text-slate-400">Ledger Summary</h4>
+              <div class="flex flex-col gap-4">
+                <div class="flex justify-between items-end border-b border-slate-800 pb-2">
+                  <span class="text-[10px] uppercase font-bold">Open Tasks</span>
+                  <span class="text-3xl font-extrabold tracking-tighter text-primary-container">03</span>
+                </div>
+                <div class="flex justify-between items-end border-b border-slate-800 pb-2">
+                  <span class="text-[10px] uppercase font-bold">Completed</span>
+                  <span class="text-3xl font-extrabold tracking-tighter">18</span>
+                </div>
+                <div class="flex justify-between items-end">
+                  <span class="text-[10px] uppercase font-bold">Compliance Rate</span>
+                  <span class="text-3xl font-extrabold tracking-tighter text-blue-400">92%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="bg-white p-8 border border-outline border-opacity-30">
+              <h4 class="text-[10px] font-mono uppercase tracking-[0.2em] mb-6 text-primary font-bold">Recent Activity</h4>
+              <div class="space-y-4">
+                <div class="border-l-2 border-primary pl-4">
+                  <p class="text-[10px] font-bold uppercase text-on-surface">Submitted Calculus VII</p>
+                  <p class="text-[10px] font-mono text-slate-500 uppercase">2 hours ago</p>
+                </div>
+                <div class="border-l-2 border-outline pl-4">
+                  <p class="text-[10px] font-bold uppercase text-on-surface">Resource Added: Beam Strength PDF</p>
+                  <p class="text-[10px] font-mono text-slate-500 uppercase">Yesterday</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Add Task Button -->
+        <div class="mt-16 flex justify-center">
+          <button class="group flex items-center gap-4 bg-primary text-on-primary px-12 py-6 hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/10">
+            <span class="material-symbols-outlined text-2xl" data-icon="add">add</span>
+            <span class="text-sm font-bold uppercase tracking-[0.3em]">Initialize New Task</span>
+          </button>
+        </div>
+
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="flex justify-between items-center px-8 py-6 w-full mt-auto bg-white dark:bg-slate-900 border-t border-outline border-opacity-30">
+      <div class="text-[10px] font-mono uppercase tracking-tighter text-slate-500">
+        © 2024 CLASSTEAMS ACADEMIC CLARITY SYSTEM
+      </div>
+      <div class="flex gap-8">
+        <a class="text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Privacy</a>
+        <a class="text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Terms</a>
+        <a class="text-[10px] font-mono uppercase tracking-tighter text-primary hover:underline transition-opacity font-bold" href="#">Support</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>

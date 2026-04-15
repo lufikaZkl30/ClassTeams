@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Task Detail - ClassTeams</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#2563EB",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#DBEAFE",
+                    "on-primary-container": "#1E40AF",
+                    "secondary": "#475569",
+                    "on-secondary": "#ffffff",
+                    "background": "#F8FAFC",
+                    "on-background": "#0F172A",
+                    "surface": "#ffffff",
+                    "on-surface": "#0F172A",
+                    "surface-variant": "#F1F5F9",
+                    "on-surface-variant": "#334155",
+                    "outline": "#CBD5E1",
+                    "outline-variant": "#E2E8F0",
+                    "surface-container-low": "#F8FAFC",
+                    "surface-container": "#F1F5F9",
+                    "surface-container-high": "#E2E8F0",
+                    "surface-container-highest": "#CBD5E1",
+                    "error": "#DC2626"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "0px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; border-radius: 0 !important; }
+        * { border-radius: 0 !important; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<nav class="bg-white border-b border-outline-variant text-on-background font-sans tracking-tight text-sm w-full transition-colors duration-150 ease-in-out flex items-center justify-between px-8 py-4 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-primary">ClassTeams</span>
+<div class="hidden md:flex gap-6">
+<a class="text-on-background font-bold border-b-2 border-primary transition-colors duration-150 ease-in-out" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150 ease-in-out" href="#">Assignments</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150 ease-in-out" href="#">Schedule</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container transition-colors duration-150 ease-in-out" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container transition-colors duration-150 ease-in-out" data-icon="account_circle">account_circle</button>
+</div>
+</nav>
+<div class="flex flex-1">
+<aside class="fixed left-0 top-0 h-full flex flex-col p-6 hidden md:flex h-screen w-64 border-r border-outline-variant bg-white text-on-background pt-24">
+<span class="uppercase text-[10px] font-bold tracking-widest text-on-surface-variant mb-6 opacity-60">Navigation</span>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 transition-all duration-75 text-on-surface-variant hover:bg-surface-container" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="dashboard">dashboard</span>
+<span class="uppercase text-[10px] font-bold tracking-widest">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 transition-all duration-75 bg-primary text-on-primary" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="uppercase text-[10px] font-bold tracking-widest">Assignments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 transition-all duration-75 text-on-surface-variant hover:bg-surface-container" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="calendar_today">calendar_today</span>
+<span class="uppercase text-[10px] font-bold tracking-widest">Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 transition-all duration-75 text-on-surface-variant hover:bg-surface-container" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="folder">folder</span>
+<span class="uppercase text-[10px] font-bold tracking-widest">Resources</span>
+</a>
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 transition-all duration-75 text-on-surface-variant hover:bg-surface-container" href="#">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+<span class="uppercase text-[10px] font-bold tracking-widest">Settings</span>
+</a>
+</div>
+</div>
+</aside>
+<main class="flex-1 md:ml-64 p-8 md:p-16 max-w-7xl">
+<div class="mb-16">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-8 group">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+<span class="label-sm font-bold uppercase tracking-widest text-[10px]">Back to ledger</span>
+</button>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<div class="lg:col-span-8">
+<span class="label-sm font-bold uppercase tracking-widest text-[10px] text-primary mb-2 block">Task Category: Structural Analysis</span>
+<h1 class="text-5xl font-extrabold tracking-tighter mb-8 leading-none text-on-background">THE IMPACT OF CANTILEVER SYSTEMS ON URBAN BRUTALISM</h1>
+<div class="prose max-w-none text-on-surface-variant leading-relaxed mb-12">
+<p class="mb-6">This task requires a comprehensive structural breakdown of the central cantilever mechanisms used in the secondary wing of the Academic Ledger complex. Students must analyze the load-bearing requirements and provide a detailed blueprint revision including material stress tests.</p>
+<p>Final submissions must be rendered in grayscale architectural format, adhering to the 0px radius mandate of the structural ledger system. Late submissions will be flagged in the audit system.</p>
+</div>
+<div class="space-y-4">
+<span class="label-sm font-bold uppercase tracking-widest text-[10px] text-on-surface-variant">Attachments</span>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-white border border-outline-variant p-6 flex items-center justify-between group cursor-pointer hover:border-primary transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+<div>
+<p class="text-sm font-bold tracking-tight text-on-surface">STRUCTURAL_SPEC_V2.PDF</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-mono">14.2 MB</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</span>
+</div>
+<div class="bg-white border border-outline-variant p-6 flex items-center justify-between group cursor-pointer hover:border-primary transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="image">image</span>
+<div>
+<p class="text-sm font-bold tracking-tight text-on-surface">SITE_MAP_RENDER.PNG</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-mono">2.8 MB</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 space-y-12">
+<div class="bg-primary-container p-8">
+<span class="label-sm font-bold uppercase tracking-widest text-[10px] text-on-primary-container mb-6 block">Deadline Information</span>
+<div class="flex items-end gap-2 mb-2 text-on-primary-container">
+<span class="text-4xl font-extrabold tracking-tighter">OCT 24</span>
+<span class="text-lg font-bold opacity-60 pb-1">/ 2024</span>
+</div>
+<p class="text-[10px] font-mono uppercase tracking-tighter mb-8 text-on-primary-container opacity-80">submission window closes at 23:59 GMT</p>
+<div class="space-y-4">
+<div class="bg-primary text-on-primary p-4 text-center cursor-pointer hover:bg-primary-container hover:text-on-primary-container border border-primary transition-colors">
+<span class="label-md font-bold uppercase tracking-widest">Upload Assignment</span>
+</div>
+<div class="border border-on-primary-container text-on-primary-container p-4 text-center cursor-pointer hover:bg-white/20 transition-colors">
+<span class="label-md font-bold uppercase tracking-widest">Request Extension</span>
+</div>
+</div>
+</div>
+<div class="border-l-4 border-primary pl-8 py-4">
+<span class="label-sm font-bold uppercase tracking-widest text-[10px] text-on-surface-variant mb-4 block">Assigned Facilitator</span>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="portrait of a serious male professor in architectural studio setting with neutral gray background and clean lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP3aZl2OwrjO9CD55dDp0YuBuDbIizgVf0B0rSshow4014weevFrX7W8IK34hCL7-__GHxAqsJWjZREa79QxZuF8osDJR2ztHySVH9U92s6cU36otq7OJ3gCxNOn52SHdemPf9UvN5HKDjQrFDhC20ynZcN_4pOjH6Km85GTQZ1mjUdOo7S0oG-tJZSK0Zq89RviB86cRWbqDmAdzFdKU8kovuH6d0Df_44YrR-mr26KWyw5U6D1VpzBjVXxy9QoQfxq07gzOHNgCy"/>
+</div>
+<div>
+<p class="text-sm font-bold tracking-tight text-on-surface">DR. ELIAS VANCE</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-mono">Structural Engineering Dept.</p>
+</div>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-8 shadow-sm">
+<span class="label-sm font-bold uppercase tracking-widest text-[10px] text-on-surface-variant mb-4 block">System Status</span>
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 bg-secondary/30"></div>
+<span class="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant">Pending Submission</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<footer class="flex justify-between items-center px-8 py-6 w-full mt-auto bg-white border-t border-outline-variant text-on-surface-variant text-[10px] font-mono uppercase tracking-tighter transition-all duration-75">
+<div class="opacity-60">© 2024 CLASSTEAMS ACADEMIC SYSTEM</div>
+<div class="flex gap-8">
+<a class="hover:text-primary transition-all duration-75" href="#">Privacy</a>
+<a class="hover:text-primary transition-all duration-75" href="#">Terms</a>
+<a class="hover:text-primary transition-all duration-75" href="#">Support</a>
+</div>
+</footer>
+</body></html>
