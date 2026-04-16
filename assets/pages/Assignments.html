@@ -76,7 +76,7 @@
     }
   </style>
 </head>
-<body class="bg-background text-on-background min-h-screen flex flex-col">
+<body class="bg-background text-on-background min-h-screen flex">
 
   <!-- Side Navigation Bar -->
   <nav class="sidebar">
@@ -139,8 +139,36 @@
   </nav>
   
   <!-- Main Content -->
-  <main class="flex-1 md:ml-64 p-8 md:p-16 max-w-7xl">
-    <div class="mb-16">
+  <main class="flex-grow ml-64 flex flex-col min-h-screen">
+
+    <!-- Top App Bar -->
+    <header class="flex items-center justify-between px-8 py-4 w-full bg-white dark:bg-slate-900 border-b border-outline-variant border-opacity-30 sticky top-0 z-40">
+      <hgroup class="flex items-center gap-12">
+        <!-- App Title -->
+        <h1 class="text-xl font-bold tracking-tighter text-primary">ClassTeams</h1>
+
+        <!-- Search Bar -->
+        <form class="relative w-64" role="search">
+          <label for="search-input" class="sr-only">Search entities</label>
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none" data-icon="search">search</span>
+          <input id="search-input" class="w-full bg-slate-50 border border-outline-variant border-opacity-40 px-10 py-2 text-[10px] font-mono focus:outline-none focus:border-primary uppercase tracking-wider" placeholder="SEARCH ENTITIES..." type="text" />
+        </form>
+      </hgroup>
+
+      <!-- Header Actions -->
+      <nav aria-label="User actions" class="flex items-center gap-6">
+        <button class="text-slate-500 hover:text-primary transition-colors duration-150" aria-label="Notifications">
+          <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+        </button>
+        <button class="text-slate-500 hover:text-primary transition-colors duration-150" aria-label="User profile">
+          <span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content Canvas -->
+    <section class="p-12 flex-grow bg-background">
+      <div class="max-w-6xl mx-auto">
       <!-- Back Button -->
       <button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-8 group" onclick="goBack()" title="Back to Ledger">
         <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
@@ -270,11 +298,7 @@
       <!-- Modal Header -->
       <header class="bg-white border-b border-outline-variant flex items-center justify-between px-8 py-4 sticky top-0">
         <div class="flex items-center gap-4">
-          <button class="flex items-center gap-2 hover:bg-surface-container p-2 transition-colors" onclick="closeUploadModal()">
-            <span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
-            <span class="font-sans tracking-tight text-sm text-on-surface-variant">Back</span>
-          </button>
-          <span class="text-xl font-bold tracking-tighter text-primary">ClassTeams</span>
+         
         </div>
         <button class="text-on-surface-variant hover:text-primary transition-colors" onclick="closeUploadModal()" aria-label="Close">
           <span class="material-symbols-outlined" data-icon="close">close</span>
@@ -334,23 +358,20 @@
                 Upload
               </button>
               <div class="flex items-start gap-3 p-4 bg-tertiary border-l-4 border-primary">
-                <span class="material-symbols-outlined text-on-primary text-sm mt-0.5" data-icon="info">info</span>
-                <p class="text-[10px] font-medium leading-relaxed text-on-primary">
+                <span class="material-symbols-outlined text-error text-sm mt-0.5" data-icon="info">info</span>
+                <p class="text-[10px] font-medium leading-relaxed text-error">
                   By uploading this file, you confirm that this work is your own and adheres to the academic integrity ledger of ClassTeams.
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </main>
-    </div>
-  </div>
-</div>
+      </div>
+    </section>
+  </main>
 
-  <!-- Footer -->
-  <footer class="flex justify-between items-center px-8 py-6 w-full mt-auto bg-white border-t border-outline-variant text-on-surface-variant text-[10px] font-mono uppercase tracking-tighter transition-all duration-75">
-    <div class="opacity-60">© 2024 CLASSTEAMS ACADEMIC SYSTEM</div>
-    <div class="flex gap-8">
+  <!-- Upload Modal Pop-out -->
+  <div id="uploadModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center overflow-y-auto">
       <a class="hover:text-primary transition-all duration-75" href="#">Privacy</a>
       <a class="hover:text-primary transition-all duration-75" href="#">Terms</a>
       <a class="hover:text-primary transition-all duration-75" href="#">Support</a>
