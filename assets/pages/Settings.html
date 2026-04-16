@@ -62,6 +62,7 @@
     };
   </script>
 
+  <!-- Styles -->
   <style>
     .material-symbols-outlined {
       font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
@@ -69,12 +70,15 @@
 
     body {
       font-family: "Inter", sans-serif;
+      border-radius: 0 !important;
     }
 
     * {
       border-radius: 0 !important;
     }
   </style>
+ 
+
 </head>
 <body class="bg-background text-on-background min-h-screen flex">
 
@@ -114,18 +118,20 @@
             <span class="sidebar-nav-text">Resources</span>
           </a>
         </li>
+    </nav>
+
+    <!-- Settings Footer -->
+    <footer class="sidebar-footer">
+      <ul class="sidebar-footer-list">
         <li>
-          <a href="./Settings.html" class="sidebar-nav-item active" data-page="settings">
-            <span class="material-symbols-outlined sidebar-nav-icon">settings</span>
+          <a href="./Settings.html" class="sidebar-nav-item" data-page="settings">
+            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="settings">settings</span>
             <span class="sidebar-nav-text">Settings</span>
           </a>
         </li>
       </ul>
-    </nav>
-
- 
+      
     </footer>
-
   </nav>
 
   <!-- Main Content Wrapper -->
