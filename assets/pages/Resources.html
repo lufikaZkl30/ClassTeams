@@ -4,19 +4,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources - ClassTeams</title>
+  <title>Resources | ClassTeams</title>
 
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
-  
+
   <!-- Styles -->
   <link rel="stylesheet" href="../public/navbar.css" />
   <link rel="stylesheet" href="../public/styles.css" />
-  
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  
+
   <!-- Tailwind Configuration -->
   <script id="tailwind-config">
     tailwind.config = {
@@ -63,50 +63,56 @@
     };
   </script>
 
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+    }
+
+    * {
+      border-radius: 0 !important;
+    }
+  </style>
 </head>
 
 <body class="bg-background text-on-background min-h-screen flex">
 
   <!-- Side Navigation Bar -->
   <nav class="sidebar">
-    
+
     <!-- Brand Section -->
     <header class="sidebar-header">
-      <h2 class="sidebar-header-title">Navigation</h2>
+      <h2 class="sidebar-header-title">ClassTeams</h2>
       <p class="sidebar-header-subtitle">Academic Ledger</p>
     </header>
 
     <!-- Navigation Menu -->
     <nav class="sidebar-nav">
       <ul class="sidebar-nav-list">
-        <!-- Dashboard -->
         <li>
           <a href="../public/index.html" class="sidebar-nav-item" data-page="dashboard">
-            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="dashboard">dashboard</span>
+            <span class="material-symbols-outlined sidebar-nav-icon">dashboard</span>
             <span class="sidebar-nav-text">Dashboard</span>
           </a>
         </li>
-
-        <!-- Assignments -->
         <li>
           <a href="./Assignments.html" class="sidebar-nav-item" data-page="assignments">
-            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="assignment">assignment</span>
+            <span class="material-symbols-outlined sidebar-nav-icon">assignment</span>
             <span class="sidebar-nav-text">Assignments</span>
           </a>
         </li>
-
-        <!-- Schedule -->
         <li>
           <a href="./Schedule.html" class="sidebar-nav-item" data-page="schedule">
-            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="calendar_today">calendar_today</span>
+            <span class="material-symbols-outlined sidebar-nav-icon">calendar_today</span>
             <span class="sidebar-nav-text">Schedule</span>
           </a>
         </li>
-
-        <!-- Resources -->
         <li>
-          <a href="./Resources.html" class="sidebar-nav-item" data-page="resources">
-            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="folder">folder</span>
+          <a href="./Resources.html" class="sidebar-nav-item active" data-page="resources">
+            <span class="material-symbols-outlined sidebar-nav-icon">folder</span>
             <span class="sidebar-nav-text">Resources</span>
           </a>
         </li>
@@ -118,7 +124,7 @@
       <ul class="sidebar-footer-list">
         <li>
           <a href="./Settings.html" class="sidebar-nav-item" data-page="settings">
-            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="settings">settings</span>
+            <span class="material-symbols-outlined sidebar-nav-icon">settings</span>
             <span class="sidebar-nav-text">Settings</span>
           </a>
         </li>
@@ -133,24 +139,20 @@
     <!-- Top App Bar -->
     <header class="flex items-center justify-between px-8 py-4 w-full bg-white dark:bg-slate-900 border-b border-outline border-opacity-30 sticky top-0 z-40">
       <hgroup class="flex items-center gap-12">
-        <!-- App Title -->
         <h1 class="text-xl font-bold tracking-tighter text-primary">ClassTeams</h1>
-
-        <!-- Search Bar -->
         <form class="relative w-64" role="search">
-          <label for="search-input" class="sr-only">Search entities</label>
-          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none" data-icon="search">search</span>
-          <input id="search-input" class="w-full bg-slate-50 border border-outline border-opacity-40 px-10 py-2 text-[10px] font-mono focus:outline-none focus:border-primary uppercase tracking-wider" placeholder="SEARCH ENTITIES..." type="text" />
+          <label for="search-input" class="sr-only">Search resources</label>
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none">search</span>
+          <input id="search-input" class="w-full bg-slate-50 border border-outline border-opacity-40 px-10 py-2 text-[10px] font-mono focus:outline-none focus:border-primary uppercase tracking-wider" placeholder="SEARCH RESOURCES..." type="text" />
         </form>
       </hgroup>
 
-      <!-- Header Actions -->
       <nav aria-label="User actions" class="flex items-center gap-6">
         <button class="text-slate-500 hover:text-primary transition-colors duration-150" aria-label="Notifications">
-          <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+          <span class="material-symbols-outlined">notifications</span>
         </button>
         <button class="text-slate-500 hover:text-primary transition-colors duration-150" aria-label="User profile">
-          <span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+          <span class="material-symbols-outlined">account_circle</span>
         </button>
       </nav>
     </header>
@@ -161,39 +163,209 @@
 
         <!-- Page Header -->
         <header class="mb-16">
-          <h2 class="text-6xl font-extrabold tracking-tighter uppercase mb-2 text-on-background">Resources</h2>
-          <p class="text-sm font-mono text-primary tracking-widest uppercase">Access Course Materials & Learning Resources</p>
+          <h2 class="text-6xl font-extrabold tracking-tighter uppercase mb-2 text-on-background">Resource Library</h2>
+          <p class="text-sm font-mono text-primary tracking-widest uppercase">Learning Materials // Fall 2024</p>
         </header>
 
-        <!-- Content -->
-        <div class="bg-white border border-outline border-opacity-30 p-8">
-          <p class="text-on-surface mb-4">
-            Ini adalah halaman Resources. Navbar sekarang akan menunjukkan "Resources" sebagai active state ketika Anda berada di halaman ini.
-          </p>
-          <p class="text-slate-500">
-            Silakan tambahkan konten Resources Anda di sini.
-          </p>
+        <!-- Content Grid -->
+        <div class="grid grid-cols-12 gap-8">
+
+          <!-- Resources Column -->
+          <section class="col-span-8 flex flex-col gap-8" aria-label="Resource library">
+
+            <!-- Resource Category: Lecture Notes -->
+            <section>
+              <h3 class="text-lg font-bold uppercase tracking-wider mb-6 pb-4 border-b border-outline">Lecture Notes</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Resource Card 1 -->
+                <div class="p-6 bg-white border border-outline border-opacity-30 hover:shadow-md transition-shadow">
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="p-3 bg-primary-container">
+                      <span class="material-symbols-outlined text-primary text-xl">description</span>
+                    </div>
+                    <button class="text-slate-400 hover:text-primary transition-colors" aria-label="Download">
+                      <span class="material-symbols-outlined">download</span>
+                    </button>
+                  </div>
+                  <h4 class="font-bold mb-2">Advanced Algorithms Part 1</h4>
+                  <p class="text-sm text-slate-500 mb-4">Graph theory fundamentals and complexity analysis</p>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[10px] font-mono text-slate-400 uppercase">PDF • 3.2 MB</span>
+                    <span class="text-[10px] font-mono text-primary font-bold">UPDATED</span>
+                  </div>
+                </div>
+
+                <!-- Resource Card 2 -->
+                <div class="p-6 bg-white border border-outline border-opacity-30 hover:shadow-md transition-shadow">
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="p-3 bg-primary-container">
+                      <span class="material-symbols-outlined text-primary text-xl">description</span>
+                    </div>
+                    <button class="text-slate-400 hover:text-primary transition-colors" aria-label="Download">
+                      <span class="material-symbols-outlined">download</span>
+                    </button>
+                  </div>
+                  <h4 class="font-bold mb-2">Database Design Fundamentals</h4>
+                  <p class="text-sm text-slate-500 mb-4">Relational model and normalization concepts</p>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[10px] font-mono text-slate-400 uppercase">PDF • 2.8 MB</span>
+                    <span class="text-[10px] font-mono text-slate-400">3 days ago</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Resource Category: Research Papers -->
+            <section>
+              <h3 class="text-lg font-bold uppercase tracking-wider mb-6 pb-4 border-b border-outline">Research Papers</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Resource Card 3 -->
+                <div class="p-6 bg-white border border-outline border-opacity-30 hover:shadow-md transition-shadow">
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="p-3 bg-error-container">
+                      <span class="material-symbols-outlined text-error text-xl">picture_as_pdf</span>
+                    </div>
+                    <button class="text-slate-400 hover:text-primary transition-colors" aria-label="Download">
+                      <span class="material-symbols-outlined">download</span>
+                    </button>
+                  </div>
+                  <h4 class="font-bold mb-2">Machine Learning Ethics</h4>
+                  <p class="text-sm text-slate-500 mb-4">Bias and fairness in AI systems. Published in IEEE 2024</p>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[10px] font-mono text-slate-400 uppercase">PDF • 4.5 MB</span>
+                    <span class="text-[10px] font-mono text-primary font-bold">FEATURED</span>
+                  </div>
+                </div>
+
+                <!-- Resource Card 4 -->
+                <div class="p-6 bg-white border border-outline border-opacity-30 hover:shadow-md transition-shadow">
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="p-3 bg-error-container">
+                      <span class="material-symbols-outlined text-error text-xl">picture_as_pdf</span>
+                    </div>
+                    <button class="text-slate-400 hover:text-primary transition-colors" aria-label="Download">
+                      <span class="material-symbols-outlined">download</span>
+                    </button>
+                  </div>
+                  <h4 class="font-bold mb-2">Neural Networks Architecture</h4>
+                  <p class="text-sm text-slate-500 mb-4">Deep learning frameworks and optimization techniques</p>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[10px] font-mono text-slate-400 uppercase">PDF • 5.1 MB</span>
+                    <span class="text-[10px] font-mono text-slate-400">1 week ago</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Resource Category: Code Samples -->
+            <section>
+              <h3 class="text-lg font-bold uppercase tracking-wider mb-6 pb-4 border-b border-outline">Code Examples</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Resource Card 5 -->
+                <div class="p-6 bg-white border border-outline border-opacity-30 hover:shadow-md transition-shadow">
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="p-3 bg-secondary-container">
+                      <span class="material-symbols-outlined text-secondary text-xl">code</span>
+                    </div>
+                    <button class="text-slate-400 hover:text-primary transition-colors" aria-label="Download">
+                      <span class="material-symbols-outlined">download</span>
+                    </button>
+                  </div>
+                  <h4 class="font-bold mb-2">Python Data Processing</h4>
+                  <p class="text-sm text-slate-500 mb-4">Pandas and NumPy implementation examples</p>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[10px] font-mono text-slate-400 uppercase">ZIP • 1.2 MB</span>
+                    <span class="text-[10px] font-mono text-slate-400">2 days ago</span>
+                  </div>
+                </div>
+
+                <!-- Resource Card 6 -->
+                <div class="p-6 bg-white border border-outline border-opacity-30 hover:shadow-md transition-shadow">
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="p-3 bg-secondary-container">
+                      <span class="material-symbols-outlined text-secondary text-xl">code</span>
+                    </div>
+                    <button class="text-slate-400 hover:text-primary transition-colors" aria-label="Download">
+                      <span class="material-symbols-outlined">download</span>
+                    </button>
+                  </div>
+                  <h4 class="font-bold mb-2">Web Development Starter Kit</h4>
+                  <p class="text-sm text-slate-500 mb-4">HTML5, CSS3, and JavaScript fundamentals</p>
+                  <div class="flex justify-between items-center">
+                    <span class="text-[10px] font-mono text-slate-400 uppercase">ZIP • 2.3 MB</span>
+                    <span class="text-[10px] font-mono text-primary font-bold">NEW</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          </section>
+
+          <!-- Sidebar: Stats & Info -->
+          <aside class="col-span-4 flex flex-col gap-8" aria-label="Resource summary">
+
+            <!-- Storage Information -->
+            <section class="bg-white p-8 border border-outline border-opacity-30">
+              <h3 class="text-sm font-bold uppercase tracking-wider mb-6 pb-4 border-b border-outline">Storage Usage</h3>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between mb-2 text-[10px] font-mono text-slate-500">
+                    <span>Used</span>
+                    <span>1.2 GB / 5 GB</span>
+                  </div>
+                  <div class="h-2 bg-outline border border-outline">
+                    <div class="h-full bg-primary" style="width: 24%"></div>
+                  </div>
+                </div>
+                <button class="w-full mt-6 py-2 px-4 bg-primary-container text-primary font-bold text-sm hover:bg-primary-container border border-primary hover:border-primary transition-colors">
+                  Upgrade Storage
+                </button>
+              </div>
+            </section>
+
+            <!-- Recent Downloads -->
+            <section class="bg-white p-8 border border-outline border-opacity-30">
+              <h3 class="text-sm font-bold uppercase tracking-wider mb-6 pb-4 border-b border-outline">Recent Activity</h3>
+              <ul class="space-y-4">
+                <li class="border-l-2 border-primary pl-4">
+                  <p class="text-[10px] font-bold uppercase text-on-surface">Downloaded: Advanced Algorithms</p>
+                  <time class="text-[10px] font-mono text-slate-500 uppercase">15 mins ago</time>
+                </li>
+                <li class="border-l-2 border-primary pl-4">
+                  <p class="text-[10px] font-bold uppercase text-on-surface">Downloaded: Database Design</p>
+                  <time class="text-[10px] font-mono text-slate-500 uppercase">2 hours ago</time>
+                </li>
+                <li class="border-l-2 border-outline pl-4">
+                  <p class="text-[10px] font-bold uppercase text-on-surface">Uploaded: Lab Report V2</p>
+                  <time class="text-[10px] font-mono text-slate-500 uppercase">Yesterday</time>
+                </li>
+              </ul>
+            </section>
+
+          </aside>
+
         </div>
 
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="flex justify-between items-center px-8 py-6 w-full mt-auto bg-white dark:bg-slate-900 border-t border-outline border-opacity-30">
-      <p class="text-[10px] font-mono uppercase tracking-tighter text-slate-500">
-        © 2024 CLASSTEAMS ACADEMIC CLARITY SYSTEM
-      </p>
-      <nav aria-label="Footer links" class="flex gap-8">
-        <a class="text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Privacy</a>
-        <a class="text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Terms</a>
-        <a class="text-[10px] font-mono uppercase tracking-tighter text-primary hover:underline transition-opacity font-bold" href="#">Support</a>
-      </nav>
+    <footer class="flex justify-between items-center px-8 py-6 w-full mt-auto bg-white dark:bg-slate-900 border-t border-outline border-opacity-30 text-on-surface-variant text-[10px] font-mono uppercase tracking-tighter">
+      <div class="opacity-60">© 2024 ClassTeams Academic System</div>
+      <div class="flex gap-8">
+        <a class="hover:text-primary transition-colors" href="#">Privacy</a>
+        <a class="hover:text-primary transition-colors" href="#">Terms</a>
+        <a class="hover:text-primary transition-colors" href="#">Support</a>
+      </div>
     </footer>
 
   </main>
 
   <!-- Navbar Active State Handler -->
   <script src="../public/navbar-active.js"></script>
+
+  <!-- Resources Page Functionality -->
+  <script src="../public/resources.js"></script>
 
 </body>
 
