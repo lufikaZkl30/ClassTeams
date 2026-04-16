@@ -1,376 +1,360 @@
 <!DOCTYPE html>
+<html class="light" lang="en">
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Schedule | ClassTeams Academic Atelier</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        .glass-slate {
-            background: rgba(240, 243, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-    </style>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "tertiary": "#943700",
-                    "secondary-fixed-dim": "#b7c8e1",
-                    "surface-container-low": "#f0f3ff",
-                    "on-secondary-container": "#54647a",
-                    "secondary": "#505f76",
-                    "inverse-primary": "#b4c5ff",
-                    "tertiary-fixed": "#ffdbcd",
-                    "secondary-container": "#d0e1fb",
-                    "on-tertiary-fixed-variant": "#7d2d00",
-                    "inverse-on-surface": "#ecf1ff",
-                    "background": "#f9f9ff",
-                    "tertiary-fixed-dim": "#ffb596",
-                    "on-primary-fixed": "#00174b",
-                    "on-surface-variant": "#434655",
-                    "surface-tint": "#0053db",
-                    "tertiary-container": "#bc4800",
-                    "primary": "#004ac6",
-                    "on-secondary-fixed-variant": "#38485d",
-                    "surface": "#f9f9ff",
-                    "primary-container": "#2563eb",
-                    "outline-variant": "#c3c6d7",
-                    "surface-bright": "#f9f9ff",
-                    "inverse-surface": "#263143",
-                    "on-primary-fixed-variant": "#003ea8",
-                    "surface-variant": "#d8e3fb",
-                    "surface-container": "#e7eeff",
-                    "primary-fixed-dim": "#b4c5ff",
-                    "surface-container-high": "#dee8ff",
-                    "on-secondary-fixed": "#0b1c30",
-                    "on-secondary": "#ffffff",
-                    "primary-fixed": "#dbe1ff",
-                    "outline": "#737686",
-                    "on-primary": "#ffffff",
-                    "on-primary-container": "#eeefff",
-                    "on-error": "#ffffff",
-                    "on-tertiary-fixed": "#360f00",
-                    "surface-container-lowest": "#ffffff",
-                    "error-container": "#ffdad6",
-                    "on-tertiary": "#ffffff",
-                    "on-tertiary-container": "#ffede6",
-                    "on-background": "#111c2d",
-                    "on-error-container": "#93000a",
-                    "surface-dim": "#cfdaf2",
-                    "surface-container-highest": "#d8e3fb",
-                    "error": "#ba1a1a",
-                    "secondary-fixed": "#d3e4fe",
-                    "on-surface": "#111c2d"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "fontFamily": {
-                    "headline": ["Manrope"],
-                    "body": ["Inter"],
-                    "label": ["Inter"]
-            }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule | ClassTeams</title>
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../public/navbar.css" />
+  <link rel="stylesheet" href="../public/styles.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563EB",
+            "on-primary": "#ffffff",
+            "primary-container": "#DBEAFE",
+            "on-primary-container": "#1E40AF",
+            secondary: "#475569",
+            "on-secondary": "#ffffff",
+            background: "#F8FAFC",
+            "on-background": "#0F172A",
+            surface: "#ffffff",
+            "on-surface": "#0F172A",
+            "surface-variant": "#F1F5F9",
+            "on-surface-variant": "#334155",
+            outline: "#CBD5E1",
+            "outline-variant": "#E2E8F0",
+            "surface-container-low": "#F8FAFC",
+            "surface-container": "#F1F5F9",
+            "surface-container-high": "#E2E8F0",
+            error: "#DC2626",
+            tertiary: "#0F172A",
+            "on-tertiary": "#ffffff",
+          },
+          borderRadius: {
+            DEFAULT: "0px",
+          },
+          fontFamily: {
+            headline: ["Inter"],
+            body: ["Inter"],
           },
         },
-      }
-    </script>
+      },
+    };
+  </script>
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+    }
+
+    * {
+      border-radius: 0 !important;
+    }
+  </style>
 </head>
-<body class="bg-surface font-body text-on-surface antialiased">
-<!-- TopNavBar -->
-<header class="flex justify-between items-center px-8 h-16 w-full bg-[#f9f9ff] dark:bg-slate-950 font-manrope tracking-tight border-b-0 sticky top-0 z-50">
-<div class="flex items-center gap-8">
-<span class="text-xl font-bold text-[#004ac6] dark:text-blue-400">ClassTeams</span>
-<nav class="hidden md:flex gap-6">
-<a class="text-[#434655] dark:text-slate-400 hover:text-[#2563eb] transition-colors cursor-pointer active:opacity-80" href="#">Dashboard</a>
-<a class="text-[#004ac6] border-b-2 border-[#004ac6] py-1 cursor-pointer active:opacity-80" href="#">Schedule</a>
-<a class="text-[#434655] dark:text-slate-400 hover:text-[#2563eb] transition-colors cursor-pointer active:opacity-80" href="#">Resources</a>
-</nav>
-</div>
-<div class="flex items-center gap-4">
-<div class="relative hidden sm:block">
-<input class="bg-surface-container rounded-full px-4 py-1.5 text-sm outline-none focus:ring-2 focus:ring-primary/20 w-64 border-none" placeholder="Search assignments..." type="text"/>
-</div>
-<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">notifications</span>
-<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">help</span>
-<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
-<img alt="User profile" data-alt="Portrait of a young professional student with a focused expression, warm lighting, minimalist academic setting background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUZppwswFFs2CjalUz6D24bOpNytxe3N49CT2pG7_R6sOfNa-DZ8bu-_Fp-ROMItSAqqUL_SI5Ht14bFQsMQ-GvmGqCVbjb6i9jugDw0E2J1fwaT6zJ9hHRD_kQmvp8-MXsktZ2ViislvT3agI3KQgwDLl1dTMatlAY2bQqBbCQ8NejIlHX3E4Hm7KrckC0FFhVGdpniZiGZAW9iIU0x7Lxhm7Ghu3QgJYc3MeVOiNB2lLzsdOlpkt7A5r1IW28U-_SnpLZWC6ZXMP"/>
-</div>
-</div>
-</header>
-<div class="flex min-h-screen">
-<!-- SideNavBar -->
-<aside class="hidden md:flex flex-col py-6 h-screen w-64 fixed left-0 top-0 bg-[#f0f3ff] dark:bg-slate-900 font-manrope font-semibold text-sm z-40 pt-20">
-<div class="px-6 mb-8 flex items-center gap-3">
-<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-lg">A</div>
-<div>
-<h2 class="text-[#111c2d] dark:text-white font-extrabold leading-tight">The Atelier</h2>
-<p class="text-xs text-on-surface-variant font-normal">Precision Learning</p>
-</div>
-</div>
-<nav class="flex-1 space-y-1">
-<a class="flex items-center gap-3 px-6 py-3 text-[#434655] dark:text-slate-400 hover:bg-[#dee8ff] dark:hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="#">
-<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
-<span>Assignments</span>
-</a>
-<a class="flex items-center gap-3 px-6 py-3 text-[#004ac6] dark:text-blue-400 border-r-4 border-[#004ac6] bg-white/50 dark:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
-<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
-<span>Schedule</span>
-</a>
-<a class="flex items-center gap-3 px-6 py-3 text-[#434655] dark:text-slate-400 hover:bg-[#dee8ff] dark:hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="#">
-<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
-<span>Resources</span>
-</a>
-<a class="flex items-center gap-3 px-6 py-3 text-[#434655] dark:text-slate-400 hover:bg-[#dee8ff] dark:hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="#">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-<span>Settings</span>
-</a>
-</nav>
-<div class="px-4 mt-auto mb-8">
-<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
-<span class="material-symbols-outlined">add</span>
-                    New Submission
-                </button>
-</div>
-<div class="px-6 border-t border-outline-variant/10 pt-4">
-<a class="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
-<span>Support</span>
-</a>
-</div>
-</aside>
-<!-- Main Canvas -->
-<main class="flex-1 md:ml-64 p-8 bg-surface">
-<div class="max-w-6xl mx-auto">
-<!-- Header Section -->
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-<div>
-<span class="text-xs font-bold tracking-widest text-on-surface-variant uppercase">Academic Cycle 2024</span>
-<h1 class="text-[3.5rem] font-headline font-extrabold leading-none tracking-tighter text-on-surface mt-2">
-                            Weekly <span class="text-primary italic font-light">Agenda</span>
-</h1>
-</div>
-<div class="flex items-center gap-4 bg-surface-container-low p-2 rounded-xl">
-<button class="p-2 hover:bg-white rounded-lg transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
-<span class="font-headline font-bold px-4">Oct 21 — Oct 27</span>
-<button class="p-2 hover:bg-white rounded-lg transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
-</div>
-</div>
-<!-- Asymmetric Bento Layout -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-<!-- Left Column: Calendar View -->
-<div class="lg:col-span-8 space-y-8">
-<!-- The Day Tracker -->
-<div class="grid grid-cols-7 gap-2">
-<div class="flex flex-col items-center p-4 rounded-2xl bg-surface-container-lowest ring-1 ring-outline-variant/10">
-<span class="text-[0.6875rem] font-bold text-on-surface-variant">MON</span>
-<span class="text-2xl font-headline font-extrabold mt-1">21</span>
-</div>
-<div class="flex flex-col items-center p-4 rounded-2xl bg-gradient-to-br from-primary to-primary-container text-white shadow-xl shadow-primary/20">
-<span class="text-[0.6875rem] font-bold opacity-80">TUE</span>
-<span class="text-2xl font-headline font-extrabold mt-1">22</span>
-<div class="w-1.5 h-1.5 bg-white rounded-full mt-2"></div>
-</div>
-<div class="flex flex-col items-center p-4 rounded-2xl bg-surface-container-lowest ring-1 ring-outline-variant/10 opacity-60">
-<span class="text-[0.6875rem] font-bold text-on-surface-variant">WED</span>
-<span class="text-2xl font-headline font-extrabold mt-1">23</span>
-</div>
-<div class="flex flex-col items-center p-4 rounded-2xl bg-surface-container-lowest ring-1 ring-outline-variant/10">
-<span class="text-[0.6875rem] font-bold text-on-surface-variant">THU</span>
-<span class="text-2xl font-headline font-extrabold mt-1">24</span>
-<div class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></div>
-</div>
-<div class="flex flex-col items-center p-4 rounded-2xl bg-surface-container-lowest ring-1 ring-outline-variant/10">
-<span class="text-[0.6875rem] font-bold text-on-surface-variant">FRI</span>
-<span class="text-2xl font-headline font-extrabold mt-1">25</span>
-</div>
-<div class="flex flex-col items-center p-4 rounded-2xl bg-surface-container-low opacity-40">
-<span class="text-[0.6875rem] font-bold text-on-surface-variant">SAT</span>
-<span class="text-2xl font-headline font-extrabold mt-1">26</span>
-</div>
-<div class="flex flex-col items-center p-4 rounded-2xl bg-surface-container-low opacity-40">
-<span class="text-[0.6875rem] font-bold text-on-surface-variant">SUN</span>
-<span class="text-2xl font-headline font-extrabold mt-1">27</span>
-</div>
-</div>
-<!-- Time-Slot Atelier View -->
-<div class="bg-surface-container-low rounded-[2rem] p-8 space-y-6">
-<div class="flex items-center justify-between">
-<h3 class="text-xl font-headline font-bold text-on-surface">Today's Sessions</h3>
-<span class="text-xs font-bold text-primary px-3 py-1 bg-primary/10 rounded-full">ACTIVE NOW</span>
-</div>
-<!-- Session Card 1 -->
-<div class="group bg-surface-container-lowest p-6 rounded-2xl flex gap-6 items-start transition-all hover:scale-[1.02] hover:shadow-2xl hover:shadow-on-surface/5">
-<div class="flex flex-col items-center">
-<span class="text-sm font-bold text-on-surface">09:00</span>
-<div class="w-0.5 h-12 bg-outline-variant/20 my-2"></div>
-<span class="text-sm font-medium text-on-surface-variant">10:30</span>
-</div>
-<div class="flex-1">
-<div class="flex items-center gap-2 mb-2">
-<span class="w-2 h-2 rounded-full bg-primary"></span>
-<span class="text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-wider">Lecture • Hall A1</span>
-</div>
-<h4 class="text-lg font-headline font-bold text-on-surface group-hover:text-primary transition-colors">Advanced Algorithm Structuralism</h4>
-<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Focus on graph theory applications in neural networks and ethical bias in recursive sorting.</p>
-</div>
-<div class="hidden sm:block">
-<div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden">
-<img alt="Professor" data-alt="Close-up portrait of a male professor, warm lighting, bookshelf background, intelligent and approachable vibe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf2AezpjXkHSPoZw0wxgJf99KFr4_S09bfSQrof_txNBUH59Od5KpvS0a44VDdcKcHimbkhfjKqO7iAVa-C3U8Vd9ojv91eka1yqWKubG_ebcp_AnLkX9-jXzquSuyLtYaG7LJx9j7JmsE1Jpaea7C_4mUauiviOaeGXDTGkwU5M8uHBtCebZ9h1hq7kmNeiU95gR9hYBohkfEOlxE7V7YNMiZkc9UB7jCjrC-9O3QSgIznRZKSyB6TJOoEd-lu6GsXxydJwmuyutX"/>
-</div>
-</div>
-</div>
-<!-- Session Card 2 (Active/Current) -->
-<div class="group bg-gradient-to-r from-primary to-primary-container p-[1px] rounded-2xl">
-<div class="bg-white rounded-[calc(1rem-1px)] p-6 flex gap-6 items-start">
-<div class="flex flex-col items-center">
-<span class="text-sm font-bold text-primary">11:00</span>
-<div class="w-0.5 h-12 bg-primary/20 my-2"></div>
-<span class="text-sm font-medium text-on-surface-variant">12:30</span>
-</div>
-<div class="flex-1">
-<div class="flex items-center gap-2 mb-2">
-<div class="flex space-x-1">
-<span class="w-2 h-2 rounded-full bg-tertiary"></span>
-<span class="animate-pulse w-2 h-2 rounded-full bg-primary"></span>
-</div>
-<span class="text-[0.6875rem] font-bold text-primary uppercase tracking-wider">Lab Session • Studio 4</span>
-</div>
-<h4 class="text-lg font-headline font-bold text-on-surface">Human-Computer Interaction Workshop</h4>
-<div class="mt-4 flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-secondary-container text-on-secondary-fixed-variant rounded-full text-[0.6875rem] font-bold">FIGMA COLLAB</span>
-<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full text-[0.6875rem] font-bold">GROUP PROJECT</span>
-</div>
-</div>
-<button class="bg-primary-container text-white px-4 py-2 rounded-lg text-sm font-bold self-center shadow-md">Join Stream</button>
-</div>
-</div>
-<!-- Session Card 3 -->
-<div class="group bg-surface-container-lowest p-6 rounded-2xl flex gap-6 items-start transition-all hover:scale-[1.02] opacity-80 hover:opacity-100">
-<div class="flex flex-col items-center">
-<span class="text-sm font-bold text-on-surface">14:00</span>
-<div class="w-0.5 h-12 bg-outline-variant/20 my-2"></div>
-<span class="text-sm font-medium text-on-surface-variant">15:30</span>
-</div>
-<div class="flex-1">
-<div class="flex items-center gap-2 mb-2">
-<span class="w-2 h-2 rounded-full bg-secondary"></span>
-<span class="text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-wider">Seminar • Virtual</span>
-</div>
-<h4 class="text-lg font-headline font-bold text-on-surface group-hover:text-primary transition-colors">Cognitive Psychology in UX Design</h4>
-<p class="text-sm text-on-surface-variant mt-1">Review of Gestalt principles and user mental mapping strategies.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Column: Contextual Sidebars -->
-<div class="lg:col-span-4 space-y-8">
-<!-- Upcoming Deadlines Glass Slate -->
-<div class="glass-slate rounded-[2rem] p-6 border border-white/40">
-<h3 class="text-lg font-headline font-bold text-on-surface mb-6 flex items-center justify-between">
-                                Critical Deadlines
-                                <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">priority_high</span>
-</h3>
-<div class="space-y-4">
-<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border-l-4 border-error">
-<div class="flex justify-between items-start mb-2">
-<span class="text-[0.6875rem] font-extrabold text-error uppercase tracking-widest">In 4 Hours</span>
-<span class="material-symbols-outlined text-sm">more_vert</span>
-</div>
-<h5 class="text-sm font-bold text-on-surface">Data Structures Midterm Prep</h5>
-<p class="text-xs text-on-surface-variant mt-1 italic">Submit draft module by 18:00</p>
-</div>
-<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border-l-4 border-primary">
-<div class="flex justify-between items-start mb-2">
-<span class="text-[0.6875rem] font-extrabold text-primary uppercase tracking-widest">Tomorrow</span>
-<span class="material-symbols-outlined text-sm">more_vert</span>
-</div>
-<h5 class="text-sm font-bold text-on-surface">Interactive Prototype V2</h5>
-<div class="mt-2 w-full bg-surface-container h-1 rounded-full overflow-hidden">
-<div class="bg-primary w-3/4 h-full"></div>
-</div>
-</div>
-<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border-l-4 border-outline">
-<div class="flex justify-between items-start mb-2">
-<span class="text-[0.6875rem] font-extrabold text-on-surface-variant uppercase tracking-widest">Thursday</span>
-</div>
-<h5 class="text-sm font-bold text-on-surface">The Ethical AI Essay</h5>
-<p class="text-xs text-on-surface-variant mt-1">Peer review session scheduled</p>
-</div>
-</div>
-<button class="w-full mt-6 py-3 text-sm font-bold text-primary border-t border-outline-variant/20 hover:bg-white/50 transition-colors rounded-b-xl">
-                                View Full Gradebook
-                            </button>
-</div>
-<!-- Progress Vignette Card -->
-<div class="bg-on-surface text-surface rounded-[2rem] p-8 overflow-hidden relative">
-<div class="relative z-10">
-<h4 class="text-sm font-bold text-primary-fixed uppercase tracking-widest mb-1">Focus Metrics</h4>
-<h2 class="text-2xl font-headline font-extrabold mb-4">Academic Momentum</h2>
-<div class="space-y-4">
-<div>
-<div class="flex justify-between text-xs mb-1">
-<span>Task Completion</span>
-<span>82%</span>
-</div>
-<div class="w-full h-3 bg-surface/10 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full" style="width: 82%"></div>
-</div>
-</div>
-<div class="flex items-center gap-4 mt-6">
-<div class="p-3 bg-primary/20 rounded-xl">
-<span class="material-symbols-outlined text-primary-fixed">auto_awesome</span>
-</div>
-<div>
-<p class="text-xs text-secondary-fixed-dim">Next Milestone</p>
-<p class="text-sm font-bold">Research Excellence Badge</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Background Decoration -->
-<div class="absolute -bottom-8 -right-8 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
-</div>
-</div>
-</div>
-</div>
-</main>
-</div>
-<!-- BottomNavBar (Mobile Only) -->
-<footer class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white shadow-2xl flex items-center justify-around px-4 z-50 border-t-0">
-<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="text-[0.6rem] font-bold">Home</span>
-</a>
-<a class="flex flex-col items-center gap-1 text-primary" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
-<span class="text-[0.6rem] font-bold">Schedule</span>
-</a>
-<div class="relative -top-6">
-<button class="w-12 h-12 bg-primary rounded-full shadow-lg shadow-primary/30 flex items-center justify-center text-white">
-<span class="material-symbols-outlined">add</span>
-</button>
-</div>
-<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
-<span class="material-symbols-outlined">folder</span>
-<span class="text-[0.6rem] font-bold">Files</span>
-</a>
-<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
-<span class="material-symbols-outlined">person</span>
-<span class="text-[0.6rem] font-bold">Account</span>
-</a>
-</footer>
-</body></html>
+<body class="bg-background text-on-background min-h-screen flex">
+
+  <!-- Side Navigation Bar -->
+  <nav class="sidebar">
+
+    <!-- Brand Section -->
+    <header class="sidebar-header">
+      <h2 class="sidebar-header-title">ClassTeams</h2>
+      <p class="sidebar-header-subtitle">Academic Ledger</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="sidebar-nav">
+      <ul class="sidebar-nav-list">
+        <li>
+          <a href="../public/index.html" class="sidebar-nav-item" data-page="dashboard">
+            <span class="material-symbols-outlined sidebar-nav-icon">dashboard</span>
+            <span class="sidebar-nav-text">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="./Assignments.html" class="sidebar-nav-item" data-page="assignments">
+            <span class="material-symbols-outlined sidebar-nav-icon">assignment</span>
+            <span class="sidebar-nav-text">Assignments</span>
+          </a>
+        </li>
+        <li>
+          <a href="./Schedule.html" class="sidebar-nav-item active" data-page="schedule">
+            <span class="material-symbols-outlined sidebar-nav-icon">calendar_today</span>
+            <span class="sidebar-nav-text">Schedule</span>
+          </a>
+        </li>
+        <li>
+          <a href="./Resources.html" class="sidebar-nav-item" data-page="resources">
+            <span class="material-symbols-outlined sidebar-nav-icon">folder</span>
+            <span class="sidebar-nav-text">Resources</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Settings Footer -->
+    <footer class="sidebar-footer">
+      <ul class="sidebar-footer-list">
+        <li>
+          <a href="./Settings.html" class="sidebar-nav-item" data-page="settings">
+            <span class="material-symbols-outlined sidebar-nav-icon">settings</span>
+            <span class="sidebar-nav-text">Settings</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+  </nav>
+
+  <!-- Main Content Wrapper -->
+  <main class="flex-grow ml-64 flex flex-col min-h-screen">
+
+    <!-- Top App Bar -->
+    <header class="flex items-center justify-between px-8 py-4 w-full bg-white dark:bg-slate-900 border-b border-outline-variant border-opacity-30 sticky top-0 z-40">
+      <hgroup class="flex items-center gap-12">
+        <h1 class="text-xl font-bold tracking-tighter text-primary">ClassTeams</h1>
+        <form class="relative w-64" role="search">
+          <label for="search-input" class="sr-only">Search schedule</label>
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none">search</span>
+          <input id="search-input" class="w-full bg-slate-50 border border-outline-variant border-opacity-40 px-10 py-2 text-[10px] font-mono focus:outline-none focus:border-primary uppercase tracking-wider" placeholder="SEARCH SCHEDULE..." type="text" />
+        </form>
+      </hgroup>
+
+      <nav aria-label="User actions" class="flex items-center gap-6">
+        <button class="text-slate-500 hover:text-primary transition-colors duration-150" aria-label="Notifications">
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+        <button class="text-slate-500 hover:text-primary transition-colors duration-150" aria-label="User profile">
+          <span class="material-symbols-outlined">account_circle</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content Canvas -->
+    <section class="p-12 flex-grow bg-background">
+      <div class="max-w-6xl mx-auto">
+
+        <!-- Page Header -->
+        <header class="mb-16">
+          <h2 class="text-6xl font-extrabold tracking-tighter uppercase mb-2 text-on-background">Weekly Schedule</h2>
+          <p class="text-sm font-mono text-primary tracking-widest uppercase">Academic Sessions // Fall 2024</p>
+        </header>
+
+        <!-- Content Grid -->
+        <div class="grid grid-cols-12 gap-8">
+
+          <!-- Schedule Column -->
+          <section class="col-span-8 flex flex-col gap-8" aria-label="Weekly schedule">
+
+            <!-- Date Navigation -->
+            <div class="flex items-center justify-between bg-white p-4 border border-outline-variant">
+              <button class="text-primary hover:bg-surface-container p-2">
+                <span class="material-symbols-outlined">chevron_left</span>
+              </button>
+              <h3 class="text-sm font-bold uppercase tracking-wider">Oct 21 — Oct 27, 2024</h3>
+              <button class="text-primary hover:bg-surface-container p-2">
+                <span class="material-symbols-outlined">chevron_right</span>
+              </button>
+            </div>
+
+            <!-- Day Tracker -->
+            <div class="grid grid-cols-7 gap-2">
+              <div class="flex flex-col items-center p-4 bg-white border border-outline-variant text-center">
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase">MON</span>
+                <span class="text-2xl font-extrabold mt-2">21</span>
+              </div>
+              <div class="flex flex-col items-center p-4 bg-primary text-on-primary border border-primary text-center">
+                <span class="text-[10px] font-bold uppercase">TUE</span>
+                <span class="text-2xl font-extrabold mt-2">22</span>
+                <div class="w-2 h-2 bg-on-primary rounded-full mt-2"></div>
+              </div>
+              <div class="flex flex-col items-center p-4 bg-white border border-outline-variant text-center opacity-60">
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase">WED</span>
+                <span class="text-2xl font-extrabold mt-2">23</span>
+              </div>
+              <div class="flex flex-col items-center p-4 bg-white border border-outline-variant text-center">
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase">THU</span>
+                <span class="text-2xl font-extrabold mt-2">24</span>
+                <div class="w-2 h-2 bg-primary rounded-full mt-2"></div>
+              </div>
+              <div class="flex flex-col items-center p-4 bg-white border border-outline-variant text-center">
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase">FRI</span>
+                <span class="text-2xl font-extrabold mt-2">25</span>
+              </div>
+              <div class="flex flex-col items-center p-4 bg-surface-container text-center opacity-50">
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase">SAT</span>
+                <span class="text-2xl font-extrabold mt-2">26</span>
+              </div>
+              <div class="flex flex-col items-center p-4 bg-surface-container text-center opacity-50">
+                <span class="text-[10px] font-bold text-on-surface-variant uppercase">SUN</span>
+                <span class="text-2xl font-extrabold mt-2">27</span>
+              </div>
+            </div>
+
+            <!-- Today's Sessions -->
+            <section class="bg-white p-8 border border-outline-variant">
+              <h3 class="text-sm font-bold uppercase tracking-wider mb-8 pb-4 border-b border-outline-variant">Today's Sessions</h3>
+              
+              <!-- Session Card 1 -->
+              <div class="flex gap-6 mb-8 pb-8 border-b border-outline-variant">
+                <div class="flex flex-col items-center">
+                  <span class="text-sm font-bold">09:00</span>
+                  <div class="w-0.5 h-12 bg-outline-variant my-3"></div>
+                  <span class="text-sm font-medium text-on-surface-variant">10:30</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2 h-2 bg-primary rounded-full"></span>
+                    <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Lecture • Hall A1</span>
+                  </div>
+                  <h4 class="text-base font-bold mb-2">Advanced Algorithm Structuralism</h4>
+                  <p class="text-sm text-on-surface-variant">Focus on graph theory applications in neural networks and ethical bias in recursive sorting.</p>
+                </div>
+              </div>
+
+              <!-- Session Card 2 -->
+              <div class="flex gap-6 mb-8 pb-8 border-b border-outline-variant bg-primary-container p-4">
+                <div class="flex flex-col items-center">
+                  <span class="text-sm font-bold text-primary">11:00</span>
+                  <div class="w-0.5 h-12 bg-primary/30 my-3"></div>
+                  <span class="text-sm font-medium text-on-surface-variant">12:30</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                    <span class="text-[10px] font-bold text-primary uppercase tracking-wider">Lab Session • Studio 4 • ACTIVE NOW</span>
+                  </div>
+                  <h4 class="text-base font-bold mb-4">Human-Computer Interaction Workshop</h4>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-3 py-1 bg-white text-on-surface text-[10px] font-bold uppercase">Figma Collab</span>
+                    <span class="px-3 py-1 bg-white text-on-surface text-[10px] font-bold uppercase">Group Project</span>
+                  </div>
+                  <button class="bg-primary text-on-primary px-4 py-2 text-sm font-bold hover:bg-on-primary-container transition-colors">Join Stream</button>
+                </div>
+              </div>
+
+              <!-- Session Card 3 -->
+              <div class="flex gap-6">
+                <div class="flex flex-col items-center">
+                  <span class="text-sm font-bold">14:00</span>
+                  <div class="w-0.5 h-12 bg-outline-variant my-3"></div>
+                  <span class="text-sm font-medium text-on-surface-variant">15:30</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2 h-2 bg-secondary rounded-full"></span>
+                    <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Seminar • Virtual</span>
+                  </div>
+                  <h4 class="text-base font-bold mb-2">Cognitive Psychology in UX Design</h4>
+                  <p class="text-sm text-on-surface-variant">Review of Gestalt principles and user mental mapping strategies.</p>
+                </div>
+              </div>
+
+            </section>
+
+          </section>
+
+          <!-- Sidebar Stats -->
+          <aside class="col-span-4 flex flex-col gap-8" aria-label="Schedule summary">
+
+            <!-- Critical Deadlines -->
+            <section class="bg-white p-8 border border-outline-variant">
+              <h3 class="text-sm font-bold uppercase tracking-wider mb-6 pb-4 border-b border-outline-variant flex items-center gap-2">
+                <span class="material-symbols-outlined text-error">priority_high</span>
+                Critical Deadlines
+              </h3>
+              
+              <ul class="space-y-4">
+                <li class="pb-4 border-l-2 border-error pl-4">
+                  <p class="text-[10px] font-bold text-error uppercase tracking-wider">In 4 Hours</p>
+                  <h5 class="font-bold text-on-surface">Data Structures Midterm Prep</h5>
+                  <p class="text-[10px] text-on-surface-variant mt-1">Submit draft module by 18:00</p>
+                </li>
+                <li class="pb-4 border-l-2 border-primary pl-4">
+                  <p class="text-[10px] font-bold text-primary uppercase tracking-wider">Tomorrow</p>
+                  <h5 class="font-bold text-on-surface">Interactive Prototype V2</h5>
+                  <div class="mt-2 w-full bg-surface-container h-2">
+                    <div class="bg-primary h-full" style="width: 75%"></div>
+                  </div>
+                </li>
+                <li class="border-l-2 border-outline pl-4">
+                  <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Thursday</p>
+                  <h5 class="font-bold text-on-surface">The Ethical AI Essay</h5>
+                  <p class="text-[10px] text-on-surface-variant mt-1">Peer review session scheduled</p>
+                </li>
+              </ul>
+
+              <button class="w-full mt-6 pt-4 border-t border-outline-variant text-primary font-bold text-sm hover:bg-surface-container transition-colors">View Full Gradebook</button>
+            </section>
+
+            <!-- Academic Progress -->
+            <section class="bg-tertiary text-on-tertiary p-8 border border-tertiary">
+              <h4 class="text-[10px] font-bold uppercase tracking-wider mb-6">Academic Momentum</h4>
+              
+              <div class="space-y-6">
+                <div>
+                  <div class="flex justify-between text-sm mb-2">
+                    <span>Task Completion</span>
+                    <span class="font-bold">82%</span>
+                  </div>
+                  <div class="w-full bg-white/20 h-2">
+                    <div class="bg-primary-container h-full" style="width: 82%"></div>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3 pt-4 border-t border-white/20">
+                  <div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+                    <span class="material-symbols-outlined text-sm">auto_awesome</span>
+                  </div>
+                  <div>
+                    <p class="text-[10px] text-white/70">Next Milestone</p>
+                    <p class="text-sm font-bold">Research Excellence Badge</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          </aside>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="flex justify-between items-center px-8 py-6 w-full mt-auto bg-white dark:bg-slate-900 border-t border-outline-variant text-on-surface-variant text-[10px] font-mono uppercase tracking-tighter">
+      <div class="opacity-60">© 2024 ClassTeams Academic System</div>
+      <div class="flex gap-8">
+        <a class="hover:text-primary transition-colors" href="#">Privacy</a>
+        <a class="hover:text-primary transition-colors" href="#">Terms</a>
+        <a class="hover:text-primary transition-colors" href="#">Support</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Navbar Active State Handler -->
+  <script src="../public/navbar-active.js"></script>
+
+</body>
+
+</html>
