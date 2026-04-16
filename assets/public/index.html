@@ -164,92 +164,8 @@
         <div class="grid grid-cols-12 gap-8">
 
           <!-- Tasks Column -->
-          <section class="col-span-8 flex flex-col gap-12" aria-label="Tasks list">
-
-            <!-- Task Card 1 -->
-            <article class="group">
-              <header class="flex items-start justify-between bg-surface-container-high p-6 mb-[1px]">
-                <hgroup>
-                  <span class="text-[10px] font-mono text-primary uppercase tracking-widest mb-1 block">CODE: ARCH-402</span>
-                  <h3 class="text-2xl font-bold tracking-tight uppercase text-on-background">Structural Brutalism Analysis</h3>
-                </hgroup>
-                <span class="text-[10px] font-bold text-primary uppercase tracking-widest border border-primary px-2 py-1">
-                  PENDING
-                </span>
-              </header>
-              <footer class="bg-white p-6 flex justify-between items-end border-b border-outline border-opacity-20">
-                <dl class="flex gap-12">
-                  <div>
-                    <dt class="text-[10px] uppercase font-bold text-slate-400 mb-1">Deadline</dt>
-                    <dd class="font-mono text-sm uppercase text-on-surface">OCT 24, 2024</dd>
-                  </div>
-                  <div>
-                    <dt class="text-[10px] uppercase font-bold text-slate-400 mb-1">Instructor</dt>
-                    <dd class="font-mono text-sm uppercase text-on-surface">Prof. K. Malevich</dd>
-                  </div>
-                </dl>
-                <button class="bg-primary text-on-primary px-6 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-blue-700 transition-colors" onclick="openCase('ARCH-402')">
-                  Open Case
-                </button>
-              </footer>
-            </article>
-
-            <!-- Task Card 2 -->
-            <article class="group">
-              <header class="flex items-start justify-between bg-surface-container-high p-6 mb-[1px]">
-                <hgroup>
-                  <span class="text-[10px] font-mono text-primary uppercase tracking-widest mb-1 block">CODE: ENG-109</span>
-                  <h3 class="text-2xl font-bold tracking-tight uppercase text-on-background">Material Stress Calculations</h3>
-                </hgroup>
-                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest border border-outline border-opacity-30 px-2 py-1">
-                  SUBMITTED
-                </span>
-              </header>
-              <footer class="bg-white p-6 flex justify-between items-end border-b border-outline border-opacity-20">
-                <dl class="flex gap-12">
-                  <div>
-                    <dt class="text-[10px] uppercase font-bold text-slate-400 mb-1">Deadline</dt>
-                    <dd class="font-mono text-sm uppercase text-on-surface">OCT 12, 2024</dd>
-                  </div>
-                  <div>
-                    <dt class="text-[10px] uppercase font-bold text-slate-400 mb-1">Type</dt>
-                    <dd class="font-mono text-sm uppercase text-on-surface">Quantitative Lab</dd>
-                  </div>
-                </dl>
-                <button class="border border-outline text-secondary px-6 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors" onclick="reviewDocs('ENG-109')">
-                  Review Docs
-                </button>
-              </footer>
-            </article>
-
-            <!-- Task Card 3 -->
-            <article class="group">
-              <header class="flex items-start justify-between bg-surface-container-high p-6 mb-[1px]">
-                <hgroup>
-                  <span class="text-[10px] font-mono text-primary uppercase tracking-widest mb-1 block">CODE: HIS-220</span>
-                  <h3 class="text-2xl font-bold tracking-tight uppercase text-on-background">Modernist Foundations Essay</h3>
-                </hgroup>
-                <span class="text-[10px] font-bold text-primary uppercase tracking-widest border border-primary px-2 py-1">
-                  PENDING
-                </span>
-              </header>
-              <footer class="bg-white p-6 flex justify-between items-end border-b border-outline border-opacity-20">
-                <dl class="flex gap-12">
-                  <div>
-                    <dt class="text-[10px] uppercase font-bold text-slate-400 mb-1">Deadline</dt>
-                    <dd class="font-mono text-sm uppercase text-on-surface">NOV 02, 2024</dd>
-                  </div>
-                  <div>
-                    <dt class="text-[10px] uppercase font-bold text-slate-400 mb-1">Priority</dt>
-                    <dd class="font-mono text-sm uppercase text-error">CRITICAL</dd>
-                  </div>
-                </dl>
-                <button class="bg-primary text-on-primary px-6 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-blue-700 transition-colors" onclick="openCase('HIS-220')">
-                  Open Case
-                </button>
-              </footer>
-            </article>
-
+          <section class="col-span-8 flex flex-col gap-12" aria-label="Tasks list" id="tasksContainer">
+            <!-- Tasks akan di-render di sini -->
           </section>
 
           <!-- Sidebar Stats -->
@@ -317,25 +233,275 @@
 
   </main>
 
+  <!-- Modal for Create/Edit Task -->
+  <div id="taskModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+    <div class="bg-white dark:bg-slate-900 p-8 max-w-md w-full rounded-lg shadow-lg">
+      <h2 id="modalTitle" class="text-2xl font-bold mb-6 text-on-background">Buat Tugas Baru</h2>
+      
+      <form id="taskForm" onsubmit="saveTask(event)" class="space-y-4">
+        <div>
+          <label class="block text-[10px] uppercase font-bold text-slate-400 mb-2">Kode Tugas</label>
+          <input id="taskCode" type="text" required placeholder="Misal: ARCH-402" class="w-full border border-outline px-4 py-2 focus:outline-none focus:border-primary" />
+        </div>
+        
+        <div>
+          <label class="block text-[10px] uppercase font-bold text-slate-400 mb-2">Judul Tugas</label>
+          <input id="taskTitle" type="text" required placeholder="Judul tugas" class="w-full border border-outline px-4 py-2 focus:outline-none focus:border-primary" />
+        </div>
+        
+        <div>
+          <label class="block text-[10px] uppercase font-bold text-slate-400 mb-2">Deadline</label>
+          <input id="taskDeadline" type="text" required placeholder="Misal: OCT 24, 2024" class="w-full border border-outline px-4 py-2 focus:outline-none focus:border-primary" />
+        </div>
+        
+        <div>
+          <label class="block text-[10px] uppercase font-bold text-slate-400 mb-2">Instruktur/Tipe</label>
+          <input id="taskInstructor" type="text" required placeholder="Misal: Prof. K. Malevich" class="w-full border border-outline px-4 py-2 focus:outline-none focus:border-primary" />
+        </div>
+        
+        <div>
+          <label class="block text-[10px] uppercase font-bold text-slate-400 mb-2">Status</label>
+          <select id="taskStatus" class="w-full border border-outline px-4 py-2 focus:outline-none focus:border-primary">
+            <option value="PENDING">PENDING</option>
+            <option value="SUBMITTED">SUBMITTED</option>
+            <option value="COMPLETED">COMPLETED</option>
+            <option value="REVISED">REVISED</option>
+          </select>
+        </div>
+        
+        <div>
+          <label class="block text-[10px] uppercase font-bold text-slate-400 mb-2">Prioritas</label>
+          <input id="taskPriority" type="text" placeholder="Misal: CRITICAL, HIGH, NORMAL" class="w-full border border-outline px-4 py-2 focus:outline-none focus:border-primary" />
+        </div>
+        
+        <div class="flex gap-4 mt-6">
+          <button type="submit" class="flex-1 bg-primary text-on-primary px-4 py-2 font-bold uppercase tracking-widest hover:bg-blue-700 transition-colors">
+            Simpan Tugas
+          </button>
+          <button type="button" onclick="closeModal()" class="flex-1 border border-outline text-secondary px-4 py-2 font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors">
+            Batal
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- JavaScript Functions -->
   <script>
-    // Open Case - Open task details
-    function openCase(caseCode) {
-      console.log('Opening case:', caseCode);
-      window.location.href = '/assets/pages/Assignments.html';
+    // ===== DATA MANAGEMENT =====
+    const STORAGE_KEY = 'classteams_tasks';
+
+    // Initialize default tasks if empty
+    function initializeTasks() {
+      const tasks = getTasks();
+      if (tasks.length === 0) {
+        const defaultTasks = [
+          {
+            id: Date.now(),
+            code: 'ARCH-402',
+            title: 'Structural Brutalism Analysis',
+            deadline: 'OCT 24, 2024',
+            instructor: 'Prof. K. Malevich',
+            status: 'PENDING',
+            priority: 'NORMAL'
+          },
+          {
+            id: Date.now() + 1,
+            code: 'ENG-109',
+            title: 'Material Stress Calculations',
+            deadline: 'OCT 12, 2024',
+            instructor: 'Quantitative Lab',
+            status: 'SUBMITTED',
+            priority: 'NORMAL'
+          },
+          {
+            id: Date.now() + 2,
+            code: 'HIS-220',
+            title: 'Modernist Foundations Essay',
+            deadline: 'NOV 02, 2024',
+            instructor: 'Modernist Foundations',
+            status: 'PENDING',
+            priority: 'CRITICAL'
+          }
+        ];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultTasks));
+      }
     }
 
-    // Review Docs - Review task documents
-    function reviewDocs(taskCode) {
-      console.log('Reviewing docs for:', taskCode);
-      alert('Opening document review for: ' + taskCode);
+    // ===== CRUD OPERATIONS =====
+    
+    // READ - Get all tasks
+    function getTasks() {
+      const tasks = localStorage.getItem(STORAGE_KEY);
+      return tasks ? JSON.parse(tasks) : [];
     }
 
-    // Initialize New Task - Create new task
+    // CREATE - Add new task
+    function createTask(task) {
+      const tasks = getTasks();
+      task.id = Date.now();
+      tasks.push(task);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+      renderTasks();
+    }
+
+    // UPDATE - Edit existing task
+    function updateTask(id, updatedTask) {
+      let tasks = getTasks();
+      tasks = tasks.map(task => task.id === id ? { ...task, ...updatedTask } : task);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+      renderTasks();
+    }
+
+    // DELETE - Remove task
+    function deleteTask(id) {
+      if (confirm('Apakah Anda yakin ingin menghapus tugas ini?')) {
+        let tasks = getTasks();
+        tasks = tasks.filter(task => task.id !== id);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+        renderTasks();
+      }
+    }
+
+    // ===== UI FUNCTIONS =====
+
+    // Render all tasks
+    function renderTasks() {
+      const container = document.getElementById('tasksContainer');
+      const tasks = getTasks();
+
+      if (tasks.length === 0) {
+        container.innerHTML = '<p class="text-slate-500 text-center py-8">Tidak ada tugas. Buat yang baru!</p>';
+        return;
+      }
+
+      container.innerHTML = tasks.map(task => `
+        <article class="group">
+          <header class="flex items-start justify-between bg-surface-container-high p-6 mb-[1px]">
+            <hgroup>
+              <span class="text-[10px] font-mono text-primary uppercase tracking-widest mb-1 block">CODE: ${task.code}</span>
+              <h3 class="text-2xl font-bold tracking-tight uppercase text-on-background">${task.title}</h3>
+            </hgroup>
+            <span class="text-[10px] font-bold ${getStatusColor(task.status)} uppercase tracking-widest border px-2 py-1">
+              ${task.status}
+            </span>
+          </header>
+          <footer class="bg-white p-6 flex justify-between items-end border-b border-outline border-opacity-20">
+            <dl class="flex gap-12">
+              <div>
+                <dt class="text-[10px] uppercase font-bold text-slate-400 mb-1">Deadline</dt>
+                <dd class="font-mono text-sm uppercase text-on-surface">${task.deadline}</dd>
+              </div>
+              <div>
+                <dt class="text-[10px] uppercase font-bold text-slate-400 mb-1">Instruktur/Tipe</dt>
+                <dd class="font-mono text-sm uppercase text-on-surface">${task.instructor}</dd>
+              </div>
+              ${task.priority ? `<div>
+                <dt class="text-[10px] uppercase font-bold text-slate-400 mb-1">Prioritas</dt>
+                <dd class="font-mono text-sm uppercase ${getPriorityColor(task.priority)}">${task.priority}</dd>
+              </div>` : ''}
+            </dl>
+            <div class="flex gap-2">
+              <button onclick="editTask(${task.id})" class="border border-outline text-secondary px-4 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors">
+                Edit
+              </button>
+              <button onclick="deleteTask(${task.id})" class="border border-error text-error px-4 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-red-50 transition-colors">
+                Hapus
+              </button>
+            </div>
+          </footer>
+        </article>
+      `).join('');
+    }
+
+    // Get status color class
+    function getStatusColor(status) {
+      const colors = {
+        'PENDING': 'text-primary border-primary',
+        'SUBMITTED': 'text-slate-400 border-outline border-opacity-30',
+        'COMPLETED': 'text-green-600 border-green-600',
+        'REVISED': 'text-yellow-600 border-yellow-600'
+      };
+      return colors[status] || 'text-slate-400 border-outline';
+    }
+
+    // Get priority color class
+    function getPriorityColor(priority) {
+      const colors = {
+        'CRITICAL': 'text-error',
+        'HIGH': 'text-yellow-600',
+        'NORMAL': 'text-slate-600'
+      };
+      return colors[priority] || 'text-slate-600';
+    }
+
+    // ===== MODAL FUNCTIONS =====
+
+    // Open modal for new task
     function initializeNewTask() {
-      console.log('Initialize new task clicked');
-      alert('Opening new task creation form');
+      clearForm();
+      document.getElementById('modalTitle').textContent = 'Buat Tugas Baru';
+      document.getElementById('taskModal').classList.remove('hidden');
     }
+
+    // Open modal for editing task
+    function editTask(id) {
+      const task = getTasks().find(t => t.id === id);
+      if (!task) return;
+
+      document.getElementById('modalTitle').textContent = 'Edit Tugas';
+      document.getElementById('taskCode').value = task.code;
+      document.getElementById('taskTitle').value = task.title;
+      document.getElementById('taskDeadline').value = task.deadline;
+      document.getElementById('taskInstructor').value = task.instructor;
+      document.getElementById('taskStatus').value = task.status;
+      document.getElementById('taskPriority').value = task.priority || '';
+      
+      document.getElementById('taskModal').dataset.editId = id;
+      document.getElementById('taskModal').classList.remove('hidden');
+    }
+
+    // Close modal
+    function closeModal() {
+      document.getElementById('taskModal').classList.add('hidden');
+      clearForm();
+    }
+
+    // Clear form
+    function clearForm() {
+      document.getElementById('taskForm').reset();
+      document.getElementById('taskModal').dataset.editId = '';
+    }
+
+    // Save task (Create or Update)
+    function saveTask(event) {
+      event.preventDefault();
+
+      const taskData = {
+        code: document.getElementById('taskCode').value,
+        title: document.getElementById('taskTitle').value,
+        deadline: document.getElementById('taskDeadline').value,
+        instructor: document.getElementById('taskInstructor').value,
+        status: document.getElementById('taskStatus').value,
+        priority: document.getElementById('taskPriority').value
+      };
+
+      const editId = document.getElementById('taskModal').dataset.editId;
+
+      if (editId) {
+        updateTask(parseInt(editId), taskData);
+      } else {
+        createTask(taskData);
+      }
+
+      closeModal();
+    }
+
+    // ===== INITIALIZATION =====
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeTasks();
+      renderTasks();
+    });
   </script>
 
 </body>
