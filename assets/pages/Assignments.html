@@ -220,7 +220,7 @@
             <!-- Action Buttons -->
             <div class="space-y-4">
               <!-- Upload Button -->
-              <button class="w-full bg-primary text-on-primary p-4 text-center transition-colors hover:bg-blue-700" onclick="uploadAssignment()" title="Upload Assignment">
+              <button class="w-full bg-primary text-on-primary p-4 text-center transition-colors hover:bg-blue-700" onclick="openUploadModal()" title="Upload Assignment">
                 <span class="label-md font-bold uppercase tracking-widest">Upload Assignment</span>
               </button>
 
@@ -263,6 +263,88 @@
       </div>
     </div>
   </main>
+
+  <!-- Upload Modal Pop-out -->
+  <div id="uploadModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center overflow-y-auto">
+    <div class="bg-white w-full max-w-4xl my-auto relative">
+      <!-- Modal Header -->
+      <header class="bg-white border-b border-outline-variant flex items-center justify-between px-8 py-4 sticky top-0">
+        <div class="flex items-center gap-4">
+          <button class="flex items-center gap-2 hover:bg-surface-container p-2 transition-colors" onclick="closeUploadModal()">
+            <span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+            <span class="font-sans tracking-tight text-sm text-on-surface-variant">Back</span>
+          </button>
+          <span class="text-xl font-bold tracking-tighter text-primary">ClassTeams</span>
+        </div>
+        <button class="text-on-surface-variant hover:text-primary transition-colors" onclick="closeUploadModal()" aria-label="Close">
+          <span class="material-symbols-outlined" data-icon="close">close</span>
+        </button>
+      </header>
+
+      <!-- Modal Content -->
+      <main class="flex flex-col items-center justify-start pt-12 px-6 pb-12 max-h-[calc(100vh-120px)] overflow-y-auto">
+        <div class="w-full max-w-3xl flex flex-col gap-12">
+          <div class="flex flex-col gap-2">
+            <p class="text-[10px] font-bold tracking-widest uppercase text-primary">Assignment Portal</p>
+            <h1 class="text-5xl font-extrabold tracking-tight text-on-background">Upload Assignment</h1>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <!-- Upload Area -->
+            <div class="md:col-span-8 flex flex-col gap-8">
+              <div class="border border-dashed border-outline-variant bg-primary-container p-16 flex flex-col items-center justify-center text-center gap-4 group hover:bg-surface-container-high transition-colors cursor-pointer" onclick="triggerFileInput()">
+                <span class="material-symbols-outlined text-4xl text-primary" data-icon="upload_file">upload_file</span>
+                <div class="flex flex-col gap-1">
+                  <p class="text-lg font-medium text-on-background">Drag and drop your files here</p>
+                  <p class="text-sm text-on-surface-variant">PDF, DOCX, or ZIP files up to 50MB</p>
+                </div>
+                <button class="mt-4 bg-white border border-primary text-primary px-6 py-2 text-sm font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-all" type="button">
+                  Choose File
+                </button>
+                <input type="file" id="fileInput" class="hidden" accept=".pdf,.doc,.docx,.zip" onchange="handleFileSelect(event)" />
+              </div>
+              <div id="uploadProgress" class="hidden flex flex-col gap-4 bg-surface-container-high p-6">
+                <div class="flex justify-between items-end">
+                  <div class="flex flex-col gap-1">
+                    <span class="text-[10px] font-mono uppercase tracking-tighter text-on-surface-variant">Current Queue</span>
+                    <p id="fileName" class="text-sm font-bold text-on-background">file.pdf</p>
+                  </div>
+                  <span id="uploadPercent" class="text-xs font-mono text-primary font-bold">0%</span>
+                </div>
+                <div class="w-full h-1 bg-surface-container-highest">
+                  <div id="uploadBar" class="h-full bg-primary transition-all" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Metadata Section -->
+            <div class="md:col-span-4 flex flex-col gap-6">
+              <div class="bg-white border border-outline-variant p-6 flex flex-col gap-4">
+                <h2 class="text-sm font-bold uppercase tracking-widest text-on-background">Metadata</h2>
+                <div class="flex flex-col gap-4">
+                  <div>
+                    <label class="text-[10px] font-bold tracking-widest uppercase mb-1 block text-on-surface-variant">Course ID</label>
+                    <p class="text-sm font-medium text-on-background">ARC-402-2024</p>
+                  </div>
+                  <div>
+                    <label class="text-[10px] font-bold tracking-widest uppercase mb-1 block text-on-surface-variant">Due Date</label>
+                    <p class="text-sm font-medium text-on-background">Oct 24, 2024 • 23:59</p>
+                  </div>
+                </div>
+              </div>
+              <button class="w-full bg-primary text-on-primary py-4 font-bold uppercase tracking-[0.2em] text-sm hover:bg-blue-700 transition-colors shadow-sm" onclick="submitUpload()">
+                Upload
+              </button>
+              <div class="flex items-start gap-3 p-4 bg-tertiary border-l-4 border-primary">
+                <span class="material-symbols-outlined text-on-primary text-sm mt-0.5" data-icon="info">info</span>
+                <p class="text-[10px] font-medium leading-relaxed text-on-primary">
+                  By uploading this file, you confirm that this work is your own and adheres to the academic integrity ledger of ClassTeams.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
 </div>
 
   <!-- Footer -->
@@ -290,21 +372,63 @@
       // Example: window.open('/files/' + filename);
     }
 
-    // Upload Assignment - Open file upload dialog
-    function uploadAssignment() {
-      console.log('Upload assignment clicked');
-      alert('Opening upload dialog for assignment submission');
-      // Implement file upload dialog here
-      // Example: Create file input and trigger click
-      const fileInput = document.createElement('input');
-      fileInput.type = 'file';
-      fileInput.accept = '.pdf,.doc,.docx,.zip';
-      fileInput.onchange = (e) => {
-        const file = e.target.files[0];
+    // Open Upload Modal
+    function openUploadModal() {
+      const modal = document.getElementById('uploadModal');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      console.log('Upload modal opened');
+    }
+
+    // Close Upload Modal
+    function closeUploadModal() {
+      const modal = document.getElementById('uploadModal');
+      modal.classList.add('hidden');
+      document.getElementById('uploadProgress').classList.add('hidden');
+      document.getElementById('fileInput').value = '';
+      document.body.style.overflow = 'auto';
+      console.log('Upload modal closed');
+    }
+
+    // Trigger File Input
+    function triggerFileInput() {
+      document.getElementById('fileInput').click();
+    }
+
+    // Handle File Select
+    function handleFileSelect(event) {
+      const file = event.target.files[0];
+      if (file) {
         console.log('Selected file:', file.name);
-        alert('File selected: ' + file.name + '\nReady to upload');
-      };
-      fileInput.click();
+        const uploadProgress = document.getElementById('uploadProgress');
+        uploadProgress.classList.remove('hidden');
+        document.getElementById('fileName').textContent = file.name;
+        
+        // Simulate upload progress
+        let progress = 0;
+        const interval = setInterval(() => {
+          progress += Math.random() * 30;
+          if (progress > 100) progress = 100;
+          document.getElementById('uploadBar').style.width = progress + '%';
+          document.getElementById('uploadPercent').textContent = Math.round(progress) + '%';
+          if (progress >= 100) clearInterval(interval);
+        }, 500);
+      }
+    }
+
+    // Submit Upload
+    function submitUpload() {
+      const fileName = document.getElementById('fileName').textContent;
+      const progress = document.getElementById('uploadBar').style.width;
+      
+      if (progress === '0%') {
+        alert('Please select a file first');
+        return;
+      }
+      
+      console.log('Uploading file:', fileName);
+      alert('File uploaded successfully!\n\nFilename: ' + fileName);
+      closeUploadModal();
     }
 
     // Request Extension - Open extension request form
@@ -332,6 +456,14 @@
       alert('Profile menu opened\nYou can edit profile, settings, or logout here');
       // Implement profile menu here
     }
+
+    // Close modal when clicking outside
+    document.addEventListener('click', function(event) {
+      const modal = document.getElementById('uploadModal');
+      if (event.target === modal) {
+        closeUploadModal();
+      }
+    });
   </script>
 
   <!-- Navbar Active State Handler -->
