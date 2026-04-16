@@ -6,12 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Task Detail - ClassTeams</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../public/navbar.css" />
+  <link rel="stylesheet" href="../public/styles.css" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
   <!-- Tailwind Configuration -->
   <script id="tailwind-config">
@@ -75,62 +79,64 @@
 <body class="bg-background text-on-background min-h-screen flex flex-col">
 
   <!-- Side Navigation Bar -->
-  <aside class="fixed left-0 top-0 h-full flex flex-col p-6 bg-white dark:bg-slate-900 w-64 border-r border-outline border-opacity-30 z-50">
+  <nav class="sidebar">
+    
     <!-- Brand Section -->
-    <header class="mb-12">
-      <h2 class="uppercase text-[10px] font-bold tracking-widest text-primary">Navigation</h2>
-      <p class="text-[10px] text-slate-500 uppercase tracking-widest">Academic Ledger</p>
+    <header class="sidebar-header">
+      <h2 class="sidebar-header-title">Navigation</h2>
+      <p class="sidebar-header-subtitle">Academic Ledger</p>
     </header>
 
     <!-- Navigation Menu -->
-    <nav class="flex flex-col gap-2 flex-grow">
-      <ul class="flex flex-col gap-2">
-        <!-- Dashboard (Active) -->
+    <nav class="sidebar-nav">
+      <ul class="sidebar-nav-list">
+        <!-- Dashboard -->
         <li>
-          <a class="flex items-center gap-4 px-4 py-3 text-secondary transition-all duration-75" href="/assets/public/index.html">
-            <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-            <span class="uppercase text-[10px] font-bold tracking-widest">Dashboard</span>
+          <a href="../public/index.html" class="sidebar-nav-item" data-page="dashboard">
+            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="dashboard">dashboard</span>
+            <span class="sidebar-nav-text">Dashboard</span>
           </a>
         </li>
 
-        <!-- Assignments -->
+        <!-- Assignments (Active) -->
         <li>
-          <a class="flex items-center gap-4 px-4 py-3 bg-primary text-on-primary hover:bg-surface-container transition-all duration-75" href="/assets/pages/Assignments.html">
-            <span class="material-symbols-outlined" data-icon="assignment">assignment</span>
-            <span class="uppercase text-[10px] font-bold tracking-widest">Assignments</span>
+          <a href="./Assignments.html" class="sidebar-nav-item" data-page="assignments">
+            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="assignment">assignment</span>
+            <span class="sidebar-nav-text">Assignments</span>
           </a>
         </li>
 
         <!-- Schedule -->
         <li>
-          <a class="flex items-center gap-4 px-4 py-3 text-secondary hover:bg-surface-container transition-all duration-75" href="/assets/pages/Schedule.html">
-            <span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
-            <span class="uppercase text-[10px] font-bold tracking-widest">Schedule</span>
+          <a href="./Schedule.html" class="sidebar-nav-item" data-page="schedule">
+            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="calendar_today">calendar_today</span>
+            <span class="sidebar-nav-text">Schedule</span>
           </a>
         </li>
 
         <!-- Resources -->
         <li>
-          <a class="flex items-center gap-4 px-4 py-3 text-secondary hover:bg-surface-container transition-all duration-75" href="/assets/pages/Resources.html">
-            <span class="material-symbols-outlined" data-icon="folder">folder</span>
-            <span class="uppercase text-[10px] font-bold tracking-widest">Resources</span>
+          <a href="./Resources.html" class="sidebar-nav-item" data-page="resources">
+            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="folder">folder</span>
+            <span class="sidebar-nav-text">Resources</span>
           </a>
         </li>
       </ul>
     </nav>
 
-    <!-- Settings -->
-    <nav class="mt-auto">
-      <ul>
+    <!-- Settings Footer -->
+    <footer class="sidebar-footer">
+      <ul class="sidebar-footer-list">
         <li>
-          <a class="flex items-center gap-4 px-4 py-3 text-secondary hover:bg-surface-container transition-all duration-75" href="/assets/pages/Settings.html">
-            <span class="material-symbols-outlined" data-icon="settings">settings</span>
-            <span class="uppercase text-[10px] font-bold tracking-widest">Settings</span>
+          <a href="./Settings.html" class="sidebar-nav-item" data-page="settings">
+            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="settings">settings</span>
+            <span class="sidebar-nav-text">Settings</span>
           </a>
         </li>
       </ul>
-    </nav>
-  </aside>
+    </footer>
+
+  </nav>
   
   <!-- Main Content -->
   <main class="flex-1 md:ml-64 p-8 md:p-16 max-w-7xl">
@@ -327,6 +333,9 @@
       // Implement profile menu here
     }
   </script>
+
+  <!-- Navbar Active State Handler -->
+  <script src="../public/navbar-active.js"></script>
 
 </body>
 
