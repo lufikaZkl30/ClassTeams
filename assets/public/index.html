@@ -88,7 +88,7 @@
 
         <!-- Assignments -->
         <li>
-          <a href="/assets/pages/DetailTeks.html" class="sidebar-nav-item" data-page="assignments">
+          <a href="/assets/pages/Assignments.html" class="sidebar-nav-item" data-page="assignments">
             <span class="material-symbols-outlined sidebar-nav-icon" data-icon="assignment">assignment</span>
             <span class="sidebar-nav-text">Assignments</span>
           </a>
@@ -250,31 +250,37 @@
       if (tasks.length === 0) {
         const defaultTasks = [
           {
-            id: Date.now(),
-            code: 'ARCH-402',
-            title: 'Structural Brutalism Analysis',
-            deadline: 'OCT 24, 2024',
-            instructor: 'Prof. K. Malevich',
+            id: 1,
+            code: 'ARCH101',
+            title: 'Spatial Dynamics in Urban Design',
+            deadline: 'OCT 24, 2023',
+            instructor: 'Dr. James Mitchell',
             status: 'PENDING',
-            priority: 'NORMAL'
+            priority: 'NORMAL',
+            course: 'Foundations of Architecture',
+            description: 'Analyze spatial dynamics and urban design principles in contemporary architecture.',
           },
           {
-            id: Date.now() + 1,
-            code: 'ENG-109',
-            title: 'Material Stress Calculations',
-            deadline: 'OCT 12, 2024',
-            instructor: 'Quantitative Lab',
+            id: 2,
+            code: 'DMS204',
+            title: 'Interactivity & Visual Hierarchy',
+            deadline: 'OCT 20, 2023',
+            instructor: 'Prof. Sarah Chen',
             status: 'SUBMITTED',
-            priority: 'NORMAL'
+            priority: 'NORMAL',
+            course: 'Digital Media Studio',
+            description: 'Create interactive digital media layouts with proper visual hierarchy.',
           },
           {
-            id: Date.now() + 2,
-            code: 'HIS-220',
-            title: 'Modernist Foundations Essay',
-            deadline: 'NOV 02, 2024',
-            instructor: 'Modernist Foundations',
+            id: 3,
+            code: 'VIS102',
+            title: 'Typography & Typeface History',
+            deadline: 'NOV 02, 2023',
+            instructor: 'Dr. Michael Ross',
             status: 'PENDING',
-            priority: 'CRITICAL'
+            priority: 'CRITICAL',
+            course: 'Visual Communications',
+            description: 'Comprehensive study of typography history and contemporary typeface design.',
           }
         ];
         localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultTasks));

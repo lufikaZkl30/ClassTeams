@@ -100,7 +100,7 @@
 
         <!-- Assignments (Active) -->
         <li>
-          <a href="./DetailTeks.html" class="sidebar-nav-item" data-page="assignments">
+          <a href="./Assignments.html" class="sidebar-nav-item" data-page="assignments">
             <span class="material-symbols-outlined sidebar-nav-icon" data-icon="assignment">assignment</span>
             <span class="sidebar-nav-text">Assignments</span>
           </a>
@@ -394,6 +394,10 @@
     </div>
   </footer>
 
+
+
+
+  
   <!-- JavaScript Functions -->
   <script>
     // ===== LOAD TASK FROM URL PARAMETER =====
@@ -425,9 +429,12 @@
         }
 
         // Update task title
-        document.querySelector('h1').textContent = task.title;
+        const taskTitleElement = document.querySelector('h1');
+        if (taskTitleElement) {
+          taskTitleElement.textContent = task.title.toUpperCase();
+        }
         
-        // Update task category
+        // Update task category/code
         const categorySpan = document.querySelector('span.label-sm.text-primary');
         if (categorySpan) {
           categorySpan.textContent = `Task Category: ${task.code}`;
@@ -436,7 +443,7 @@
         // Update task description
         const descriptionPara = document.querySelector('.prose p');
         if (descriptionPara) {
-          descriptionPara.textContent = `This assignment is for ${task.code}. Deadline: ${task.deadline}. Instructor: ${task.instructor}`;
+          descriptionPara.textContent = task.description || `This assignment is for ${task.code}. Course: ${task.course}. Deadline: ${task.deadline}. Instructor: ${task.instructor}`;
         }
 
         // Update deadline information
@@ -446,11 +453,19 @@
           dateDisplay.textContent = deadlineParts[0];
         }
 
-        // Update status
-        const statusSpan = document.querySelector('span.material-symbols-outlined[data-icon="close"]').parentElement.nextElementSibling;
-        if (statusSpan) {
-          statusSpan.textContent = task.status;
+        // Update status badge
+        const statusBadge = document.querySelector('span[class*="font-bold"][class*="uppercase"][class*="tracking-wider"]');
+        if (statusBadge && statusBadge.textContent.includes('Pending') || statusBadge.textContent.includes('Submitted')) {
+          statusBadge.textContent = task.status;
         }
+
+        // Update instructor info
+        const instructorName = document.querySelector('p.text-xs.font-bold');
+        if (instructorName) {
+          instructorName.textContent = task.instructor;
+        }
+      } else {
+        console.warn('Task not found:', taskId);
       }
     }
 
