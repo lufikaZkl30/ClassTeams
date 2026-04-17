@@ -78,6 +78,265 @@
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
+
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 60px; /* Space for mobile bottom navigation */
+      }
+
+      main {
+        margin-left: 0 !important;
+      }
+
+      /* Adjust container queries for mobile */
+      .container-query {
+        @supports (container-type: inline-size) {
+          container-type: inline-size;
+        }
+      }
+
+      /* Improve touch targets for mobile */
+      button, a {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Hide overflow on mobile */
+      body, html {
+        overflow-x: hidden;
+      }
+
+      /* Improve readability on small screens */
+      h1 {
+        line-height: 1.2;
+      }
+
+      h2, h3, h4, h5, h6 {
+        line-height: 1.3;
+      }
+
+      p {
+        line-height: 1.5;
+      }
+    }
+
+    @media (max-width: 640px) {
+      /* Small phone optimization */
+      .sidebar {
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-top: 1px solid #cbd5e1;
+      }
+
+      /* Priority badge positioning for mobile */
+      .deadline-priority-badge {
+        position: static !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      /* Improve spacing consistency */
+      section {
+        padding: 1rem !important;
+      }
+
+      /* Make images responsive */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Card adjustments for small screens */
+      .assignment-card {
+        padding: 0.75rem !important;
+      }
+
+      /* Better grid for filters on mobile */
+      #categoryContainer {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Extra small phone optimization */
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      /* Reduce icon sizes */
+      .material-symbols-outlined {
+        font-size: 1rem;
+      }
+
+      /* Stack flex items vertically */
+      .flex-row {
+        flex-direction: column;
+      }
+
+      /* Better spacing for compact screens */
+      gap-3 {
+        gap: 0.5rem !important;
+      }
+    }
+
+    /* Touch device optimization */
+    @media (hover: none) and (pointer: coarse) {
+      /* Increase touch targets */
+      button, a, input, .sidebar-nav-item, .category-btn {
+        padding: 0.75rem !important;
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Remove hover effects where they don't apply */
+      .hover\:border-primary:hover {
+        border-color: #2563EB;
+      }
+
+      /* Simplify transitions for touch devices */
+      * {
+        transition-duration: 150ms;
+      }
+    }
+
+    /* Landscape orientation optimization */
+    @media (max-height: 600px) and (orientation: landscape) {
+      body {
+        padding-bottom: 50px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .assignment-card {
+        padding: 0.5rem !important;
+      }
+    }
+
+    /* Dark mode adjustments */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #0f172a;
+        color: #f1f5f9;
+      }
+    }
+
+    /* Reduced motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      .sidebar, header, footer {
+        display: none;
+      }
+
+      main {
+        margin-left: 0;
+      }
+
+      body {
+        background-color: white;
+        color: black;
+      }
+    }
+
+    /* Category Filter Responsive Styles */
+    .category-btn {
+      transition: all 0.2s ease-in-out;
+    }
+
+    .category-btn:active {
+      transform: scale(0.98);
+    }
+
+    @media (max-width: 640px) {
+      .category-btn {
+        padding: 1rem !important;
+      }
+
+      .category-btn .material-symbols-outlined {
+        display: none;
+      }
+    }
+
+    /* Assignment Card Responsive Improvements */
+    .assignment-card {
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+
+    .assignment-card:active {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 640px) {
+      .assignment-card {
+        border-radius: 0;
+      }
+
+      .assignment-card:last-child {
+        margin-bottom: 2rem;
+      }
+    }
+
+    /* Header Responsive Adjustments */
+    @media (max-width: 768px) {
+      header {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      hgroup {
+        width: 100%;
+      }
+    }
+
+    /* Toast/Notification Responsive */
+    @media (max-width: 640px) {
+      .fixed.bottom-6.right-6 {
+        bottom: 70px;
+        right: 0.5rem;
+        left: 0.5rem;
+        max-width: none;
+        border-radius: 0;
+      }
+    }
+
+    /* Search Bar Mobile Optimization */
+    @media (max-width: 768px) {
+      #search-input {
+        padding: 0.5rem !important;
+        font-size: 0.75rem !important;
+      }
+    }
+
+    /* Grid and Layout Fixes */
+    @media (max-width: 1024px) {
+      .lg\:col-span-8 {
+        grid-column: 1 / -1;
+      }
+
+      .lg\:col-span-4 {
+        grid-column: 1 / -1;
+      }
+    }
   </style>
 </head>
 <body class="bg-background text-on-background min-h-screen flex">
@@ -143,16 +402,16 @@
   </nav>
 
   <!-- Main Content Wrapper -->
-  <main class="flex-grow ml-64 flex flex-col min-h-screen">
+  <main class="flex-grow md:ml-64 flex flex-col min-h-screen pb-20 md:pb-0">
 
     <!-- Top App Bar -->
-    <header class="flex items-center justify-between px-8 py-4 w-full bg-white dark:bg-slate-900 border-b border-outline border-opacity-30 sticky top-0 z-40">
-      <hgroup class="flex items-center gap-12">
+    <header class="flex items-center justify-between px-4 md:px-8 py-3 md:py-4 w-full bg-white dark:bg-slate-900 border-b border-outline border-opacity-30 sticky top-0 z-40">
+      <hgroup class="flex items-center gap-4 md:gap-12 flex-1 min-w-0">
         <!-- App Title -->
-        <h1 class="text-xl font-bold tracking-tighter text-primary">ClassTeams</h1>
+        <h1 class="text-lg md:text-xl font-bold tracking-tighter text-primary whitespace-nowrap">ClassTeams</h1>
 
         <!-- Search Bar -->
-        <form class="relative w-64" role="search">
+        <form class="relative hidden md:flex w-64 flex-1 md:flex-none" role="search">
           <label for="search-input" class="sr-only">Search entities</label>
           <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none" data-icon="search">search</span>
           <input id="search-input" class="w-full bg-slate-50 border border-outline border-opacity-40 px-10 py-2 text-[10px] font-mono focus:outline-none focus:border-primary uppercase tracking-wider" placeholder="SEARCH ENTITIES..." type="text" />
@@ -160,24 +419,24 @@
       </hgroup>
 
       <!-- Header Actions -->
-      <nav aria-label="User actions" class="flex items-center gap-6">
+      <nav aria-label="User actions" class="flex items-center gap-3 md:gap-6 flex-shrink-0">
         <button class="text-slate-500 hover:text-primary transition-colors duration-150" aria-label="Notifications">
-          <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+          <span class="material-symbols-outlined text-base md:text-2xl" data-icon="notifications">notifications</span>
         </button>
         <button class="text-slate-500 hover:text-primary transition-colors duration-150" aria-label="User profile">
-          <span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+          <span class="material-symbols-outlined text-base md:text-2xl" data-icon="account_circle">account_circle</span>
         </button>
       </nav>
     </header>
 
     <!-- Main Content Canvas -->
-    <section class="p-12 flex-grow bg-background">
+    <section class="p-4 md:p-8 lg:p-12 flex-grow bg-background">
 
       <div class="max-w-6xl mx-auto">
 
         <!-- Breadcrumb Navigation -->
-        <nav aria-label="Breadcrumb" class="mb-8">
-          <ol class="flex items-center gap-2 text-sm">
+        <nav aria-label="Breadcrumb" class="mb-6 md:mb-8 hidden sm:block">
+          <ol class="flex items-center gap-2 text-xs md:text-sm">
             <li>
               <a href="/assets/public/index.html" class="text-primary hover:text-blue-700 font-semibold transition-colors">Dashboard</a>
             </li>
@@ -187,73 +446,89 @@
         </nav>
 
         <!-- Hero Header Section -->
-        <header class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <header class="mb-8 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6">
           <div class="max-w-2xl">
             <span class="text-xs font-bold text-on-surface-variant tracking-widest uppercase">Workspace Overview</span>
-            <h1 class="text-5xl font-extrabold tracking-tighter text-on-background mt-2">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tighter text-on-background mt-2">
               ACTIVE ASSIGNMENTS
             </h1>
-            <p class="text-on-surface-variant mt-4 text-base font-normal leading-relaxed">
+            <p class="text-on-surface-variant mt-3 md:mt-4 text-sm md:text-base font-normal leading-relaxed">
               Refining the craft through intentional practice. Manage your ongoing projects and track progress across the curriculum.
             </p>
           </div>
-          <div class="flex gap-4">
-            <div class="bg-surface-container-high px-6 py-4 rounded flex flex-col min-w-[140px]">
+          <div class="flex gap-3 md:gap-4 flex-shrink-0">
+          <div class="bg-surface-container-high px-4 md:px-6 py-3 md:py-4 rounded flex flex-col min-w-[130px] md:min-w-[140px]">
               <span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Completed</span>
-              <span class="text-3xl font-extrabold text-primary">12/15</span>
+              <span class="text-2xl md:text-3xl font-extrabold text-primary">12/15</span>
             </div>
           </div>
         </header>
 
-        <!-- Asymmetric Grid Layout -->
-        <div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+        <!-- Category Filter Section -->
+        <div class="mb-8 md:mb-12">
+          <h2 class="text-lg md:text-2xl font-bold text-on-background mb-4 md:mb-6">Filter by Course & Instructor</h2>
+          <div id="categoryContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8">
+            <!-- Categories will be generated by JavaScript -->
+          </div>
+          <button id="clearFilterBtn" class="px-4 md:px-6 py-2 bg-surface-container text-on-background border border-outline rounded hover:bg-surface-container-high transition-colors text-xs md:text-sm font-semibold hidden">
+            Clear Filter
+          </button>
+        </div>
 
-          <!-- Main Assignments List (8 columns) -->
-          <div class="xl:col-span-8 space-y-12">
-            <div class="flex items-center justify-between mb-6">
-              <h2 class="text-2xl font-bold text-on-background">Upcoming Submissions</h2>
+        <!-- Asymmetric Grid Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+
+          <!-- Main Assignments List (12/12 pada mobile, 8/12 pada desktop) -->
+          <div class="lg:col-span-8 space-y-6 md:space-y-12">
+            <div class="flex items-center justify-between mb-4 md:mb-6">
+              <h2 class="text-lg md:text-2xl font-bold text-on-background">Upcoming Submissions</h2>
               <div class="flex gap-2">
                 <button id="gridViewBtn" class="p-2 text-on-surface-variant cursor-pointer hover:bg-surface-container rounded transition-colors" title="Grid view">
-                  <span class="material-symbols-outlined">grid_view</span>
+                  <span class="material-symbols-outlined text-base md:text-xl">grid_view</span>
                 </button>
                 <button id="listViewBtn" class="p-2 text-primary bg-primary-fixed rounded cursor-pointer" title="List view">
-                  <span class="material-symbols-outlined">list</span>
+                  <span class="material-symbols-outlined text-base md:text-xl">list</span>
                 </button>
               </div>
             </div>
 
             <!-- Assignment Card 1: Urgent -->
-            <div class="bg-surface p-6 rounded border border-outline hover:border-primary transition-all cursor-pointer group" onclick="openAssignment(1)">
-              <div class="flex flex-col md:flex-row gap-6">
-                <div class="w-full md:w-32 h-32 rounded overflow-hidden bg-surface-container-low shrink-0 relative">
+            <div class="bg-surface p-3 md:p-6 rounded border border-outline hover:border-primary transition-all cursor-pointer group assignment-card relative" 
+                 onclick="openAssignment(1)" 
+                 data-instructor="Dr. James Mitchell" 
+                 data-course="Foundations of Architecture" 
+                 data-course-code="ARCH101"
+                 data-deadline="2023-10-24">
+              <div class="flex flex-col md:flex-row gap-3 md:gap-6">
+                <div class="w-full md:w-32 h-32 md:h-32 rounded overflow-hidden bg-surface-container-low shrink-0 relative">
                   <img class="w-full h-full object-cover" data-alt="architectural sketch on drafting paper with wooden ruler and mechanical pencil in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-lJYnUelwWohccO7XTqcxEx-JeSdF1mUJ0HwO5DpJNV_lPvQFF_7F4o5dBJr-ulgV6gtFmBSwESjD3R7_IypFIfOiPeIIEgK6fLXe81u2TNiUjkZgbWEBJPjxfSb41B4EWY3aUWgYPFFcmwMxt9M_fk71prVwZn1KocW3kt4pJBpmQJSxnfIEni41BSzSsfOqzVO1sXNG_Qxu-z5SvZijgzaO5vY6yAhFcZ-fW-_It0AyB8-PVvAOU0CDF3X2JIbia0di4ylxuNW2" />
                   <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
                 </div>
                 <div class="flex-1">
-                  <div class="flex justify-between items-start mb-4">
-                    <div>
+                  <div class="flex justify-between items-start mb-3 md:mb-4 gap-2">
+                    <div class="flex-1">
                       <span class="text-xs font-bold uppercase tracking-wider text-error">Urgent Submission</span>
-                      <h3 class="text-xl font-bold text-on-background mt-1">Spatial Dynamics in Urban Design</h3>
-                      <p class="text-sm text-on-surface-variant mt-1">Foundations of Architecture • ARCH101</p>
+                      <h3 class="text-base md:text-xl font-bold text-on-background mt-1">Spatial Dynamics in Urban Design</h3>
+                      <p class="text-xs md:text-sm text-on-surface-variant mt-1">Foundations of Architecture • ARCH101</p>
                     </div>
-                    <span class="bg-red-50 text-red-700 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">Pending</span>
+                    <span class="bg-red-50 text-red-700 px-2 md:px-3 py-1 rounded text-xs font-bold uppercase tracking-wider whitespace-nowrap flex-shrink-0">Pending</span>
                   </div>
-                  <div class="mt-6 flex flex-wrap items-center gap-6">
-                    <div class="flex items-center gap-2 text-on-surface-variant text-sm">
+                  <div class="mt-4 md:mt-6 flex flex-wrap items-center gap-3 md:gap-6">
+                    <div class="flex items-center gap-2 text-on-surface-variant text-xs md:text-sm">
                       <span class="material-symbols-outlined text-base">calendar_today</span>
                       <span class="font-semibold">October 24, 2023</span>
                     </div>
-                    <div class="flex items-center gap-2 text-on-surface-variant text-sm">
+                    <div class="flex items-center gap-2 text-on-surface-variant text-xs md:text-sm">
                       <span class="material-symbols-outlined text-base">schedule</span>
                       <span class="font-semibold text-error">14h Remaining</span>
                     </div>
-                    <div class="flex-1 min-w-[120px]">
+                    <div class="flex-1 min-w-[80px] md:min-w-[120px]">
                       <div class="h-1.5 w-full bg-surface-container-high rounded overflow-hidden">
                         <div class="h-full bg-gradient-to-r from-primary to-primary-container w-[75%]"></div>
                       </div>
                     </div>
-                    <button class="text-primary font-bold text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                      Open Assignment <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    <button class="text-primary font-bold text-xs md:text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform whitespace-nowrap">
+                      Open <span class="material-symbols-outlined text-sm">chevron_right</span>
                     </button>
                   </div>
                 </div>
@@ -261,27 +536,32 @@
             </div>
 
             <!-- Assignment Card 2: Submitted -->
-            <div class="bg-surface p-6 rounded border border-outline hover:border-primary transition-all cursor-pointer group" onclick="openAssignment(2)">
-              <div class="flex flex-col md:flex-row gap-6">
-                <div class="w-full md:w-32 h-32 rounded overflow-hidden bg-surface-container-low shrink-0 opacity-80">
+            <div class="bg-surface p-3 md:p-6 rounded border border-outline hover:border-primary transition-all cursor-pointer group assignment-card relative" 
+                 onclick="openAssignment(2)"
+                 data-instructor="Prof. Sarah Chen"
+                 data-course="Digital Media Studio"
+                 data-course-code="DMS204"
+                 data-deadline="2023-10-20">
+              <div class="flex flex-col md:flex-row gap-3 md:gap-6">
+                <div class="w-full md:w-32 h-32 md:h-32 rounded overflow-hidden bg-surface-container-low shrink-0 opacity-80">
                   <img class="w-full h-full object-cover" data-alt="digital UI design components layout on a high resolution screen with blue and white color palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrLDv4V9lGKsbxhGWzGjwJ8uvt_IR7qp8iz6t_66teUr3PXrVMHKKHEsH24SlkzgyW9OCAyeXHh1db3K1pE3az7tMfe2veMQsEuOxlBfKGewjfHA7XRj3CijvOGp1g2jT4aXz26ApXxsAw1klFKFoJiozoxyZztIJA-mqCJ0z-y3lul5-Xcjtva6iIEOaOIHbzZelhJh1Ow8ssKz8bsGUPr3WqJCnHkdUQh0w_1orEWU9pxFbarJT_Vzb-NVJkfC9XUlj3OX1eDlX1" />
                 </div>
                 <div class="flex-1">
-                  <div class="flex justify-between items-start mb-4">
-                    <div>
+                  <div class="flex justify-between items-start mb-3 md:mb-4 gap-2">
+                    <div class="flex-1">
                       <span class="text-xs font-bold uppercase tracking-wider text-secondary">Awaiting Review</span>
-                      <h3 class="text-xl font-bold text-on-background mt-1">Interactivity & Visual Hierarchy</h3>
-                      <p class="text-sm text-on-surface-variant mt-1">Digital Media Studio • DMS204</p>
+                      <h3 class="text-base md:text-xl font-bold text-on-background mt-1">Interactivity & Visual Hierarchy</h3>
+                      <p class="text-xs md:text-sm text-on-surface-variant mt-1">Digital Media Studio • DMS204</p>
                     </div>
-                    <span class="bg-green-50 text-green-700 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">Submitted</span>
+                    <span class="bg-green-50 text-green-700 px-2 md:px-3 py-1 rounded text-xs font-bold uppercase tracking-wider whitespace-nowrap flex-shrink-0">Submitted</span>
                   </div>
-                  <div class="mt-6 flex flex-wrap items-center gap-6">
-                    <div class="flex items-center gap-2 text-on-surface-variant text-sm">
+                  <div class="mt-4 md:mt-6 flex flex-wrap items-center gap-3 md:gap-6">
+                    <div class="flex items-center gap-2 text-on-surface-variant text-xs md:text-sm">
                       <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
                       <span class="font-semibold">Submitted Oct 20</span>
                     </div>
                     <div class="flex-1"></div>
-                    <button class="bg-surface-container-lowest text-on-surface-variant font-bold text-xs px-4 py-2 rounded border border-outline/20 hover:bg-surface-container transition-colors" onclick="viewReceipt(2)">
+                    <button class="bg-surface-container-lowest text-on-surface-variant font-bold text-xs px-3 md:px-4 py-2 rounded border border-outline/20 hover:bg-surface-container transition-colors whitespace-nowrap" onclick="viewReceipt(2)">
                       View Receipt
                     </button>
                   </div>
@@ -290,37 +570,42 @@
             </div>
 
             <!-- Assignment Card 3: Standard -->
-            <div class="bg-surface p-6 rounded border border-outline hover:border-primary transition-all cursor-pointer group" onclick="openAssignment(3)">
-              <div class="flex flex-col md:flex-row gap-6">
-                <div class="w-full md:w-32 h-32 rounded overflow-hidden bg-surface-container-low shrink-0 relative">
+            <div class="bg-surface p-3 md:p-6 rounded border border-outline hover:border-primary transition-all cursor-pointer group assignment-card relative" 
+                 onclick="openAssignment(3)"
+                 data-instructor="Dr. Michael Ross"
+                 data-course="Visual Communications"
+                 data-course-code="VIS102"
+                 data-deadline="2023-11-02">
+              <div class="flex flex-col md:flex-row gap-3 md:gap-6">
+                <div class="w-full md:w-32 h-32 md:h-32 rounded overflow-hidden bg-surface-container-low shrink-0 relative">
                   <img class="w-full h-full object-cover" data-alt="clean desk with open notebook and graphite pencils focus on textured paper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALFAWhO7SWwghJUteLVdpN8-XEeO6i1w6eE86bKpZnm7yEJJ5wnKxwPD5s_7tqYy3x_Bk7gSVDiBYl4TMqoFSXC2ccscL6wk6pKNIYxFSBWL3w-iPBYAYmBF16FGqTehzmJALzD4mDWF_-zwc7XFBFPyaxyrRJ3qLXMA-aOtK5PaCHVVE-JyrRRTPbPtew58vRd8OMzdCcgb4FOMi_5pAgaZw90GkaXPmXpB1DlTDSezgsNlgAq9PFaMV5B_aMcUQEMHUABAGC_JK9" />
                   <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
                 </div>
                 <div class="flex-1">
-                  <div class="flex justify-between items-start mb-4">
-                    <div>
+                  <div class="flex justify-between items-start mb-3 md:mb-4 gap-2">
+                    <div class="flex-1">
                       <span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Standard Task</span>
-                      <h3 class="text-xl font-bold text-on-background mt-1">Typography & Typeface History</h3>
-                      <p class="text-sm text-on-surface-variant mt-1">Visual Communications • VIS102</p>
+                      <h3 class="text-base md:text-xl font-bold text-on-background mt-1">Typography & Typeface History</h3>
+                      <p class="text-xs md:text-sm text-on-surface-variant mt-1">Visual Communications • VIS102</p>
                     </div>
-                    <span class="bg-orange-50 text-orange-700 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">Pending</span>
+                    <span class="bg-orange-50 text-orange-700 px-2 md:px-3 py-1 rounded text-xs font-bold uppercase tracking-wider whitespace-nowrap flex-shrink-0">Pending</span>
                   </div>
-                  <div class="mt-6 flex flex-wrap items-center gap-6">
-                    <div class="flex items-center gap-2 text-on-surface-variant text-sm">
+                  <div class="mt-4 md:mt-6 flex flex-wrap items-center gap-3 md:gap-6">
+                    <div class="flex items-center gap-2 text-on-surface-variant text-xs md:text-sm">
                       <span class="material-symbols-outlined text-base">calendar_today</span>
                       <span class="font-semibold">November 02, 2023</span>
                     </div>
-                    <div class="flex items-center gap-2 text-on-surface-variant text-sm">
+                    <div class="flex items-center gap-2 text-on-surface-variant text-xs md:text-sm">
                       <span class="material-symbols-outlined text-base">schedule</span>
                       <span class="font-semibold">9 Days Remaining</span>
                     </div>
-                    <div class="flex-1 min-w-[120px]">
+                    <div class="flex-1 min-w-[80px] md:min-w-[120px]">
                       <div class="h-1.5 w-full bg-surface-container-high rounded overflow-hidden">
                         <div class="h-full bg-gradient-to-r from-primary to-primary-container w-[10%]"></div>
                       </div>
                     </div>
-                    <button class="text-primary font-bold text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                      Open Assignment <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    <button class="text-primary font-bold text-xs md:text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform whitespace-nowrap">
+                      Open <span class="material-symbols-outlined text-sm">chevron_right</span>
                     </button>
                   </div>
                 </div>
@@ -328,87 +613,87 @@
             </div>
           </div>
 
-          <!-- Sidebar Content (4 columns) -->
-          <div class="xl:col-span-4 space-y-8">
+          <!-- Sidebar Content (4 columns pada desktop, full width pada mobile) -->
+          <div class="lg:col-span-4 space-y-6 md:space-y-8">
 
             <!-- Upcoming Deadlines -->
-            <div class="bg-surface p-6 rounded border border-outline">
-              <h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-6">Upcoming Deadlines</h3>
-              <div class="space-y-6">
-                <div class="flex gap-4">
-                  <div class="w-12 h-12 bg-surface-container rounded flex flex-col items-center justify-center shrink-0 shadow-sm">
-                    <span class="text-xs font-bold text-on-surface-variant">OCT</span>
+            <div class="bg-surface p-4 md:p-6 rounded border border-outline">
+              <h3 class="text-xs md:text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-4 md:mb-6">Upcoming Deadlines</h3>
+              <div class="space-y-4 md:space-y-6">
+                <div class="flex gap-3 md:gap-4">
+                  <div class="w-10 md:w-12 h-10 md:h-12 bg-surface-container rounded flex flex-col items-center justify-center shrink-0 shadow-sm text-xs md:text-sm">
+                    <span class="font-bold text-on-surface-variant">OCT</span>
                     <span class="font-bold text-primary">24</span>
                   </div>
                   <div>
-                    <p class="text-sm font-bold text-on-background leading-tight">Spatial Dynamics Paper</p>
+                    <p class="text-xs md:text-sm font-bold text-on-background leading-tight">Spatial Dynamics Paper</p>
                     <p class="text-xs text-on-surface-variant mt-1">11:59 PM Submission</p>
                   </div>
                 </div>
-                <div class="flex gap-4">
-                  <div class="w-12 h-12 bg-surface-container rounded flex flex-col items-center justify-center shrink-0 shadow-sm">
-                    <span class="text-xs font-bold text-on-surface-variant">OCT</span>
+                <div class="flex gap-3 md:gap-4">
+                  <div class="w-10 md:w-12 h-10 md:h-12 bg-surface-container rounded flex flex-col items-center justify-center shrink-0 shadow-sm text-xs md:text-sm">
+                    <span class="font-bold text-on-surface-variant">OCT</span>
                     <span class="font-bold text-on-background">28</span>
                   </div>
                   <div>
-                    <p class="text-sm font-bold text-on-background leading-tight">Peer Review: Session 04</p>
+                    <p class="text-xs md:text-sm font-bold text-on-background leading-tight">Peer Review: Session 04</p>
                     <p class="text-xs text-on-surface-variant mt-1">In-class Collaboration</p>
                   </div>
                 </div>
-                <div class="flex gap-4 opacity-60">
-                  <div class="w-12 h-12 bg-surface-container rounded flex flex-col items-center justify-center shrink-0 shadow-sm">
-                    <span class="text-xs font-bold text-on-surface-variant">NOV</span>
+                <div class="flex gap-3 md:gap-4 opacity-60">
+                  <div class="w-10 md:w-12 h-10 md:h-12 bg-surface-container rounded flex flex-col items-center justify-center shrink-0 shadow-sm text-xs md:text-sm">
+                    <span class="font-bold text-on-surface-variant">NOV</span>
                     <span class="font-bold text-on-background">02</span>
                   </div>
                   <div>
-                    <p class="text-sm font-bold text-on-background leading-tight">Typography Final Case</p>
+                    <p class="text-xs md:text-sm font-bold text-on-background leading-tight">Typography Final Case</p>
                     <p class="text-xs text-on-surface-variant mt-1">Portfolio Milestone</p>
                   </div>
                 </div>
               </div>
-              <button id="viewScheduleBtn" class="w-full mt-8 py-3 text-primary border border-primary/20 rounded text-xs font-bold hover:bg-primary-fixed transition-colors">
+              <button id="viewScheduleBtn" class="w-full mt-6 md:mt-8 py-2 md:py-3 text-primary border border-primary/20 rounded text-xs font-bold hover:bg-primary-fixed transition-colors">
                 View Full Schedule
               </button>
             </div>
 
             <!-- Faculty Feedback -->
-            <div class="bg-tertiary text-on-tertiary p-6 rounded shadow-lg overflow-hidden relative">
+            <div class="bg-tertiary text-on-tertiary p-4 md:p-6 rounded shadow-lg overflow-hidden relative">
               <div class="absolute -right-4 -bottom-4 opacity-20 transform rotate-12 pointer-events-none">
-                <span class="material-symbols-outlined text-9xl">forum</span>
+                <span class="material-symbols-outlined text-6xl md:text-9xl">forum</span>
               </div>
-              <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 relative z-10">Faculty Feedback</h3>
-              <p class="text-sm font-normal leading-relaxed relative z-10 italic">
+              <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 md:mb-4 relative z-10">Faculty Feedback</h3>
+              <p class="text-xs md:text-sm font-normal leading-relaxed relative z-10 italic">
                 "Excellent use of white space in your last module. Focus on the grid consistency for the next submission."
               </p>
-              <div class="mt-6 flex items-center gap-3 relative z-10">
-                <img class="w-10 h-10 rounded-full border-2 border-white/20 object-cover" data-alt="portrait of a confident woman professor with silver hair and scholarly expression in a library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_tt3eMXKuIdm0q3OHz-FAr0W3hhvngmO3TEYjamcTqMW1FsYWELQBGNJtmw9CMsmdAgafVPI8kRwPsDQLvBRjN9KgncGslqM88v7_uGKNB21hvR2S1HmfneSlD6VcGVh-4idZAE_QsTVeZnate5-zPdkKjRjjefOXghA4dOf5UpWMQWIvbahRr1xZOxdfISFsrDzhn0bSlkeSEOyxqRyOTeSjGNPkfDP7DGskvskmhvHfW0o15nOANi9ZhFn-EUOMd9hbbydLYPP6" />
+              <div class="mt-4 md:mt-6 flex items-center gap-2 md:gap-3 relative z-10">
+                <img class="w-8 md:w-10 h-8 md:h-10 rounded-full border-2 border-white/20 object-cover flex-shrink-0" data-alt="portrait of a confident woman professor with silver hair and scholarly expression in a library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_tt3eMXKuIdm0q3OHz-FAr0W3hhvngmO3TEYjamcTqMW1FsYWELQBGNJtmw9CMsmdAgafVPI8kRwPsDQLvBRjN9KgncGslqM88v7_uGKNB21hvR2S1HmfneSlD6VcGVh-4idZAE_QsTVeZnate5-zPdkKjRjjefOXghA4dOf5UpWMQWIvbahRr1xZOxdfISFsrDzhn0bSlkeSEOyxqRyOTeSjGNPkfDP7DGskvskmhvHfW0o15nOANi9ZhFn-EUOMd9hbbydLYPP6" />
                 <div>
-                  <p class="text-xs font-bold">Dr. Elena Vos</p>
+                  <p class="text-xs md:text-sm font-bold">Dr. Elena Vos</p>
                   <p class="text-xs opacity-80 uppercase tracking-tighter">Design Theory Lead</p>
                 </div>
               </div>
             </div>
 
             <!-- Progress Vignette -->
-            <div class="bg-surface p-6 rounded border border-outline">
-              <h3 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">Semester Progress</h3>
-              <div class="relative h-32 flex items-center justify-center">
-                <svg class="w-24 h-24 transform -rotate-90">
+            <div class="bg-surface p-4 md:p-6 rounded border border-outline">
+              <h3 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-3 md:mb-4">Semester Progress</h3>
+              <div class="relative h-24 md:h-32 flex items-center justify-center mb-3 md:mb-4">
+                <svg class="w-20 md:w-24 h-20 md:h-24 transform -rotate-90">
                   <circle class="text-surface-container-high" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
                   <circle class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="50" stroke-width="8"></circle>
                 </svg>
                 <div class="absolute flex flex-col items-center">
-                  <span class="text-xl font-extrabold text-on-background">80%</span>
+                  <span class="text-lg md:text-xl font-extrabold text-on-background">80%</span>
                   <span class="text-xs font-bold text-on-surface-variant uppercase">Course</span>
                 </div>
               </div>
-              <div class="mt-4 grid grid-cols-2 gap-4">
+              <div class="grid grid-cols-2 gap-3 md:gap-4">
                 <div class="text-center">
-                  <p class="text-lg font-bold text-on-background">3.82</p>
+                  <p class="text-base md:text-lg font-bold text-on-background">3.82</p>
                   <p class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Current GPA</p>
                 </div>
                 <div class="text-center border-l border-outline/20">
-                  <p class="text-lg font-bold text-on-background">42</p>
+                  <p class="text-base md:text-lg font-bold text-on-background">42</p>
                   <p class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Credits</p>
                 </div>
               </div>
@@ -420,14 +705,14 @@
     </section>
 
     <!-- Footer -->
-    <footer class="flex justify-between items-center px-8 py-6 w-full mt-auto bg-white dark:bg-slate-900 border-t border-outline border-opacity-30">
-      <p class="text-[10px] font-mono uppercase tracking-tighter text-slate-500">
+    <footer class="flex flex-col md:flex-row justify-between items-center px-4 md:px-8 py-4 md:py-6 w-full mt-auto bg-white dark:bg-slate-900 border-t border-outline border-opacity-30 gap-3 md:gap-0">
+      <p class="text-[8px] md:text-[10px] font-mono uppercase tracking-tighter text-slate-500 text-center md:text-left">
         © 2024 CLASSTEAMS ACADEMIC CLARITY SYSTEM
       </p>
-      <nav aria-label="Footer links" class="flex gap-8">
-        <a class="text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Privacy</a>
-        <a class="text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Terms</a>
-        <a class="text-[10px] font-mono uppercase tracking-tighter text-primary hover:underline transition-opacity font-bold" href="#">Support</a>
+      <nav aria-label="Footer links" class="flex gap-4 md:gap-8 text-center md:text-left">
+        <a class="text-[8px] md:text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Privacy</a>
+        <a class="text-[8px] md:text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Terms</a>
+        <a class="text-[8px] md:text-[10px] font-mono uppercase tracking-tighter text-primary hover:underline transition-opacity font-bold" href="#">Support</a>
       </nav>
     </footer>
 
@@ -618,19 +903,207 @@ Thank you for your submission!
       }
     }
 
+    // ===== SORTING & FILTERING =====
+    let selectedCategory = null;
+
+    // Parse deadline string and return Date object
+    function parseDeadline(dateString) {
+      // Expected format: YYYY-MM-DD (from data-deadline attribute)
+      const date = new Date(dateString);
+      return date;
+    }
+
+    // Sort assignment cards by deadline (nearest deadline first)
+    function sortAssignmentsByDeadline() {
+      const container = document.querySelector('.xl\\:col-span-8.space-y-12');
+      if (!container) return;
+
+      const cards = Array.from(container.querySelectorAll('.assignment-card'));
+      
+      // Filter visible cards only
+      const visibleCards = cards.filter(card => card.style.display !== 'none');
+      
+      // Sort by deadline
+      visibleCards.sort((a, b) => {
+        const deadlineA = parseDeadline(a.getAttribute('data-deadline'));
+        const deadlineB = parseDeadline(b.getAttribute('data-deadline'));
+        return deadlineA - deadlineB;
+      });
+      
+      // Reorder cards in DOM
+      visibleCards.forEach(card => {
+        container.appendChild(card);
+      });
+
+      // Update priority indicators
+      updateDeadlinePriorities(visibleCards);
+    }
+
+    // Update deadline priority indicators on cards
+    function updateDeadlinePriorities(sortedCards) {
+      sortedCards.forEach((card, index) => {
+        let priorityBadge = card.querySelector('.deadline-priority-badge');
+        
+        // Remove old badge if exists
+        if (priorityBadge) {
+          priorityBadge.remove();
+        }
+        
+        // Add priority indicator
+        const headerDiv = card.querySelector('.flex.justify-between.items-start');
+        if (headerDiv) {
+          const badge = document.createElement('div');
+          badge.className = 'deadline-priority-badge absolute top-6 right-6 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1';
+          
+          let priorityText = '';
+          let icon = '';
+          
+          if (index === 0) {
+            priorityText = 'Due First';
+            icon = '⏰';
+          } else if (index === 1) {
+            priorityText = 'Due Next';
+            icon = '📅';
+          } else {
+            priorityText = `Due #${index + 1}`;
+            icon = '📋';
+          }
+          
+          badge.innerHTML = `<span>${icon}</span> <span>${priorityText}</span>`;
+          card.style.position = 'relative';
+          card.insertBefore(badge, card.firstChild);
+        }
+      });
+    }
+
+    // Get unique categories from assignment cards
+    function getCategories() {
+      const cards = document.querySelectorAll('.assignment-card');
+      const categories = new Set();
+      
+      cards.forEach(card => {
+        const instructor = card.getAttribute('data-instructor');
+        const course = card.getAttribute('data-course');
+        const courseCode = card.getAttribute('data-course-code');
+        if (instructor && course) {
+          categories.add(JSON.stringify({ instructor, course, courseCode }));
+        }
+      });
+      
+      return Array.from(categories).map(cat => JSON.parse(cat));
+    }
+
+    // Render category buttons
+    function renderCategories() {
+      const categories = getCategories();
+      const container = document.getElementById('categoryContainer');
+      
+      if (!container) return;
+      
+      container.innerHTML = '';
+      
+      categories.forEach((category, index) => {
+        const button = document.createElement('button');
+        button.className = 'category-btn p-4 bg-surface border border-outline rounded hover:border-primary transition-all text-left group';
+        button.innerHTML = `
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">Instructor</p>
+              <p class="text-sm font-bold text-on-background mb-3">${category.instructor}</p>
+              <p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">Course</p>
+              <p class="text-sm font-semibold text-primary">${category.course}</p>
+              <p class="text-xs text-on-surface-variant mt-1">${category.courseCode}</p>
+            </div>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">arrow_forward</span>
+          </div>
+        `;
+        
+        button.addEventListener('click', () => filterByCategory(category));
+        container.appendChild(button);
+      });
+    }
+
+    // Filter assignments by category
+    function filterByCategory(category) {
+      selectedCategory = category;
+      
+      const cards = document.querySelectorAll('.assignment-card');
+      const clearBtn = document.getElementById('clearFilterBtn');
+      
+      cards.forEach(card => {
+        const cardInstructor = card.getAttribute('data-instructor');
+        const cardCourse = card.getAttribute('data-course');
+        
+        if (cardInstructor === category.instructor && cardCourse === category.course) {
+          card.style.display = '';
+          card.classList.add('fade-in');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      // Sort filtered results by deadline
+      sortAssignmentsByDeadline();
+      
+      clearBtn.classList.remove('hidden');
+      showNotification(`Showing assignments for ${category.courseCode} - sorted by deadline`, 'info');
+    }
+
+    // Clear filter and show all assignments
+    function clearFilter() {
+      selectedCategory = null;
+      
+      const cards = document.querySelectorAll('.assignment-card');
+      const clearBtn = document.getElementById('clearFilterBtn');
+      
+      cards.forEach(card => {
+        card.style.display = '';
+        card.classList.remove('fade-in');
+      });
+      
+      // Sort all results by deadline
+      sortAssignmentsByDeadline();
+      
+      clearBtn.classList.add('hidden');
+      showNotification('Filters cleared - showing all assignments sorted by deadline', 'info');
+    }
+
+    // Add CSS animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in {
+        animation: fadeIn 0.3s ease-in-out;
+      }
+    `;
+    document.head.appendChild(style);
+
     // ===== EVENT LISTENERS =====
     document.addEventListener('DOMContentLoaded', function() {
       initializeTasks();
       initSidebarFunctionality();
+      renderCategories();
+      sortAssignmentsByDeadline(); // Sort assignments by deadline on initial load
 
       // Grid/List view buttons
       const gridViewBtn = document.getElementById('gridViewBtn');
       const listViewBtn = document.getElementById('listViewBtn');
       const viewScheduleBtn = document.getElementById('viewScheduleBtn');
+      const clearFilterBtn = document.getElementById('clearFilterBtn');
 
       if (gridViewBtn) gridViewBtn.addEventListener('click', toggleGridView);
       if (listViewBtn) listViewBtn.addEventListener('click', toggleListView);
       if (viewScheduleBtn) viewScheduleBtn.addEventListener('click', viewFullSchedule);
+      if (clearFilterBtn) clearFilterBtn.addEventListener('click', clearFilter);
     });
   </script>
 
