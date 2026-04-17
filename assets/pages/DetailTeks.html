@@ -218,30 +218,8 @@
           <!-- Attachments Section -->
           <div class="space-y-4">
             <span class="label-sm font-bold uppercase tracking-widest text-[10px] text-on-surface-variant">Attachments</span>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <!-- Attachment 1 -->
-              <div class="bg-white border border-outline-variant p-6 flex items-center justify-between group cursor-pointer hover:border-primary transition-colors" onclick="downloadFile('STRUCTURAL_SPEC_V2.PDF')">
-                <div class="flex items-center gap-4">
-                  <span class="material-symbols-outlined text-primary" data-icon="description">description</span>
-                  <div>
-                    <p class="text-sm font-bold tracking-tight text-on-surface">STRUCTURAL_SPEC_V2.PDF</p>
-                    <p class="text-[10px] text-on-surface-variant uppercase font-mono">14.2 MB</p>
-                  </div>
-                </div>
-                <span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</span>
-              </div>
-
-              <!-- Attachment 2 -->
-              <div class="bg-white border border-outline-variant p-6 flex items-center justify-between group cursor-pointer hover:border-primary transition-colors" onclick="downloadFile('SITE_MAP_RENDER.PNG')">
-                <div class="flex items-center gap-4">
-                  <span class="material-symbols-outlined text-primary" data-icon="image">image</span>
-                  <div>
-                    <p class="text-sm font-bold tracking-tight text-on-surface">SITE_MAP_RENDER.PNG</p>
-                    <p class="text-[10px] text-on-surface-variant uppercase font-mono">2.8 MB</p>
-                  </div>
-                </div>
-                <span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</span>
-              </div>
+            <div id="attachmentsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Attachments will be loaded here dynamically -->
             </div>
           </div>
         </div>
@@ -370,7 +348,7 @@
                   </div>
                 </div>
               </div>
-              <button class="w-full bg-primary text-on-primary py-4 font-bold uppercase tracking-[0.2em] text-sm hover:bg-blue-700 transition-colors shadow-sm" onclick="submitUpload()">
+              <button class="w-full bg-primary text-on-primary py-4 font-bold uppercase tracking-[0.2em] text-sm hover:bg-blue-700 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed" onclick="submitUpload()" disabled>
                 Upload
               </button>
               <div class="flex items-start gap-3 p-4 bg-tertiary border-l-4 border-primary">
@@ -403,6 +381,50 @@
     // ===== LOAD TASK FROM URL PARAMETER =====
     const STORAGE_KEY = 'classteams_tasks';
 
+    // Initialize default tasks if not exist
+    function initializeTasks() {
+      const tasks = localStorage.getItem(STORAGE_KEY);
+      if (!tasks) {
+        const defaultTasks = [
+          {
+            id: 1,
+            title: 'Spatial Dynamics in Urban Design',
+            code: 'ARCH101',
+            course: 'Foundations of Architecture',
+            deadline: 'OCT 24, 2023',
+            status: 'Pending',
+            instructor: 'Dr. James Mitchell',
+            description: 'Analyze spatial dynamics and their impact on urban design principles.',
+            attachments: []
+          },
+          {
+            id: 2,
+            title: 'Interactivity & Visual Hierarchy',
+            code: 'DMS204',
+            course: 'Digital Media Studio',
+            deadline: 'OCT 20, 2023',
+            status: 'Submitted',
+            instructor: 'Prof. Sarah Chen',
+            description: 'Create interactive digital experiences with proper visual hierarchy.',
+            attachments: []
+          },
+          {
+            id: 3,
+            title: 'Typography & Typeface History',
+            code: 'VIS102',
+            course: 'Visual Communications',
+            deadline: 'NOV 02, 2023',
+            status: 'Pending',
+            instructor: 'Dr. Michael Ross',
+            description: 'Comprehensive study of typography and typeface history.',
+            attachments: []
+          }
+        ];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultTasks));
+        console.log('Tasks initialized:', defaultTasks);
+      }
+    }
+
     // Get URL parameter
     function getUrlParameter(name) {
       const params = new URLSearchParams(window.location.search);
@@ -415,11 +437,72 @@
       return tasks ? JSON.parse(tasks) : [];
     }
 
+    // Save tasks to localStorage
+    function saveTasks(tasks) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    }
+
+    // Get file icon based on file type
+    function getFileIcon(fileName) {
+      const ext = fileName.split('.').pop().toLowerCase();
+      const iconMap = {
+        'pdf': 'description',
+        'doc': 'description',
+        'docx': 'description',
+        'txt': 'description',
+        'zip': 'folder_zip',
+        'png': 'image',
+        'jpg': 'image',
+        'jpeg': 'image',
+        'gif': 'image',
+      };
+      return iconMap[ext] || 'description';
+    }
+
+    // Render attachments
+    function renderAttachments(attachments = []) {
+      const attachmentsGrid = document.getElementById('attachmentsGrid');
+      if (!attachmentsGrid) return;
+
+      if (attachments.length === 0) {
+        attachmentsGrid.innerHTML = '<p class="text-sm text-on-surface-variant col-span-full">Tidak ada attachment</p>';
+        return;
+      }
+
+      attachmentsGrid.innerHTML = attachments.map((file, index) => `
+        <div class="bg-white border border-outline-variant p-6 flex items-center justify-between group cursor-pointer hover:border-primary transition-colors" onclick="downloadFile('${file.name}')">
+          <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-primary" data-icon="${getFileIcon(file.name)}">${getFileIcon(file.name)}</span>
+            <div>
+              <p class="text-sm font-bold tracking-tight text-on-surface">${file.name}</p>
+              <p class="text-[10px] text-on-surface-variant uppercase font-mono">${file.size || 'unknown'}</p>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</span>
+        </div>
+      `).join('');
+    }
+
     // Load and display task details
     function loadTaskDetails() {
+      // Initialize tasks first if not exist
+      initializeTasks();
+      
       const taskId = parseInt(getUrlParameter('id'));
+      console.log('Loading task with ID:', taskId);
+      
+      if (!taskId || isNaN(taskId)) {
+        console.error('Invalid task ID from URL:', taskId);
+        alert('Error: Invalid task ID. Redirecting to assignments...');
+        window.location.href = './Assignments.html';
+        return;
+      }
+
       const tasks = getTasks();
+      console.log('Available tasks:', tasks);
+      
       const task = tasks.find(t => t.id === taskId);
+      console.log('Found task:', task);
 
       if (task) {
         // Update breadcrumb title
@@ -464,8 +547,14 @@
         if (instructorName) {
           instructorName.textContent = task.instructor;
         }
+
+        // Load attachments
+        console.log('Loading attachments:', task.attachments);
+        renderAttachments(task.attachments || []);
       } else {
-        console.warn('Task not found:', taskId);
+        console.error('Task not found with ID:', taskId);
+        alert('Error: Task tidak ditemukan. Periksa kembali URL parameter.');
+        window.location.href = './Assignments.html';
       }
     }
 
@@ -496,6 +585,13 @@
       modal.classList.add('hidden');
       document.getElementById('uploadProgress').classList.add('hidden');
       document.getElementById('fileInput').value = '';
+      document.getElementById('uploadBar').style.width = '0%';
+      document.getElementById('uploadPercent').textContent = '0%';
+      
+      // Reset upload button state
+      const uploadBtn = document.querySelector('button[onclick="submitUpload()"]');
+      if (uploadBtn) uploadBtn.disabled = true;
+      
       document.body.style.overflow = 'auto';
       console.log('Upload modal closed');
     }
@@ -514,31 +610,87 @@
         uploadProgress.classList.remove('hidden');
         document.getElementById('fileName').textContent = file.name;
         
+        // Reset and start upload progress
+        document.getElementById('uploadBar').style.width = '0%';
+        document.getElementById('uploadPercent').textContent = '0%';
+        
         // Simulate upload progress
         let progress = 0;
         const interval = setInterval(() => {
-          progress += Math.random() * 30;
+          progress += Math.random() * 25;
           if (progress > 100) progress = 100;
           document.getElementById('uploadBar').style.width = progress + '%';
           document.getElementById('uploadPercent').textContent = Math.round(progress) + '%';
-          if (progress >= 100) clearInterval(interval);
-        }, 500);
+          
+          if (progress >= 100) {
+            clearInterval(interval);
+            // Enable upload button when progress is complete
+            const uploadBtn = document.querySelector('button[onclick="submitUpload()"]');
+            if (uploadBtn) uploadBtn.disabled = false;
+          }
+        }, 400);
       }
     }
 
     // Submit Upload
     function submitUpload() {
-      const fileName = document.getElementById('fileName').textContent;
-      const progress = document.getElementById('uploadBar').style.width;
+      // Initialize tasks first if not exist
+      initializeTasks();
       
-      if (progress === '0%') {
-        alert('Please select a file first');
+      const fileName = document.getElementById('fileName').textContent;
+      const progress = parseInt(document.getElementById('uploadPercent').textContent);
+      
+      if (!fileName || fileName === 'file.pdf') {
+        alert('Pilih file terlebih dahulu');
+        return;
+      }
+
+      if (progress < 100) {
+        alert('Tunggu progress upload sampai 100% terlebih dahulu');
         return;
       }
       
-      console.log('Uploading file:', fileName);
-      alert('File uploaded successfully!\n\nFilename: ' + fileName);
-      closeUploadModal();
+      const taskId = parseInt(getUrlParameter('id'));
+      console.log('Submit upload for task ID:', taskId);
+      
+      const tasks = getTasks();
+      const task = tasks.find(t => t.id === taskId);
+
+      if (task) {
+        // Initialize attachments array if not exists
+        if (!task.attachments) {
+          task.attachments = [];
+        }
+
+        // Add new attachment with timestamp
+        const fileSize = (Math.random() * 50).toFixed(1) + ' MB'; // Simulated file size
+        task.attachments.push({
+          name: fileName,
+          size: fileSize,
+          uploadedAt: new Date().toLocaleString('id-ID')
+        });
+
+        // Save tasks back to localStorage
+        saveTasks(tasks);
+        console.log('File saved. Updated task:', task);
+
+        // Show success message
+        alert('File berhasil diupload!\n\nNama File: ' + fileName);
+
+        // Refresh attachments display
+        renderAttachments(task.attachments);
+
+        // Reset form
+        document.getElementById('fileName').textContent = 'file.pdf';
+        document.getElementById('uploadBar').style.width = '0%';
+        document.getElementById('uploadPercent').textContent = '0%';
+
+        // Close modal
+        closeUploadModal();
+      } else {
+        console.error('Task tidak ditemukan with ID:', taskId);
+        alert('Error: Task tidak ditemukan (ID: ' + taskId + '). Pastikan Anda membuka tugas dengan benar.');
+      }
     }
 
     // Request Extension - Open extension request form
