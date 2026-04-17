@@ -21,6 +21,7 @@
     const pageMap = {
       'index.html': 'dashboard',
       '': 'dashboard', // Default ke dashboard jika root
+      'detailteks.html': 'assignments',
       'assignments.html': 'assignments',
       'schedule.html': 'schedule',
       'resources.html': 'resources',
