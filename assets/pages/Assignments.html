@@ -96,7 +96,7 @@
       <ul class="sidebar-nav-list">
         <!-- Dashboard -->
         <li>
-          <a href="../../public/index.html" class="sidebar-nav-item" data-page="dashboard">
+          <a href="../public/index.html" class="sidebar-nav-item" data-page="dashboard">
             <span class="material-symbols-outlined sidebar-nav-icon" data-icon="dashboard">dashboard</span>
             <span class="sidebar-nav-text">Dashboard</span>
           </a>
@@ -186,127 +186,234 @@
           </ol>
         </nav>
 
-        <!-- Page Header -->
-        <header class="mb-16">
-          <h2 class="text-6xl font-extrabold tracking-tighter uppercase mb-2 text-on-background">Assignments</h2>
-          <p class="text-sm font-mono text-primary tracking-widest uppercase">Academic Learning Tasks // Fall 2024</p>
+        <!-- Hero Header Section -->
+        <header class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="max-w-2xl">
+            <span class="text-xs font-bold text-on-surface-variant tracking-widest uppercase">Workspace Overview</span>
+            <h1 class="text-5xl font-extrabold tracking-tighter text-on-background mt-2">
+              ACTIVE ASSIGNMENTS
+            </h1>
+            <p class="text-on-surface-variant mt-4 text-base font-normal leading-relaxed">
+              Refining the craft through intentional practice. Manage your ongoing projects and track progress across the curriculum.
+            </p>
+          </div>
+          <div class="flex gap-4">
+            <div class="bg-surface-container-high px-6 py-4 rounded flex flex-col min-w-[140px]">
+              <span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Completed</span>
+              <span class="text-3xl font-extrabold text-primary">12/15</span>
+            </div>
+          </div>
         </header>
 
-        <!-- Content Grid -->
-        <div class="grid grid-cols-12 gap-8">
+        <!-- Asymmetric Grid Layout -->
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
 
-          <!-- Tasks Column -->
-          <section class="col-span-8 flex flex-col gap-6" aria-label="Assignments list">
-            <!-- Card 1 -->
-        <div class="bg-white border border-outline rounded cursor-pointer hover:border-primary transition-colors group" onclick="openAssignment(1)">
-          <div class="p-6">
-            <div class="flex items-start justify-between mb-4">
-              <div>
-                <p class="text-xs font-bold text-primary uppercase tracking-wide mb-2">ARCH101</p>
-                <h3 class="text-lg font-bold text-on-background">Spatial Dynamics in Urban Design</h3>
+          <!-- Main Assignments List (8 columns) -->
+          <div class="xl:col-span-8 space-y-12">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-2xl font-bold text-on-background">Upcoming Submissions</h2>
+              <div class="flex gap-2">
+                <button id="gridViewBtn" class="p-2 text-on-surface-variant cursor-pointer hover:bg-surface-container rounded transition-colors" title="Grid view">
+                  <span class="material-symbols-outlined">grid_view</span>
+                </button>
+                <button id="listViewBtn" class="p-2 text-primary bg-primary-fixed rounded cursor-pointer" title="List view">
+                  <span class="material-symbols-outlined">list</span>
+                </button>
               </div>
-              <span class="inline-block px-3 py-1 text-xs font-bold rounded bg-red-50 text-red-700">Pending</span>
             </div>
-            
-            <p class="text-sm text-on-surface-variant mb-4">Foundations of Architecture</p>
-            <p class="text-sm text-on-background line-clamp-2 mb-4">Analyze spatial dynamics and urban design principles in contemporary architecture.</p>
-            
-            <div class="flex items-center justify-between pt-4 border-t border-outline">
-              <div class="flex items-center gap-1 text-sm text-on-surface-variant">
-                <span class="material-symbols-outlined text-base">calendar_today</span>
-                <span>Oct 24, 2023</span>
+
+            <!-- Assignment Card 1: Urgent -->
+            <div class="bg-surface p-6 rounded border border-outline hover:border-primary transition-all cursor-pointer group" onclick="openAssignment(1)">
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="w-full md:w-32 h-32 rounded overflow-hidden bg-surface-container-low shrink-0 relative">
+                  <img class="w-full h-full object-cover" data-alt="architectural sketch on drafting paper with wooden ruler and mechanical pencil in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-lJYnUelwWohccO7XTqcxEx-JeSdF1mUJ0HwO5DpJNV_lPvQFF_7F4o5dBJr-ulgV6gtFmBSwESjD3R7_IypFIfOiPeIIEgK6fLXe81u2TNiUjkZgbWEBJPjxfSb41B4EWY3aUWgYPFFcmwMxt9M_fk71prVwZn1KocW3kt4pJBpmQJSxnfIEni41BSzSsfOqzVO1sXNG_Qxu-z5SvZijgzaO5vY6yAhFcZ-fW-_It0AyB8-PVvAOU0CDF3X2JIbia0di4ylxuNW2" />
+                  <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between items-start mb-4">
+                    <div>
+                      <span class="text-xs font-bold uppercase tracking-wider text-error">Urgent Submission</span>
+                      <h3 class="text-xl font-bold text-on-background mt-1">Spatial Dynamics in Urban Design</h3>
+                      <p class="text-sm text-on-surface-variant mt-1">Foundations of Architecture • ARCH101</p>
+                    </div>
+                    <span class="bg-red-50 text-red-700 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">Pending</span>
+                  </div>
+                  <div class="mt-6 flex flex-wrap items-center gap-6">
+                    <div class="flex items-center gap-2 text-on-surface-variant text-sm">
+                      <span class="material-symbols-outlined text-base">calendar_today</span>
+                      <span class="font-semibold">October 24, 2023</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-on-surface-variant text-sm">
+                      <span class="material-symbols-outlined text-base">schedule</span>
+                      <span class="font-semibold text-error">14h Remaining</span>
+                    </div>
+                    <div class="flex-1 min-w-[120px]">
+                      <div class="h-1.5 w-full bg-surface-container-high rounded overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-primary to-primary-container w-[75%]"></div>
+                      </div>
+                    </div>
+                    <button class="text-primary font-bold text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      Open Assignment <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    </button>
+                  </div>
+                </div>
               </div>
-              <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </div>
+
+            <!-- Assignment Card 2: Submitted -->
+            <div class="bg-surface p-6 rounded border border-outline hover:border-primary transition-all cursor-pointer group" onclick="openAssignment(2)">
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="w-full md:w-32 h-32 rounded overflow-hidden bg-surface-container-low shrink-0 opacity-80">
+                  <img class="w-full h-full object-cover" data-alt="digital UI design components layout on a high resolution screen with blue and white color palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrLDv4V9lGKsbxhGWzGjwJ8uvt_IR7qp8iz6t_66teUr3PXrVMHKKHEsH24SlkzgyW9OCAyeXHh1db3K1pE3az7tMfe2veMQsEuOxlBfKGewjfHA7XRj3CijvOGp1g2jT4aXz26ApXxsAw1klFKFoJiozoxyZztIJA-mqCJ0z-y3lul5-Xcjtva6iIEOaOIHbzZelhJh1Ow8ssKz8bsGUPr3WqJCnHkdUQh0w_1orEWU9pxFbarJT_Vzb-NVJkfC9XUlj3OX1eDlX1" />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between items-start mb-4">
+                    <div>
+                      <span class="text-xs font-bold uppercase tracking-wider text-secondary">Awaiting Review</span>
+                      <h3 class="text-xl font-bold text-on-background mt-1">Interactivity & Visual Hierarchy</h3>
+                      <p class="text-sm text-on-surface-variant mt-1">Digital Media Studio • DMS204</p>
+                    </div>
+                    <span class="bg-green-50 text-green-700 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">Submitted</span>
+                  </div>
+                  <div class="mt-6 flex flex-wrap items-center gap-6">
+                    <div class="flex items-center gap-2 text-on-surface-variant text-sm">
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                      <span class="font-semibold">Submitted Oct 20</span>
+                    </div>
+                    <div class="flex-1"></div>
+                    <button class="bg-surface-container-lowest text-on-surface-variant font-bold text-xs px-4 py-2 rounded border border-outline/20 hover:bg-surface-container transition-colors" onclick="viewReceipt(2)">
+                      View Receipt
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Assignment Card 3: Standard -->
+            <div class="bg-surface p-6 rounded border border-outline hover:border-primary transition-all cursor-pointer group" onclick="openAssignment(3)">
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="w-full md:w-32 h-32 rounded overflow-hidden bg-surface-container-low shrink-0 relative">
+                  <img class="w-full h-full object-cover" data-alt="clean desk with open notebook and graphite pencils focus on textured paper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALFAWhO7SWwghJUteLVdpN8-XEeO6i1w6eE86bKpZnm7yEJJ5wnKxwPD5s_7tqYy3x_Bk7gSVDiBYl4TMqoFSXC2ccscL6wk6pKNIYxFSBWL3w-iPBYAYmBF16FGqTehzmJALzD4mDWF_-zwc7XFBFPyaxyrRJ3qLXMA-aOtK5PaCHVVE-JyrRRTPbPtew58vRd8OMzdCcgb4FOMi_5pAgaZw90GkaXPmXpB1DlTDSezgsNlgAq9PFaMV5B_aMcUQEMHUABAGC_JK9" />
+                  <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between items-start mb-4">
+                    <div>
+                      <span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Standard Task</span>
+                      <h3 class="text-xl font-bold text-on-background mt-1">Typography & Typeface History</h3>
+                      <p class="text-sm text-on-surface-variant mt-1">Visual Communications • VIS102</p>
+                    </div>
+                    <span class="bg-orange-50 text-orange-700 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">Pending</span>
+                  </div>
+                  <div class="mt-6 flex flex-wrap items-center gap-6">
+                    <div class="flex items-center gap-2 text-on-surface-variant text-sm">
+                      <span class="material-symbols-outlined text-base">calendar_today</span>
+                      <span class="font-semibold">November 02, 2023</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-on-surface-variant text-sm">
+                      <span class="material-symbols-outlined text-base">schedule</span>
+                      <span class="font-semibold">9 Days Remaining</span>
+                    </div>
+                    <div class="flex-1 min-w-[120px]">
+                      <div class="h-1.5 w-full bg-surface-container-high rounded overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-primary to-primary-container w-[10%]"></div>
+                      </div>
+                    </div>
+                    <button class="text-primary font-bold text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      Open Assignment <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="bg-white border border-outline rounded cursor-pointer hover:border-primary transition-colors group" onclick="openAssignment(2)">
-          <div class="p-6">
-            <div class="flex items-start justify-between mb-4">
-              <div>
-                <p class="text-xs font-bold text-primary uppercase tracking-wide mb-2">DMS204</p>
-                <h3 class="text-lg font-bold text-on-background">Interactivity & Visual Hierarchy</h3>
-              </div>
-              <span class="inline-block px-3 py-1 text-xs font-bold rounded bg-green-50 text-green-700">Submitted</span>
-            </div>
-            
-            <p class="text-sm text-on-surface-variant mb-4">Digital Media Studio</p>
-            <p class="text-sm text-on-background line-clamp-2 mb-4">Create interactive digital media layouts with proper visual hierarchy.</p>
-            
-            <div class="flex items-center justify-between pt-4 border-t border-outline">
-              <div class="flex items-center gap-1 text-sm text-on-surface-variant">
-                <span class="material-symbols-outlined text-base">check_circle</span>
-                <span>Oct 20, 2023</span>
-              </div>
-              <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="bg-white border border-outline rounded cursor-pointer hover:border-primary transition-colors group" onclick="openAssignment(3)">
-          <div class="p-6">
-            <div class="flex items-start justify-between mb-4">
-              <div>
-                <p class="text-xs font-bold text-primary uppercase tracking-wide mb-2">VIS102</p>
-                <h3 class="text-lg font-bold text-on-background">Typography & Typeface History</h3>
-              </div>
-              <span class="inline-block px-3 py-1 text-xs font-bold rounded bg-orange-50 text-orange-700">Pending</span>
-            </div>
-            
-            <p class="text-sm text-on-surface-variant mb-4">Visual Communications</p>
-            <p class="text-sm text-on-background line-clamp-2 mb-4">Comprehensive study of typography history and contemporary typeface design.</p>
-            
-            <div class="flex items-center justify-between pt-4 border-t border-outline">
-              <div class="flex items-center gap-1 text-sm text-on-surface-variant">
-                <span class="material-symbols-outlined text-base">calendar_today</span>
-                <span>Nov 02, 2023</span>
-              </div>
-              <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            </div>
-          </div>
-        </div>
-          </section>
-
-          <!-- Sidebar Stats -->
-          <aside class="col-span-4 flex flex-col gap-8" aria-label="Assignments summary">
-
-            <!-- Assignments Summary -->
-            <section class="bg-tertiary p-8 text-on-tertiary">
-              <h3 class="text-[10px] font-mono uppercase tracking-[0.2em] mb-8 text-slate-400">Assignments Summary</h3>
-              <dl class="flex flex-col gap-4">
-                <div class="flex justify-between items-end border-b border-slate-800 pb-2">
-                  <dt class="text-[10px] uppercase font-bold">Pending</dt>
-                  <dd class="text-3xl font-extrabold tracking-tighter text-primary-container">02</dd>
-                </div>
-                <div class="flex justify-between items-end border-b border-slate-800 pb-2">
-                  <dt class="text-[10px] uppercase font-bold">Submitted</dt>
-                  <dd class="text-3xl font-extrabold tracking-tighter">01</dd>
-                </div>
-                <div class="flex justify-between items-end">
-                  <dt class="text-[10px] uppercase font-bold">Completion</dt>
-                  <dd class="text-3xl font-extrabold tracking-tighter text-blue-400">33%</dd>
-                </div>
-              </dl>
-            </section>
+          <!-- Sidebar Content (4 columns) -->
+          <div class="xl:col-span-4 space-y-8">
 
             <!-- Upcoming Deadlines -->
-            <section class="bg-white p-8 border border-outline border-opacity-30">
-              <h3 class="text-[10px] font-mono uppercase tracking-[0.2em] mb-6 text-primary font-bold">Upcoming Deadlines</h3>
-              <ul class="space-y-4">
-                <li class="border-l-2 border-primary pl-4">
-                  <p class="text-[10px] font-bold uppercase text-on-surface">Spatial Dynamics Paper</p>
-                  <time class="text-[10px] font-mono text-slate-500 uppercase">Oct 24, 2023</time>
-                </li>
-                <li class="border-l-2 border-outline pl-4">
-                  <p class="text-[10px] font-bold uppercase text-on-surface">Typography Final Case</p>
-                  <time class="text-[10px] font-mono text-slate-500 uppercase">Nov 02, 2023</time>
-                </li>
-              </ul>
-            </section>
-          </aside>
+            <div class="bg-surface p-6 rounded border border-outline">
+              <h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-6">Upcoming Deadlines</h3>
+              <div class="space-y-6">
+                <div class="flex gap-4">
+                  <div class="w-12 h-12 bg-surface-container rounded flex flex-col items-center justify-center shrink-0 shadow-sm">
+                    <span class="text-xs font-bold text-on-surface-variant">OCT</span>
+                    <span class="font-bold text-primary">24</span>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-on-background leading-tight">Spatial Dynamics Paper</p>
+                    <p class="text-xs text-on-surface-variant mt-1">11:59 PM Submission</p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <div class="w-12 h-12 bg-surface-container rounded flex flex-col items-center justify-center shrink-0 shadow-sm">
+                    <span class="text-xs font-bold text-on-surface-variant">OCT</span>
+                    <span class="font-bold text-on-background">28</span>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-on-background leading-tight">Peer Review: Session 04</p>
+                    <p class="text-xs text-on-surface-variant mt-1">In-class Collaboration</p>
+                  </div>
+                </div>
+                <div class="flex gap-4 opacity-60">
+                  <div class="w-12 h-12 bg-surface-container rounded flex flex-col items-center justify-center shrink-0 shadow-sm">
+                    <span class="text-xs font-bold text-on-surface-variant">NOV</span>
+                    <span class="font-bold text-on-background">02</span>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-on-background leading-tight">Typography Final Case</p>
+                    <p class="text-xs text-on-surface-variant mt-1">Portfolio Milestone</p>
+                  </div>
+                </div>
+              </div>
+              <button id="viewScheduleBtn" class="w-full mt-8 py-3 text-primary border border-primary/20 rounded text-xs font-bold hover:bg-primary-fixed transition-colors">
+                View Full Schedule
+              </button>
+            </div>
+
+            <!-- Faculty Feedback -->
+            <div class="bg-tertiary text-on-tertiary p-6 rounded shadow-lg overflow-hidden relative">
+              <div class="absolute -right-4 -bottom-4 opacity-20 transform rotate-12 pointer-events-none">
+                <span class="material-symbols-outlined text-9xl">forum</span>
+              </div>
+              <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 relative z-10">Faculty Feedback</h3>
+              <p class="text-sm font-normal leading-relaxed relative z-10 italic">
+                "Excellent use of white space in your last module. Focus on the grid consistency for the next submission."
+              </p>
+              <div class="mt-6 flex items-center gap-3 relative z-10">
+                <img class="w-10 h-10 rounded-full border-2 border-white/20 object-cover" data-alt="portrait of a confident woman professor with silver hair and scholarly expression in a library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_tt3eMXKuIdm0q3OHz-FAr0W3hhvngmO3TEYjamcTqMW1FsYWELQBGNJtmw9CMsmdAgafVPI8kRwPsDQLvBRjN9KgncGslqM88v7_uGKNB21hvR2S1HmfneSlD6VcGVh-4idZAE_QsTVeZnate5-zPdkKjRjjefOXghA4dOf5UpWMQWIvbahRr1xZOxdfISFsrDzhn0bSlkeSEOyxqRyOTeSjGNPkfDP7DGskvskmhvHfW0o15nOANi9ZhFn-EUOMd9hbbydLYPP6" />
+                <div>
+                  <p class="text-xs font-bold">Dr. Elena Vos</p>
+                  <p class="text-xs opacity-80 uppercase tracking-tighter">Design Theory Lead</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Progress Vignette -->
+            <div class="bg-surface p-6 rounded border border-outline">
+              <h3 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">Semester Progress</h3>
+              <div class="relative h-32 flex items-center justify-center">
+                <svg class="w-24 h-24 transform -rotate-90">
+                  <circle class="text-surface-container-high" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+                  <circle class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="50" stroke-width="8"></circle>
+                </svg>
+                <div class="absolute flex flex-col items-center">
+                  <span class="text-xl font-extrabold text-on-background">80%</span>
+                  <span class="text-xs font-bold text-on-surface-variant uppercase">Course</span>
+                </div>
+              </div>
+              <div class="mt-4 grid grid-cols-2 gap-4">
+                <div class="text-center">
+                  <p class="text-lg font-bold text-on-background">3.82</p>
+                  <p class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Current GPA</p>
+                </div>
+                <div class="text-center border-l border-outline/20">
+                  <p class="text-lg font-bold text-on-background">42</p>
+                  <p class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Credits</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -330,6 +437,7 @@
   <script>
     // ===== DATA MANAGEMENT =====
     const STORAGE_KEY = 'classteams_tasks';
+    let currentViewMode = 'list'; // track current view mode
 
     // Initialize sample tasks in localStorage
     function initializeTasks() {
@@ -382,6 +490,88 @@
       window.location.href = `/assets/pages/DetailTeks.html?id=${taskId}`;
     }
 
+    // ===== BUTTON FUNCTIONS =====
+    
+    // Toggle Grid/List View
+    function toggleGridView() {
+      const gridBtn = document.getElementById('gridViewBtn');
+      const listBtn = document.getElementById('listViewBtn');
+      const assignmentsList = document.querySelector('.xl\\:col-span-8');
+      
+      currentViewMode = 'grid';
+      gridBtn.classList.add('text-primary', 'bg-primary-fixed');
+      gridBtn.classList.remove('text-on-surface-variant', 'hover:bg-surface-container');
+      listBtn.classList.remove('text-primary', 'bg-primary-fixed');
+      listBtn.classList.add('text-on-surface-variant', 'hover:bg-surface-container');
+      
+      // Change grid layout (would require HTML restructuring for true grid, so just show toast)
+      showNotification('Grid view activated', 'info');
+    }
+
+    function toggleListView() {
+      const gridBtn = document.getElementById('gridViewBtn');
+      const listBtn = document.getElementById('listViewBtn');
+      
+      currentViewMode = 'list';
+      listBtn.classList.add('text-primary', 'bg-primary-fixed');
+      listBtn.classList.remove('text-on-surface-variant', 'hover:bg-surface-container');
+      gridBtn.classList.remove('text-primary', 'bg-primary-fixed');
+      gridBtn.classList.add('text-on-surface-variant', 'hover:bg-surface-container');
+      
+      showNotification('List view activated', 'info');
+    }
+
+    // View Receipt for submitted assignment
+    function viewReceipt(taskId) {
+      const tasks = getTasks();
+      const task = tasks.find(t => t.id === taskId);
+      
+      if (task && task.status === 'Submitted') {
+        const receiptInfo = `
+Receipt for: ${task.title}
+Course: ${task.code}
+Submitted: ${task.deadline}
+Status: ${task.status}
+
+Thank you for your submission!
+        `;
+        showNotification(receiptInfo, 'success');
+        console.log('Receipt:', task);
+      } else {
+        showNotification('Receipt not available for this assignment', 'error');
+      }
+    }
+
+    // View Full Schedule
+    function viewFullSchedule() {
+      window.location.href = '/assets/pages/Schedule.html';
+    }
+
+    // Show notification toast
+    function showNotification(message, type = 'info') {
+      // Create toast element
+      const toast = document.createElement('div');
+      toast.className = `fixed bottom-6 right-6 px-6 py-4 rounded shadow-lg transition-all duration-300 z-50 max-w-sm`;
+      
+      // Set styling based on type
+      if (type === 'success') {
+        toast.classList.add('bg-green-50', 'text-green-700', 'border', 'border-green-200');
+      } else if (type === 'error') {
+        toast.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-200');
+      } else {
+        toast.classList.add('bg-blue-50', 'text-blue-700', 'border', 'border-blue-200');
+      }
+      
+      toast.innerHTML = `<p class="text-sm font-semibold">${message.replace(/\n/g, '<br>')}</p>`;
+      document.body.appendChild(toast);
+      
+      // Remove after 3 seconds
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
     // ===== SIDEBAR FUNCTIONALITY =====
     function initSidebarFunctionality() {
       // Add click handlers to sidebar nav items
@@ -428,10 +618,19 @@
       }
     }
 
-    // Initialize on page load
+    // ===== EVENT LISTENERS =====
     document.addEventListener('DOMContentLoaded', function() {
       initializeTasks();
       initSidebarFunctionality();
+
+      // Grid/List view buttons
+      const gridViewBtn = document.getElementById('gridViewBtn');
+      const listViewBtn = document.getElementById('listViewBtn');
+      const viewScheduleBtn = document.getElementById('viewScheduleBtn');
+
+      if (gridViewBtn) gridViewBtn.addEventListener('click', toggleGridView);
+      if (listViewBtn) listViewBtn.addEventListener('click', toggleListView);
+      if (viewScheduleBtn) viewScheduleBtn.addEventListener('click', viewFullSchedule);
     });
   </script>
 
