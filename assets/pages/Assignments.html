@@ -4,18 +4,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Task Detail - ClassTeams</title>
+  <title>ClassTeams | Assignments</title>
 
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="../public/navbar.css" />
-  <link rel="stylesheet" href="../public/styles.css" />
-  
-  <!-- Tailwind CSS -->
+  <!-- External Libraries -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Web Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
 
   <!-- Tailwind Configuration -->
   <script id="tailwind-config">
@@ -24,34 +20,62 @@
       theme: {
         extend: {
           colors: {
-            primary: "#2563EB",
-            "on-primary": "#ffffff",
-            "primary-container": "#DBEAFE",
-            "on-primary-container": "#1E40AF",
-            secondary: "#475569",
+            tertiary: "#943700",
+            "secondary-fixed-dim": "#b7c8e1",
+            "surface-container-low": "#f0f3ff",
+            "on-secondary-container": "#54647a",
+            secondary: "#505f76",
+            "inverse-primary": "#b4c5ff",
+            "tertiary-fixed": "#ffdbcd",
+            "secondary-container": "#d0e1fb",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "inverse-on-surface": "#ecf1ff",
+            background: "#f9f9ff",
+            "tertiary-fixed-dim": "#ffb596",
+            "on-primary-fixed": "#00174b",
+            "on-surface-variant": "#434655",
+            "surface-tint": "#0053db",
+            "tertiary-container": "#bc4800",
+            primary: "#004ac6",
+            "on-secondary-fixed-variant": "#38485d",
+            surface: "#f9f9ff",
+            "primary-container": "#2563eb",
+            "outline-variant": "#c3c6d7",
+            "surface-bright": "#f9f9ff",
+            "inverse-surface": "#263143",
+            "on-primary-fixed-variant": "#003ea8",
+            "surface-variant": "#d8e3fb",
+            "surface-container": "#e7eeff",
+            "primary-fixed-dim": "#b4c5ff",
+            "surface-container-high": "#dee8ff",
+            "on-secondary-fixed": "#0b1c30",
             "on-secondary": "#ffffff",
-            background: "#F8FAFC",
-            "on-background": "#0F172A",
-            surface: "#ffffff",
-            "on-surface": "#0F172A",
-            "surface-variant": "#F1F5F9",
-            "on-surface-variant": "#334155",
-            outline: "#CBD5E1",
-            "outline-variant": "#E2E8F0",
-            "surface-container-low": "#F8FAFC",
-            "surface-container": "#F1F5F9",
-            "surface-container-high": "#E2E8F0",
-            "surface-container-highest": "#CBD5E1",
-            error: "#DC2626",
+            "primary-fixed": "#dbe1ff",
+            outline: "#737686",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#eeefff",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#360f00",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#ffede6",
+            "on-background": "#111c2d",
+            "on-error-container": "#93000a",
+            "surface-dim": "#cfdaf2",
+            "surface-container-highest": "#d8e3fb",
+            error: "#ba1a1a",
+            "secondary-fixed": "#d3e4fe",
+            "on-surface": "#111c2d",
           },
           borderRadius: {
-            DEFAULT: "0px",
-            lg: "0px",
-            xl: "0px",
-            full: "0px",
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
           },
           fontFamily: {
-            headline: ["Inter"],
+            headline: ["Manrope"],
             body: ["Inter"],
             label: ["Inter"],
           },
@@ -59,495 +83,376 @@
       },
     };
   </script>
-
-  <!-- Styles -->
+  <!-- Custom Styles -->
   <style>
     .material-symbols-outlined {
-      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
 
-    body {
-      font-family: "Inter", sans-serif;
-      border-radius: 0 !important;
+    .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
     }
 
-    * {
-      border-radius: 0 !important;
+    .editorial-shadow {
+      box-shadow: 0 8px 32px rgba(17, 28, 45, 0.06);
     }
   </style>
 </head>
-<body class="bg-background text-on-background min-h-screen flex">
+<body class="bg-surface font-body text-on-surface">
 
-  <!-- Side Navigation Bar -->
-  <nav class="sidebar">
-    
+  <!-- ===== TOP NAVIGATION ===== -->
+  <nav class="flex justify-between items-center px-8 h-16 w-full bg-[#f9f9ff] dark:bg-slate-950 font-manrope tracking-tight border-b-0 sticky top-0 z-50">
+    <div class="flex items-center gap-8">
+      <!-- Brand Logo -->
+      <span class="text-xl font-bold text-[#004ac6] dark:text-blue-400">ClassTeams</span>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex gap-6 h-full items-center">
+        <a class="text-[#004ac6] border-b-2 border-[#004ac6] h-full flex items-center px-2 cursor-pointer active:opacity-80 transition-opacity" href="#">Assignments</a>
+        <a class="text-[#434655] dark:text-slate-400 hover:text-[#2563eb] transition-colors cursor-pointer active:opacity-80 transition-opacity" href="#">Schedule</a>
+        <a class="text-[#434655] dark:text-slate-400 hover:text-[#2563eb] transition-colors cursor-pointer active:opacity-80 transition-opacity" href="#">Resources</a>
+      </div>
+    </div>
+
+    <!-- Header Actions -->
+    <div class="flex items-center gap-4">
+      <!-- Search Bar -->
+      <div class="relative hidden sm:block">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+        <input class="bg-surface-container-lowest border-none ring-1 ring-outline-variant/15 rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary-fixed w-64 outline-none transition-all" placeholder="Search curriculum..." type="text" />
+      </div>
+
+      <!-- Icon Buttons -->
+      <span class="material-symbols-outlined text-on-surface-variant cursor-pointer">notifications</span>
+      <span class="material-symbols-outlined text-on-surface-variant cursor-pointer">help</span>
+
+      <!-- User Avatar -->
+      <img class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-fixed" data-alt="close-up portrait of a professional young man with short dark hair in a bright studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXn2MOkqTABjFNjtNlunx0q2GUP3IGMAxkUGnUU3xZBRVLGn6PXJCblcbDe5tPO-GBDlGQevDy1O23evJJXp3_LSaQ3kMFXm8IXOZ3KfuyYSdCqcGTP-pzfLLaRnwFlrHMXQDuo6PjDn7AL9PurochGtvMY224-oCK5_ISdm6leK2VigVOTsBPGKLiQwm49YffufuhYyYfvb5T_isETY2yx_5Jr2b-MaDUsmDSG0H_48sBjaTsUWsEXGWxqhCRM6uku2QuJBe0tXi3" />
+    </div>
+  </nav>
+  <!-- ===== SIDEBAR NAVIGATION ===== -->
+  <aside class="hidden lg:flex flex-col py-6 border-r-0 h-screen w-64 fixed left-0 top-0 bg-[#f0f3ff] dark:bg-slate-900 z-40">
     <!-- Brand Section -->
-    <header class="sidebar-header">
-      <h2 class="sidebar-header-title">Navigation</h2>
-      <p class="sidebar-header-subtitle">Academic Ledger</p>
-    </header>
+    <div class="px-6 mb-10">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">architecture</span>
+        </div>
+        <div>
+          <h2 class="text-[#111c2d] dark:text-white font-extrabold text-lg leading-none">The Atelier</h2>
+          <p class="text-[10px] uppercase tracking-widest text-on-surface-variant mt-1">Precision Learning</p>
+        </div>
+      </div>
+    </div>
 
     <!-- Navigation Menu -->
-    <nav class="sidebar-nav">
-      <ul class="sidebar-nav-list">
-        <!-- Dashboard -->
-        <li>
-          <a href="../public/index.html" class="sidebar-nav-item" data-page="dashboard">
-            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="dashboard">dashboard</span>
-            <span class="sidebar-nav-text">Dashboard</span>
-          </a>
-        </li>
-
-        <!-- Assignments (Active) -->
-        <li>
-          <a href="./Assignments.html" class="sidebar-nav-item" data-page="assignments">
-            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="assignment">assignment</span>
-            <span class="sidebar-nav-text">Assignments</span>
-          </a>
-        </li>
-
-        <!-- Schedule -->
-        <li>
-          <a href="./Schedule.html" class="sidebar-nav-item" data-page="schedule">
-            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="calendar_today">calendar_today</span>
-            <span class="sidebar-nav-text">Schedule</span>
-          </a>
-        </li>
-
-        <!-- Resources -->
-        <li>
-          <a href="./Resources.html" class="sidebar-nav-item" data-page="resources">
-            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="folder">folder</span>
-            <span class="sidebar-nav-text">Resources</span>
-          </a>
-        </li>
-      </ul>
+    <nav class="flex-1 space-y-1">
+      <a class="flex items-center gap-3 px-6 py-3 text-[#004ac6] dark:text-blue-400 border-r-4 border-[#004ac6] bg-white/50 dark:bg-white/5 font-manrope font-semibold text-sm hover:translate-x-1 transition-transform" href="#">
+        <span class="material-symbols-outlined">assignment</span>
+        <span>Assignments</span>
+      </a>
+      <a class="flex items-center gap-3 px-6 py-3 text-[#434655] dark:text-slate-400 font-manrope font-semibold text-sm hover:bg-[#dee8ff] dark:hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="#">
+        <span class="material-symbols-outlined">calendar_today</span>
+        <span>Schedule</span>
+      </a>
+      <a class="flex items-center gap-3 px-6 py-3 text-[#434655] dark:text-slate-400 font-manrope font-semibold text-sm hover:bg-[#dee8ff] dark:hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="#">
+        <span class="material-symbols-outlined">folder_open</span>
+        <span>Resources</span>
+      </a>
+      <a class="flex items-center gap-3 px-6 py-3 text-[#434655] dark:text-slate-400 font-manrope font-semibold text-sm hover:bg-[#dee8ff] dark:hover:bg-slate-800 transition-all duration-200 hover:translate-x-1" href="#">
+        <span class="material-symbols-outlined">settings</span>
+        <span>Settings</span>
+      </a>
     </nav>
 
-    <!-- Settings Footer -->
-    <footer class="sidebar-footer">
-      <ul class="sidebar-footer-list">
-        <li>
-          <a href="./Settings.html" class="sidebar-nav-item" data-page="settings">
-            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="settings">settings</span>
-            <span class="sidebar-nav-text">Settings</span>
-          </a>
-        </li>
-      </ul>
-    </footer>
-
-  </nav>
-  
-  <!-- Main Content -->
-  <main class="flex-grow ml-64 flex flex-col min-h-screen">
-
-    <!-- Top App Bar -->
-    <header class="flex items-center justify-between px-8 py-4 w-full bg-white dark:bg-slate-900 border-b border-outline-variant border-opacity-30 sticky top-0 z-40">
-      <hgroup class="flex items-center gap-12">
-        <!-- App Title -->
-        <h1 class="text-xl font-bold tracking-tighter text-primary">ClassTeams</h1>
-
-        <!-- Search Bar -->
-        <form class="relative w-64" role="search">
-          <label for="search-input" class="sr-only">Search entities</label>
-          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none" data-icon="search">search</span>
-          <input id="search-input" class="w-full bg-slate-50 border border-outline-variant border-opacity-40 px-10 py-2 text-[10px] font-mono focus:outline-none focus:border-primary uppercase tracking-wider" placeholder="SEARCH ENTITIES..." type="text" />
-        </form>
-      </hgroup>
-
-      <!-- Header Actions -->
-      <nav aria-label="User actions" class="flex items-center gap-6">
-        <button class="text-slate-500 hover:text-primary transition-colors duration-150" aria-label="Notifications">
-          <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-        </button>
-        <button class="text-slate-500 hover:text-primary transition-colors duration-150" aria-label="User profile">
-          <span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
-        </button>
-      </nav>
-    </header>
-
-    <!-- Main Content Canvas -->
-    <section class="p-12 flex-grow bg-background">
-      <div class="max-w-6xl mx-auto">
-      <!-- Back Button -->
-      <button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-8 group" onclick="goBack()" title="Back to Ledger">
-        <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
-        <span class="label-sm font-bold uppercase tracking-widest text-[10px]">Back to ledger</span>
+    <!-- Footer Section -->
+    <div class="px-6 mt-auto pt-6 space-y-4">
+      <button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 editorial-shadow active:scale-95 transition-all">
+        <span class="material-symbols-outlined text-sm">add</span>
+        New Submission
       </button>
-
-      <!-- Task Content Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-        <!-- Main Content Column -->
-        <div class="lg:col-span-8">
-          <!-- Task Category -->
-          <span class="label-sm font-bold uppercase tracking-widest text-[10px] text-primary mb-2 block">
-            Task Category: Structural Analysis
-          </span>
-
-          <!-- Task Title -->
-          <h1 class="text-5xl font-extrabold tracking-tighter mb-8 leading-none text-on-background">
-            THE IMPACT OF CANTILEVER SYSTEMS ON URBAN BRUTALISM
-          </h1>
-
-          <!-- Task Description -->
-          <div class="prose max-w-none text-on-surface-variant leading-relaxed mb-12">
-            <p class="mb-6">
-              This task requires a comprehensive structural breakdown of the central cantilever mechanisms used in the secondary wing of the Academic Ledger complex. Students must analyze the load-bearing requirements and provide a detailed blueprint revision including material stress tests.
-            </p>
-            <p>
-              Final submissions must be rendered in grayscale architectural format, adhering to the 0px radius mandate of the structural ledger system. Late submissions will be flagged in the audit system.
-            </p>
-          </div>
-
-          <!-- Attachments Section -->
-          <div class="space-y-4">
-            <span class="label-sm font-bold uppercase tracking-widest text-[10px] text-on-surface-variant">Attachments</span>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <!-- Attachment 1 -->
-              <div class="bg-white border border-outline-variant p-6 flex items-center justify-between group cursor-pointer hover:border-primary transition-colors" onclick="downloadFile('STRUCTURAL_SPEC_V2.PDF')">
-                <div class="flex items-center gap-4">
-                  <span class="material-symbols-outlined text-primary" data-icon="description">description</span>
-                  <div>
-                    <p class="text-sm font-bold tracking-tight text-on-surface">STRUCTURAL_SPEC_V2.PDF</p>
-                    <p class="text-[10px] text-on-surface-variant uppercase font-mono">14.2 MB</p>
-                  </div>
-                </div>
-                <span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</span>
-              </div>
-
-              <!-- Attachment 2 -->
-              <div class="bg-white border border-outline-variant p-6 flex items-center justify-between group cursor-pointer hover:border-primary transition-colors" onclick="downloadFile('SITE_MAP_RENDER.PNG')">
-                <div class="flex items-center gap-4">
-                  <span class="material-symbols-outlined text-primary" data-icon="image">image</span>
-                  <div>
-                    <p class="text-sm font-bold tracking-tight text-on-surface">SITE_MAP_RENDER.PNG</p>
-                    <p class="text-[10px] text-on-surface-variant uppercase font-mono">2.8 MB</p>
-                  </div>
-                </div>
-                <span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Sidebar Column -->
-        <div class="lg:col-span-4 space-y-12">
-          <!-- Deadline Section -->
-          <div class="bg-primary-container p-8">
-            <span class="label-sm font-bold uppercase tracking-widest text-[10px] text-on-primary-container mb-6 block">
-              Deadline Information
-            </span>
-            <div class="flex items-end gap-2 mb-2 text-on-primary-container">
-              <span class="text-4xl font-extrabold tracking-tighter">OCT 24</span>
-              <span class="text-lg font-bold opacity-60 pb-1">/ 2024</span>
-            </div>
-            <p class="text-[10px] font-mono uppercase tracking-tighter mb-8 text-on-primary-container opacity-80">
-              submission window closes at 23:59 GMT
-            </p>
-
-            <!-- Action Buttons -->
-            <div class="space-y-4">
-              <!-- Upload Button -->
-              <button class="w-full bg-primary text-on-primary p-4 text-center transition-colors hover:bg-blue-700" onclick="openUploadModal()" title="Upload Assignment">
-                <span class="label-md font-bold uppercase tracking-widest">Upload Assignment</span>
-              </button>
-
-              <!-- Request Extension Button -->
-              <button class="w-full border border-on-primary-container text-on-primary-container p-4 text-center transition-colors hover:bg-white/20" onclick="requestExtension()" title="Request Extension">
-                <span class="label-md font-bold uppercase tracking-widest">Request Extension</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Facilitator Section -->
-          <div class="border-l-4 border-primary pl-8 py-4">
-            <span class="label-sm font-bold uppercase tracking-widest text-[10px] text-on-surface-variant mb-4 block">
-              Assigned Facilitator
-            </span>
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-surface-container-highest overflow-hidden">
-                <img class="w-full h-full object-cover" alt="Portrait of Professor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP3aZl2OwrjO9CD55dDp0YuBuDbIizgVf0B0rSshow4014weevFrX7W8IK34hCL7-__GHxAqsJWjZREa79QxZuF8osDJR2ztHySVH9U92s6cU36otq7OJ3gCxNOn52SHdemPf9UvN5HKDjQrFDhC20ynZcN_4pOjH6Km85GTQZ1mjUdOo7S0oG-tJZSK0Zq89RviB86cRWbqDmAdzFdKU8kovuH6d0Df_44YrR-mr26KWyw5U6D1VpzBjVXxy9QoQfxq07gzOHNgCy" />
-              </div>
-              <div>
-                <p class="text-sm font-bold tracking-tight text-on-surface">DR. ELIAS VANCE</p>
-                <p class="text-[10px] text-on-surface-variant uppercase font-mono">Structural Engineering Dept.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Status Section -->
-          <div class="bg-white border border-outline-variant p-8 shadow-sm">
-            <span class="label-sm font-bold uppercase tracking-widest text-[10px] text-on-surface-variant mb-4 block">
-              System Status
-            </span>
-            <div class="flex items-center gap-3">
-              <div class="w-2 h-2 bg-secondary/30"></div>
-              <span class="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant">
-                Pending Submission
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <a class="flex items-center gap-3 py-3 text-[#434655] dark:text-slate-400 font-manrope font-semibold text-sm hover:bg-[#dee8ff] transition-all" href="#">
+        <span class="material-symbols-outlined">contact_support</span>
+        <span>Support</span>
+      </a>
     </div>
-  </main>
+  </aside>
+  <!-- ===== MAIN CONTENT AREA ===== -->
+  <main class="lg:pl-64 min-h-screen">
+    <div class="max-w-7xl mx-auto px-8 py-12">
 
-  <!-- Upload Modal Pop-out -->
-  <div id="uploadModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center overflow-y-auto">
-    <div class="bg-white w-full max-w-4xl my-auto relative">
-      <!-- Modal Header -->
-      <header class="bg-white border-b border-outline-variant flex items-center justify-between px-8 py-4 sticky top-0">
-        <div class="flex items-center gap-4">
-         
+      <!-- Hero Header Section -->
+      <header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <span class="label-sm text-on-surface-variant tracking-[0.1em] font-semibold uppercase">Workspace Overview</span>
+          <h1 class="font-headline text-[3.5rem] leading-[1.1] font-extrabold tracking-tighter text-on-surface mt-2">Active Assignments.</h1>
+          <p class="text-on-surface-variant mt-4 text-lg font-light leading-relaxed">
+            Refining the craft through intentional practice. Manage your ongoing projects and track progress across the curriculum.
+          </p>
         </div>
-        <button class="text-on-surface-variant hover:text-primary transition-colors" onclick="closeUploadModal()" aria-label="Close">
-          <span class="material-symbols-outlined" data-icon="close">close</span>
-        </button>
+
+        <!-- Completion Stats -->
+        <div class="flex gap-4">
+          <div class="bg-surface-container-high px-6 py-4 rounded-xl flex flex-col min-w-[140px]">
+            <span class="text-[0.65rem] font-bold uppercase tracking-widest text-on-surface-variant">Completed</span>
+            <span class="text-3xl font-headline font-extrabold text-primary">12/15</span>
+          </div>
+        </div>
       </header>
 
-      <!-- Modal Content -->
-      <main class="flex flex-col items-center justify-start pt-12 px-6 pb-12 max-h-[calc(100vh-120px)] overflow-y-auto">
-        <div class="w-full max-w-3xl flex flex-col gap-12">
-          <div class="flex flex-col gap-2">
-            <p class="text-[10px] font-bold tracking-widest uppercase text-primary">Assignment Portal</p>
-            <h1 class="text-5xl font-extrabold tracking-tight text-on-background">Upload Assignment</h1>
+      <!-- Main Grid Layout -->
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+        <!-- Main Assignments Column -->
+        <div class="xl:col-span-8 space-y-6">
+          <!-- Section Header -->
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-2xl font-headline font-bold text-on-surface">Upcoming Submissions</h2>
+            <div class="flex gap-2">
+              <span class="material-symbols-outlined p-2 text-on-surface-variant cursor-pointer hover:bg-surface-container rounded-full">grid_view</span>
+              <span class="material-symbols-outlined p-2 text-primary bg-primary-fixed rounded-full cursor-pointer">list</span>
+            </div>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-            <!-- Upload Area -->
-            <div class="md:col-span-8 flex flex-col gap-8">
-              <div class="border border-dashed border-outline-variant bg-primary-container p-16 flex flex-col items-center justify-center text-center gap-4 group hover:bg-surface-container-high transition-colors cursor-pointer" onclick="triggerFileInput()">
-                <span class="material-symbols-outlined text-4xl text-primary" data-icon="upload_file">upload_file</span>
-                <div class="flex flex-col gap-1">
-                  <p class="text-lg font-medium text-on-background">Drag and drop your files here</p>
-                  <p class="text-sm text-on-surface-variant">PDF, DOCX, or ZIP files up to 50MB</p>
-                </div>
-                <button class="mt-4 bg-white border border-primary text-primary px-6 py-2 text-sm font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-all" type="button">
-                  Choose File
-                </button>
-                <input type="file" id="fileInput" class="hidden" accept=".pdf,.doc,.docx,.zip" onchange="handleFileSelect(event)" />
+
+          <!-- Assignment Card: Urgent -->
+          <div class="bg-surface-container-lowest p-6 rounded-xl editorial-shadow group hover:ring-2 ring-primary-fixed transition-all cursor-pointer">
+            <div class="flex flex-col md:flex-row gap-6">
+              <div class="w-full md:w-32 h-32 rounded-lg overflow-hidden bg-surface-container-low shrink-0 relative">
+                <img class="w-full h-full object-cover" data-alt="architectural sketch on drafting paper with wooden ruler and mechanical pencil in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-lJYnUelwWohccO7XTqcxEx-JeSdF1mUJ0HwO5DpJNV_lPvQFF_7F4o5dBJr-ulgV6gtFmBSwESjD3R7_IypFIfOiPeIIEgK6fLXe81u2TNiUjkZgbWEBJPjxfSb41B4EWY3aUWgYPFFcmwMxt9M_fk71prVwZn1KocW3kt4pJBpmQJSxnfIEni41BSzSsfOqzVO1sXNG_Qxu-z5SvZijgzaO5vY6yAhFcZ-fW-_It0AyB8-PVvAOU0CDF3X2JIbia0di4ylxuNW2" />
+                <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
               </div>
-              <div id="uploadProgress" class="hidden flex flex-col gap-4 bg-surface-container-high p-6">
-                <div class="flex justify-between items-end">
-                  <div class="flex flex-col gap-1">
-                    <span class="text-[10px] font-mono uppercase tracking-tighter text-on-surface-variant">Current Queue</span>
-                    <p id="fileName" class="text-sm font-bold text-on-background">file.pdf</p>
+
+              <div class="flex-1">
+                <!-- Card Header -->
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-[0.65rem] font-bold uppercase tracking-[0.1em] text-tertiary">Urgent Submission</span>
+                    <h3 class="text-xl font-headline font-bold text-on-surface mt-1">Spatial Dynamics in Urban Design</h3>
+                    <p class="text-sm text-on-surface-variant mt-1">Foundations of Architecture • ARCH101</p>
                   </div>
-                  <span id="uploadPercent" class="text-xs font-mono text-primary font-bold">0%</span>
+                  <span class="bg-error-container text-on-error-container px-3 py-1 rounded-full text-[0.65rem] font-bold uppercase tracking-wider">Pending</span>
                 </div>
-                <div class="w-full h-1 bg-surface-container-highest">
-                  <div id="uploadBar" class="h-full bg-primary transition-all" style="width: 0%;"></div>
+
+                <!-- Card Footer -->
+                <div class="mt-6 flex flex-wrap items-center gap-6">
+                  <div class="flex items-center gap-2 text-on-surface-variant">
+                    <span class="material-symbols-outlined text-sm">calendar_today</span>
+                    <span class="text-xs font-semibold">October 24, 2023</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-on-surface-variant">
+                    <span class="material-symbols-outlined text-sm">schedule</span>
+                    <span class="text-xs font-semibold text-error">14h Remaining</span>
+                  </div>
+                  <div class="flex-1 min-w-[120px]">
+                    <div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+                      <div class="h-full bg-gradient-to-r from-primary to-primary-container w-[75%] rounded-full"></div>
+                    </div>
+                  </div>
+                  <button class="text-primary font-bold text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    Open Assignment <span class="material-symbols-outlined text-sm">chevron_right</span>
+                  </button>
                 </div>
               </div>
             </div>
-            <!-- Metadata Section -->
-            <div class="md:col-span-4 flex flex-col gap-6">
-              <div class="bg-white border border-outline-variant p-6 flex flex-col gap-4">
-                <h2 class="text-sm font-bold uppercase tracking-widest text-on-background">Metadata</h2>
-                <div class="flex flex-col gap-4">
+          </div>
+
+          <!-- Assignment Card: Submitted -->
+          <div class="glass-card bg-success-container/20 p-6 rounded-xl ring-1 ring-outline-variant/15 group transition-all">
+            <div class="flex flex-col md:flex-row gap-6">
+              <div class="w-full md:w-32 h-32 rounded-lg overflow-hidden bg-surface-container-low shrink-0 opacity-80">
+                <img class="w-full h-full object-cover" data-alt="digital UI design components layout on a high resolution screen with blue and white color palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrLDv4V9lGKsbxhGWzGjwJ8uvt_IR7qp8iz6t_66teUr3PXrVMHKKHEsH24SlkzgyW9OCAyeXHh1db3K1pE3az7tMfe2veMQsEuOxlBfKGewjfHA7XRj3CijvOGp1g2jT4aXz26ApXxsAw1klFKFoJiozoxyZztIJA-mqCJ0z-y3lul5-Xcjtva6iIEOaOIHbzZelhJh1Ow8ssKz8bsGUPr3WqJCnHkdUQh0w_1orEWU9pxFbarJT_Vzb-NVJkfC9XUlj3OX1eDlX1" />
+              </div>
+
+              <div class="flex-1">
+                <!-- Card Header -->
+                <div class="flex justify-between items-start">
                   <div>
-                    <label class="text-[10px] font-bold tracking-widest uppercase mb-1 block text-on-surface-variant">Course ID</label>
-                    <p class="text-sm font-medium text-on-background">ARC-402-2024</p>
+                    <span class="text-[0.65rem] font-bold uppercase tracking-[0.1em] text-secondary">Awaiting Review</span>
+                    <h3 class="text-xl font-headline font-bold text-on-surface mt-1">Interactivity &amp; Visual Hierarchy</h3>
+                    <p class="text-sm text-on-surface-variant mt-1">Digital Media Studio • DMS204</p>
                   </div>
-                  <div>
-                    <label class="text-[10px] font-bold tracking-widest uppercase mb-1 block text-on-surface-variant">Due Date</label>
-                    <p class="text-sm font-medium text-on-background">Oct 24, 2024 • 23:59</p>
+                  <span class="bg-[#DCFCE7] text-[#166534] px-3 py-1 rounded-full text-[0.65rem] font-bold uppercase tracking-wider">Submitted</span>
+                </div>
+
+                <!-- Card Footer -->
+                <div class="mt-6 flex flex-wrap items-center gap-6">
+                  <div class="flex items-center gap-2 text-on-surface-variant">
+                    <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    <span class="text-xs font-semibold">Submitted Oct 20</span>
                   </div>
+                  <div class="flex-1"></div>
+                  <button class="bg-surface-container-lowest text-on-surface-variant font-bold text-xs px-4 py-2 rounded-lg border border-outline-variant/20">
+                    View Receipt
+                  </button>
                 </div>
               </div>
-              <button class="w-full bg-primary text-on-primary py-4 font-bold uppercase tracking-[0.2em] text-sm hover:bg-blue-700 transition-colors shadow-sm" onclick="submitUpload()">
-                Upload
-              </button>
-              <div class="flex items-start gap-3 p-4 bg-tertiary border-l-4 border-primary">
-                <span class="material-symbols-outlined text-error text-sm mt-0.5" data-icon="info">info</span>
-                <p class="text-[10px] font-medium leading-relaxed text-error">
-                  By uploading this file, you confirm that this work is your own and adheres to the academic integrity ledger of ClassTeams.
-                </p>
+            </div>
+          </div>
+
+          <!-- Assignment Card: Standard -->
+          <div class="bg-surface-container-lowest p-6 rounded-xl editorial-shadow group hover:ring-2 ring-primary-fixed transition-all cursor-pointer">
+            <div class="flex flex-col md:flex-row gap-6">
+              <div class="w-full md:w-32 h-32 rounded-lg overflow-hidden bg-surface-container-low shrink-0 relative">
+                <img class="w-full h-full object-cover" data-alt="clean desk with open notebook and graphite pencils focus on textured paper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALFAWhO7SWwghJUteLVdpN8-XEeO6i1w6eE86bKpZnm7yEJJ5wnKxwPD5s_7tqYy3x_Bk7gSVDiBYl4TMqoFSXC2ccscL6wk6pKNIYxFSBWL3w-iPBYAYmBF16FGqTehzmJALzD4mDWF_-zwc7XFBFPyaxyrRJ3qLXMA-aOtK5PaCHVVE-JyrRRTPbPtew58vRd8OMzdCcgb4FOMi_5pAgaZw90GkaXPmXpB1DlTDSezgsNlgAq9PFaMV5B_aMcUQEMHUABAGC_JK9" />
+                <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+              </div>
+
+              <div class="flex-1">
+                <!-- Card Header -->
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-[0.65rem] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Standard Task</span>
+                    <h3 class="text-xl font-headline font-bold text-on-surface mt-1">Typography &amp; Typeface History</h3>
+                    <p class="text-sm text-on-surface-variant mt-1">Visual Communications • VIS102</p>
+                  </div>
+                  <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[0.65rem] font-bold uppercase tracking-wider">Pending</span>
+                </div>
+
+                <!-- Card Footer -->
+                <div class="mt-6 flex flex-wrap items-center gap-6">
+                  <div class="flex items-center gap-2 text-on-surface-variant">
+                    <span class="material-symbols-outlined text-sm">calendar_today</span>
+                    <span class="text-xs font-semibold">November 02, 2023</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-on-surface-variant">
+                    <span class="material-symbols-outlined text-sm">schedule</span>
+                    <span class="text-xs font-semibold">9 Days Remaining</span>
+                  </div>
+                  <div class="flex-1 min-w-[120px]">
+                    <div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+                      <div class="h-full bg-gradient-to-r from-primary to-primary-container w-[10%] rounded-full"></div>
+                    </div>
+                  </div>
+                  <button class="text-primary font-bold text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    Open Assignment <span class="material-symbols-outlined text-sm">chevron_right</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Sidebar Column -->
+        <div class="xl:col-span-4 space-y-8">
+
+          <!-- Upcoming Deadlines Section -->
+          <div class="bg-surface-container-low p-6 rounded-xl">
+            <h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-6">Upcoming Deadlines</h3>
+            <div class="space-y-6">
+              <!-- Deadline 1 -->
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-surface-container-lowest rounded-lg flex flex-col items-center justify-center shrink-0 shadow-sm">
+                  <span class="text-[0.6rem] font-bold text-on-surface-variant">OCT</span>
+                  <span class="text-lg font-bold text-primary">24</span>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-on-surface leading-tight">Spatial Dynamics Paper</p>
+                  <p class="text-[0.7rem] text-on-surface-variant mt-1">11:59 PM Submission</p>
+                </div>
+              </div>
+
+              <!-- Deadline 2 -->
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-surface-container-lowest rounded-lg flex flex-col items-center justify-center shrink-0 shadow-sm">
+                  <span class="text-[0.6rem] font-bold text-on-surface-variant">OCT</span>
+                  <span class="text-lg font-bold text-on-surface">28</span>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-on-surface leading-tight">Peer Review: Session 04</p>
+                  <p class="text-[0.7rem] text-on-surface-variant mt-1">In-class Collaboration</p>
+                </div>
+              </div>
+
+              <!-- Deadline 3 -->
+              <div class="flex gap-4 opacity-60">
+                <div class="w-12 h-12 bg-surface-container-lowest rounded-lg flex flex-col items-center justify-center shrink-0 shadow-sm">
+                  <span class="text-[0.6rem] font-bold text-on-surface-variant">NOV</span>
+                  <span class="text-lg font-bold text-on-surface">02</span>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-on-surface leading-tight">Typography Final Case</p>
+                  <p class="text-[0.7rem] text-on-surface-variant mt-1">Portfolio Milestone</p>
+                </div>
+              </div>
+            </div>
+
+            <button class="w-full mt-8 py-3 text-primary border border-primary/20 rounded-lg text-xs font-bold hover:bg-primary-fixed transition-colors">
+              View Full Schedule
+            </button>
+          </div>
+
+          <!-- Faculty Feedback Section -->
+          <div class="bg-primary text-white p-6 rounded-xl shadow-xl overflow-hidden relative">
+            <div class="absolute -right-4 -bottom-4 opacity-20 transform rotate-12">
+              <span class="material-symbols-outlined text-9xl">forum</span>
+            </div>
+
+            <h3 class="text-xs font-bold uppercase tracking-widest text-primary-fixed mb-4 relative z-10">Faculty Feedback</h3>
+            <p class="text-sm font-medium leading-relaxed relative z-10 italic">
+              "Excellent use of white space in your last module. Focus on the grid consistency for the next submission."
+            </p>
+
+            <!-- Instructor Info -->
+            <div class="mt-6 flex items-center gap-3 relative z-10">
+              <img class="w-10 h-10 rounded-full border-2 border-white/20" data-alt="portrait of a confident woman professor with silver hair and scholarly expression in a library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_tt3eMXKuIdm0q3OHz-FAr0W3hhvngmO3TEYjamcTqMW1FsYWELQBGNJtmw9CMsmdAgafVPI8kRwPsDQLvBRjN9KgncGslqM88v7_uGKNB21hvR2S1HmfneSlD6VcGVh-4idZAE_QsTVeZnate5-zPdkKjRjjefOXghA4dOf5UpWMQWIvbahRr1xZOxdfISFsrDzhn0bSlkeSEOyxqRyOTeSjGNPkfDP7DGskvskmhvHfW0o15nOANi9ZhFn-EUOMd9hbbydLYPP6" />
+              <div>
+                <p class="text-xs font-bold">Dr. Elena Vos</p>
+                <p class="text-[0.6rem] opacity-80 uppercase tracking-tighter">Design Theory Lead</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress Section -->
+          <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">Semester Progress</h3>
+
+            <!-- Circular Progress -->
+            <div class="relative h-32 flex items-center justify-center">
+              <svg class="w-24 h-24 transform -rotate-90">
+                <circle class="text-surface-container-high" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+                <circle class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="50" stroke-width="8"></circle>
+              </svg>
+              <div class="absolute flex flex-col items-center">
+                <span class="text-xl font-headline font-extrabold text-on-surface">80%</span>
+                <span class="text-[0.5rem] font-bold text-on-surface-variant uppercase">Course</span>
+              </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="mt-4 grid grid-cols-2 gap-4">
+              <div class="text-center">
+                <p class="text-lg font-headline font-bold text-on-surface">3.82</p>
+                <p class="text-[0.6rem] font-bold text-on-surface-variant uppercase tracking-tighter">Current GPA</p>
+              </div>
+              <div class="text-center border-l border-outline-variant/20">
+                <p class="text-lg font-headline font-bold text-on-surface">42</p>
+                <p class="text-[0.6rem] font-bold text-on-surface-variant uppercase tracking-tighter">Credits</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-
-  <!-- Upload Modal Pop-out -->
-  <div id="uploadModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center overflow-y-auto">
-      <a class="hover:text-primary transition-all duration-75" href="#">Privacy</a>
-      <a class="hover:text-primary transition-all duration-75" href="#">Terms</a>
-      <a class="hover:text-primary transition-all duration-75" href="#">Support</a>
     </div>
-  </footer>
-
-
+  </main>
   
-  <!-- JavaScript Functions -->
-  <script>
-    // ===== LOAD TASK FROM URL PARAMETER =====
-    const STORAGE_KEY = 'classteams_tasks';
-
-    // Get URL parameter
-    function getUrlParameter(name) {
-      const params = new URLSearchParams(window.location.search);
-      return params.get(name);
-    }
-
-    // Get all tasks from localStorage
-    function getTasks() {
-      const tasks = localStorage.getItem(STORAGE_KEY);
-      return tasks ? JSON.parse(tasks) : [];
-    }
-
-    // Load and display task details
-    function loadTaskDetails() {
-      const taskId = parseInt(getUrlParameter('id'));
-      const tasks = getTasks();
-      const task = tasks.find(t => t.id === taskId);
-
-      if (task) {
-        // Update task title
-        document.querySelector('h1').textContent = task.title;
-        
-        // Update task category
-        const categorySpan = document.querySelector('span.label-sm.text-primary');
-        if (categorySpan) {
-          categorySpan.textContent = `Task Category: ${task.code}`;
-        }
-
-        // Update task description
-        const descriptionPara = document.querySelector('.prose p');
-        if (descriptionPara) {
-          descriptionPara.textContent = `This assignment is for ${task.code}. Deadline: ${task.deadline}. Instructor: ${task.instructor}`;
-        }
-
-        // Update deadline information
-        const deadlineParts = task.deadline.split(', ');
-        const dateDisplay = document.querySelector('.text-4xl.font-extrabold');
-        if (dateDisplay) {
-          dateDisplay.textContent = deadlineParts[0];
-        }
-
-        // Update status
-        const statusSpan = document.querySelector('span.material-symbols-outlined[data-icon="close"]').parentElement.nextElementSibling;
-        if (statusSpan) {
-          statusSpan.textContent = task.status;
-        }
-      }
-    }
-
-    // Back Button - Go back to previous page
-    function goBack() {
-      window.history.back();
-    }
-
-    // Download File - Handle file downloads
-    function downloadFile(filename) {
-      console.log('Downloading:', filename);
-      alert('Starting download: ' + filename);
-      // Implement actual download logic here
-      // Example: window.open('/files/' + filename);
-    }
-
-    // Open Upload Modal
-    function openUploadModal() {
-      const modal = document.getElementById('uploadModal');
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-      console.log('Upload modal opened');
-    }
-
-    // Close Upload Modal
-    function closeUploadModal() {
-      const modal = document.getElementById('uploadModal');
-      modal.classList.add('hidden');
-      document.getElementById('uploadProgress').classList.add('hidden');
-      document.getElementById('fileInput').value = '';
-      document.body.style.overflow = 'auto';
-      console.log('Upload modal closed');
-    }
-
-    // Trigger File Input
-    function triggerFileInput() {
-      document.getElementById('fileInput').click();
-    }
-
-    // Handle File Select
-    function handleFileSelect(event) {
-      const file = event.target.files[0];
-      if (file) {
-        console.log('Selected file:', file.name);
-        const uploadProgress = document.getElementById('uploadProgress');
-        uploadProgress.classList.remove('hidden');
-        document.getElementById('fileName').textContent = file.name;
-        
-        // Simulate upload progress
-        let progress = 0;
-        const interval = setInterval(() => {
-          progress += Math.random() * 30;
-          if (progress > 100) progress = 100;
-          document.getElementById('uploadBar').style.width = progress + '%';
-          document.getElementById('uploadPercent').textContent = Math.round(progress) + '%';
-          if (progress >= 100) clearInterval(interval);
-        }, 500);
-      }
-    }
-
-    // Submit Upload
-    function submitUpload() {
-      const fileName = document.getElementById('fileName').textContent;
-      const progress = document.getElementById('uploadBar').style.width;
-      
-      if (progress === '0%') {
-        alert('Please select a file first');
-        return;
-      }
-      
-      console.log('Uploading file:', fileName);
-      alert('File uploaded successfully!\n\nFilename: ' + fileName);
-      closeUploadModal();
-    }
-
-    // Request Extension - Open extension request form
-    function requestExtension() {
-      console.log('Request extension clicked');
-      alert('Submitting extension request\n\nPlease provide reason for extension request');
-      // Implement extension request form here
-      const reason = prompt('Please state your reason for requesting an extension:');
-      if (reason) {
-        console.log('Extension reason:', reason);
-        alert('Extension request submitted\nReason: ' + reason);
-      }
-    }
-
-    // Handle Notifications - Open notifications panel
-    function handleNotifications() {
-      console.log('Notifications clicked');
-      alert('You have 3 new notifications\n- Assignment grade posted\n- Deadline reminder\n- Resource added');
-      // Implement notifications panel here
-    }
-
-    // Handle Profile - Open profile menu
-    function handleProfile() {
-      console.log('Profile clicked');
-      alert('Profile menu opened\nYou can edit profile, settings, or logout here');
-      // Implement profile menu here
-    }
-
-    // Close modal when clicking outside
-    document.addEventListener('click', function(event) {
-      const modal = document.getElementById('uploadModal');
-      if (event.target === modal) {
-        closeUploadModal();
-      }
-    });
-
-    // Load task details when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-      loadTaskDetails();
-    });
-  </script>
-
-  <!-- Navbar Active State Handler -->
-  <script src="../public/navbar-active.js"></script>
+  <!-- ===== BOTTOM MOBILE NAVIGATION ===== -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest border-t-0 flex justify-around items-center px-4 z-50 editorial-shadow">
+    <a class="flex flex-col items-center text-primary" href="#">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+      <span class="text-[10px] font-bold mt-1">Work</span>
+    </a>
+    <a class="flex flex-col items-center text-on-surface-variant" href="#">
+      <span class="material-symbols-outlined">calendar_today</span>
+      <span class="text-[10px] font-bold mt-1">Dates</span>
+    </a>
+    <a class="flex flex-col items-center text-on-surface-variant" href="#">
+      <span class="material-symbols-outlined">folder_open</span>
+      <span class="text-[10px] font-bold mt-1">Files</span>
+    </a>
+    <a class="flex flex-col items-center text-on-surface-variant" href="#">
+      <span class="material-symbols-outlined">person</span>
+      <span class="text-[10px] font-bold mt-1">Profile</span>
+    </a>
+  </nav>
 
 </body>
 
