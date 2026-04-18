@@ -178,7 +178,7 @@
           </li>
           <li class="text-on-surface-variant">/</li>
           <li>
-            <a href="../pages/Assignments.html" class="text-primary hover:text-blue-700 font-semibold transition-colors">Assignments</a>
+            <a href="./Assignments.html" class="text-primary hover:text-blue-700 font-semibold transition-colors">Assignments</a>
           </li>
           <li class="text-on-surface-variant">/</li>
           <li class="text-on-surface-variant font-semibold" id="breadcrumbTitle">Assignment Detail</li>
@@ -192,47 +192,44 @@
       </button>
 
       <!-- Task Content Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div class="grid grid-cols-12 gap-8">
         <!-- Main Content Column -->
-        <div class="lg:col-span-8">
+        <div class="col-span-8">
           <!-- Task Category -->
-          <span class="label-sm font-bold uppercase tracking-widest text-[10px] text-primary mb-2 block">
+          <span id="taskCategory" class="label-sm font-bold uppercase tracking-widest text-[10px] text-primary mb-2 block">
             Task Category: Structural Analysis
           </span>
 
           <!-- Task Title -->
-          <h1 class="text-5xl font-extrabold tracking-tighter mb-8 leading-none text-on-background">
+          <h1 id="taskTitle" class="text-5xl font-extrabold tracking-tighter mb-8 leading-none text-on-background">
             THE IMPACT OF CANTILEVER SYSTEMS ON URBAN BRUTALISM
           </h1>
 
           <!-- Task Description -->
           <div class="prose max-w-none text-on-surface-variant leading-relaxed mb-12">
-            <p class="mb-6">
+            <p id="taskDesc" class="mb-6">
               This task requires a comprehensive structural breakdown of the central cantilever mechanisms used in the secondary wing of the Academic Ledger complex. Students must analyze the load-bearing requirements and provide a detailed blueprint revision including material stress tests.
-            </p>
-            <p>
-              Final submissions must be rendered in grayscale architectural format, adhering to the 0px radius mandate of the structural ledger system. Late submissions will be flagged in the audit system.
             </p>
           </div>
 
           <!-- Attachments Section -->
           <div class="space-y-4">
             <span class="label-sm font-bold uppercase tracking-widest text-[10px] text-on-surface-variant">Attachments</span>
-            <div id="attachmentsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div id="attachmentsGrid" class="grid grid-cols-2 gap-4">
               <!-- Attachments will be loaded here dynamically -->
             </div>
           </div>
         </div>
         
         <!-- Sidebar Column -->
-        <div class="lg:col-span-4 space-y-12">
+        <div class="col-span-4 space-y-12">
           <!-- Deadline Section -->
           <div class="bg-primary-container p-8">
             <span class="label-sm font-bold uppercase tracking-widest text-[10px] text-on-primary-container mb-6 block">
               Deadline Information
             </span>
             <div class="flex items-end gap-2 mb-2 text-on-primary-container">
-              <span class="text-4xl font-extrabold tracking-tighter">OCT 24</span>
+              <span id="deadlineDate" class="text-4xl font-extrabold tracking-tighter">OCT 24</span>
               <span class="text-lg font-bold opacity-60 pb-1">/ 2024</span>
             </div>
             <p class="text-[10px] font-mono uppercase tracking-tighter mb-8 text-on-primary-container opacity-80">
@@ -263,7 +260,7 @@
                 <img class="w-full h-full object-cover" alt="Portrait of Professor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP3aZl2OwrjO9CD55dDp0YuBuDbIizgVf0B0rSshow4014weevFrX7W8IK34hCL7-__GHxAqsJWjZREa79QxZuF8osDJR2ztHySVH9U92s6cU36otq7OJ3gCxNOn52SHdemPf9UvN5HKDjQrFDhC20ynZcN_4pOjH6Km85GTQZ1mjUdOo7S0oG-tJZSK0Zq89RviB86cRWbqDmAdzFdKU8kovuH6d0Df_44YrR-mr26KWyw5U6D1VpzBjVXxy9QoQfxq07gzOHNgCy" />
               </div>
               <div>
-                <p class="text-sm font-bold tracking-tight text-on-surface">DR. ELIAS VANCE</p>
+                <p id="instructorName" class="text-sm font-bold tracking-tight text-on-surface">DR. ELIAS VANCE</p>
                 <p class="text-[10px] text-on-surface-variant uppercase font-mono">Structural Engineering Dept.</p>
               </div>
             </div>
@@ -276,7 +273,7 @@
             </span>
             <div class="flex items-center gap-3">
               <div class="w-2 h-2 bg-secondary/30"></div>
-              <span class="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant">
+              <span id="statusText" class="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant">
                 Pending Submission
               </span>
             </div>
@@ -306,9 +303,9 @@
             <p class="text-[10px] font-bold tracking-widest uppercase text-primary">Assignment Portal</p>
             <h1 class="text-5xl font-extrabold tracking-tight text-on-background">Upload Assignment</h1>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div class="grid grid-cols-12 gap-8">
             <!-- Upload Area -->
-            <div class="md:col-span-8 flex flex-col gap-8">
+            <div class="col-span-8 flex flex-col gap-8">
               <div class="border border-dashed border-outline-variant bg-primary-container p-16 flex flex-col items-center justify-center text-center gap-4 group hover:bg-surface-container-high transition-colors cursor-pointer" onclick="triggerFileInput()">
                 <span class="material-symbols-outlined text-4xl text-primary" data-icon="upload_file">upload_file</span>
                 <div class="flex flex-col gap-1">
@@ -334,7 +331,7 @@
               </div>
             </div>
             <!-- Metadata Section -->
-            <div class="md:col-span-4 flex flex-col gap-6">
+            <div class="col-span-4 flex flex-col gap-6">
               <div class="bg-white border border-outline-variant p-6 flex flex-col gap-4">
                 <h2 class="text-sm font-bold uppercase tracking-widest text-on-background">Metadata</h2>
                 <div class="flex flex-col gap-4">
@@ -366,14 +363,93 @@
 
   <!-- Upload Modal Pop-out -->
   <div id="uploadModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center overflow-y-auto">
-      <a class="hover:text-primary transition-all duration-75" href="#">Privacy</a>
-      <a class="hover:text-primary transition-all duration-75" href="#">Terms</a>
-      <a class="hover:text-primary transition-all duration-75" href="#">Support</a>
+    <div class="bg-white w-full max-w-4xl my-auto relative">
+      <!-- Modal Header -->
+      <header class="bg-white border-b border-outline-variant flex items-center justify-between px-8 py-4 sticky top-0">
+        <div class="flex items-center gap-4">
+         
+        </div>
+        <button class="text-on-surface-variant hover:text-primary transition-colors" onclick="closeUploadModal()" aria-label="Close">
+          <span class="material-symbols-outlined" data-icon="close">close</span>
+        </button>
+      </header>
+
+      <!-- Modal Content -->
+      <main class="flex flex-col items-center justify-start pt-12 px-6 pb-12 max-h-[calc(100vh-120px)] overflow-y-auto">
+        <div class="w-full max-w-3xl flex flex-col gap-12">
+          <div class="flex flex-col gap-2">
+            <p class="text-[10px] font-bold tracking-widest uppercase text-primary">Assignment Portal</p>
+            <h1 class="text-5xl font-extrabold tracking-tight text-on-background">Upload Assignment</h1>
+          </div>
+          <div class="grid grid-cols-12 gap-8">
+            <!-- Upload Area -->
+            <div class="col-span-8 flex flex-col gap-8">
+              <div class="border border-dashed border-outline-variant bg-primary-container p-16 flex flex-col items-center justify-center text-center gap-4 group hover:bg-surface-container-high transition-colors cursor-pointer" onclick="triggerFileInput()">
+                <span class="material-symbols-outlined text-4xl text-primary" data-icon="upload_file">upload_file</span>
+                <div class="flex flex-col gap-1">
+                  <p class="text-lg font-medium text-on-background">Drag and drop your files here</p>
+                  <p class="text-sm text-on-surface-variant">PDF, DOCX, or ZIP files up to 50MB</p>
+                </div>
+                <button class="mt-4 bg-white border border-primary text-primary px-6 py-2 text-sm font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-all" type="button">
+                  Choose File
+                </button>
+                <input type="file" id="fileInput" class="hidden" accept=".pdf,.doc,.docx,.zip" onchange="handleFileSelect(event)" />
+              </div>
+              <div id="uploadProgress" class="hidden flex flex-col gap-4 bg-surface-container-high p-6">
+                <div class="flex justify-between items-end">
+                  <div class="flex flex-col gap-1">
+                    <span class="text-[10px] font-mono uppercase tracking-tighter text-on-surface-variant">Current Queue</span>
+                    <p id="fileName" class="text-sm font-bold text-on-background">file.pdf</p>
+                  </div>
+                  <span id="uploadPercent" class="text-xs font-mono text-primary font-bold">0%</span>
+                </div>
+                <div class="w-full h-1 bg-surface-container-highest">
+                  <div id="uploadBar" class="h-full bg-primary transition-all" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Metadata Section -->
+            <div class="col-span-4 flex flex-col gap-6">
+              <div class="bg-white border border-outline-variant p-6 flex flex-col gap-4">
+                <h2 class="text-sm font-bold uppercase tracking-widest text-on-background">Metadata</h2>
+                <div class="flex flex-col gap-4">
+                  <div>
+                    <label class="text-[10px] font-bold tracking-widest uppercase mb-1 block text-on-surface-variant">Course ID</label>
+                    <p class="text-sm font-medium text-on-background">ARC-402-2024</p>
+                  </div>
+                  <div>
+                    <label class="text-[10px] font-bold tracking-widest uppercase mb-1 block text-on-surface-variant">Due Date</label>
+                    <p class="text-sm font-medium text-on-background">Oct 24, 2024 • 23:59</p>
+                  </div>
+                </div>
+              </div>
+              <button class="w-full bg-primary text-on-primary py-4 font-bold uppercase tracking-[0.2em] text-sm hover:bg-blue-700 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed" onclick="submitUpload()" disabled>
+                Upload
+              </button>
+              <div class="flex items-start gap-3 p-4 bg-tertiary border-l-4 border-primary">
+                <span class="material-symbols-outlined text-error text-sm mt-0.5" data-icon="info">info</span>
+                <p class="text-[10px] font-medium leading-relaxed text-error">
+                  By uploading this file, you confirm that this work is your own and adheres to the academic integrity ledger of ClassTeams.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="flex justify-between items-center px-8 py-6 w-full mt-auto bg-white dark:bg-slate-900 border-t border-outline border-opacity-30">
+    <p class="text-[10px] font-mono uppercase tracking-tighter text-slate-500">
+      © 2026 CLASSTEAMS ACADEMIC CLARITY SYSTEM
+    </p>
+    <nav aria-label="Footer links" class="flex gap-8">
+      <a class="text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Privacy</a>
+      <a class="text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Terms</a>
+      <a class="text-[10px] font-mono uppercase tracking-tighter text-primary hover:underline transition-opacity font-bold" href="#">Support</a>
+    </nav>
   </footer>
-
-
-
 
   
   <!-- JavaScript Functions -->
@@ -395,7 +471,10 @@
             status: 'Pending',
             instructor: 'Dr. James Mitchell',
             description: 'Analyze spatial dynamics and their impact on urban design principles.',
-            attachments: []
+            attachments: [
+              { name: 'SPATIAL_ANALYSIS.PDF', size: '2.5 MB', uploadedAt: '2023-10-15' },
+              { name: 'DESIGN_MOCKUP.PNG', size: '5.8 MB', uploadedAt: '2023-10-15' }
+            ]
           },
           {
             id: 2,
@@ -406,18 +485,23 @@
             status: 'Submitted',
             instructor: 'Prof. Sarah Chen',
             description: 'Create interactive digital experiences with proper visual hierarchy.',
-            attachments: []
+            attachments: [
+              { name: 'INTERACTIVE_PROTOTYPE.ZIP', size: '12.3 MB', uploadedAt: '2023-10-18' }
+            ]
           },
           {
             id: 3,
-            title: 'Typography & Typeface History',
-            code: 'VIS102',
-            course: 'Visual Communications',
-            deadline: 'NOV 02, 2023',
+            title: 'The Impact of Cantilever Systems on Urban Brutalism',
+            code: 'ARCH201',
+            course: 'Advanced Architecture',
+            deadline: 'OCT 24, 2024',
             status: 'Pending',
-            instructor: 'Dr. Michael Ross',
-            description: 'Comprehensive study of typography and typeface history.',
-            attachments: []
+            instructor: 'Dr. Elias Vance',
+            description: 'This task requires a comprehensive structural breakdown of the central cantilever mechanisms used in the secondary wing of the Academic Ledger complex. Students must analyze the load-bearing requirements and provide a detailed blueprint revision including material stress tests. Final submissions must be rendered in grayscale architectural format, adhering to the 0px radius mandate of the structural ledger system. Late submissions will be flagged in the audit system.',
+            attachments: [
+              { name: 'STRUCTURAL_SPEC_V2.PDF', size: '2.5 MB', uploadedAt: '2024-10-15' },
+              { name: 'SITE_MAP_RENDER.PNG', size: '8.2 MB', uploadedAt: '2024-10-15' }
+            ]
           }
         ];
         localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultTasks));
@@ -485,76 +569,48 @@
 
     // Load and display task details
     function loadTaskDetails() {
-      // Initialize tasks first if not exist
+      console.log('Loading task details...');
       initializeTasks();
       
       const taskId = parseInt(getUrlParameter('id'));
-      console.log('Loading task with ID:', taskId);
+      console.log('Task ID:', taskId);
       
       if (!taskId || isNaN(taskId)) {
-        console.error('Invalid task ID from URL:', taskId);
-        alert('Error: Invalid task ID. Redirecting to assignments...');
-        window.location.href = './Assignments.html';
+        console.error('Invalid task ID');
         return;
       }
 
       const tasks = getTasks();
-      console.log('Available tasks:', tasks);
-      
       const task = tasks.find(t => t.id === taskId);
       console.log('Found task:', task);
 
       if (task) {
-        // Update breadcrumb title
-        const breadcrumbTitle = document.getElementById('breadcrumbTitle');
-        if (breadcrumbTitle) {
-          breadcrumbTitle.textContent = task.title;
-        }
-
-        // Update task title
-        const taskTitleElement = document.querySelector('h1');
-        if (taskTitleElement) {
-          taskTitleElement.textContent = task.title.toUpperCase();
-        }
+        // Update breadcrumb
+        document.getElementById('breadcrumbTitle').textContent = task.title;
         
-        // Update task category/code
-        const categorySpan = document.querySelector('span.label-sm.text-primary');
-        if (categorySpan) {
-          categorySpan.textContent = `Task Category: ${task.code}`;
-        }
-
+        // Update task category
+        document.getElementById('taskCategory').textContent = `Task Category: ${task.code}`;
+        
+        // Update task title
+        document.getElementById('taskTitle').textContent = task.title.toUpperCase();
+        
         // Update task description
-        const descriptionPara = document.querySelector('.prose p');
-        if (descriptionPara) {
-          descriptionPara.textContent = task.description || `This assignment is for ${task.code}. Course: ${task.course}. Deadline: ${task.deadline}. Instructor: ${task.instructor}`;
-        }
-
-        // Update deadline information
+        document.getElementById('taskDesc').textContent = task.description;
+        
+        // Update deadline
         const deadlineParts = task.deadline.split(', ');
-        const dateDisplay = document.querySelector('.text-4xl.font-extrabold');
-        if (dateDisplay) {
-          dateDisplay.textContent = deadlineParts[0];
-        }
-
-        // Update status badge
-        const statusBadge = document.querySelector('span[class*="font-bold"][class*="uppercase"][class*="tracking-wider"]');
-        if (statusBadge && statusBadge.textContent.includes('Pending') || statusBadge.textContent.includes('Submitted')) {
-          statusBadge.textContent = task.status;
-        }
-
-        // Update instructor info
-        const instructorName = document.querySelector('p.text-xs.font-bold');
-        if (instructorName) {
-          instructorName.textContent = task.instructor;
-        }
-
+        document.getElementById('deadlineDate').textContent = deadlineParts[0];
+        
+        // Update instructor
+        document.getElementById('instructorName').textContent = task.instructor.toUpperCase();
+        
+        // Update status
+        document.getElementById('statusText').textContent = task.status.toUpperCase();
+        
         // Load attachments
-        console.log('Loading attachments:', task.attachments);
         renderAttachments(task.attachments || []);
-      } else {
-        console.error('Task not found with ID:', taskId);
-        alert('Error: Task tidak ditemukan. Periksa kembali URL parameter.');
-        window.location.href = './Assignments.html';
+        
+        console.log('Task loaded successfully!');
       }
     }
 
@@ -634,9 +690,6 @@
 
     // Submit Upload
     function submitUpload() {
-      // Initialize tasks first if not exist
-      initializeTasks();
-      
       const fileName = document.getElementById('fileName').textContent;
       const progress = parseInt(document.getElementById('uploadPercent').textContent);
       
@@ -646,50 +699,31 @@
       }
 
       if (progress < 100) {
-        alert('Tunggu progress upload sampai 100% terlebih dahulu');
+        alert('Tunggu progress upload sampai 100%');
         return;
       }
       
       const taskId = parseInt(getUrlParameter('id'));
-      console.log('Submit upload for task ID:', taskId);
-      
       const tasks = getTasks();
       const task = tasks.find(t => t.id === taskId);
 
       if (task) {
-        // Initialize attachments array if not exists
-        if (!task.attachments) {
-          task.attachments = [];
-        }
-
-        // Add new attachment with timestamp
-        const fileSize = (Math.random() * 50).toFixed(1) + ' MB'; // Simulated file size
+        if (!task.attachments) task.attachments = [];
+        
+        const fileSize = (Math.random() * 50).toFixed(1) + ' MB';
         task.attachments.push({
           name: fileName,
           size: fileSize,
           uploadedAt: new Date().toLocaleString('id-ID')
         });
 
-        // Save tasks back to localStorage
         saveTasks(tasks);
-        console.log('File saved. Updated task:', task);
-
-        // Show success message
-        alert('File berhasil diupload!\n\nNama File: ' + fileName);
-
-        // Refresh attachments display
+        alert('File berhasil diupload!');
         renderAttachments(task.attachments);
-
-        // Reset form
         document.getElementById('fileName').textContent = 'file.pdf';
         document.getElementById('uploadBar').style.width = '0%';
         document.getElementById('uploadPercent').textContent = '0%';
-
-        // Close modal
         closeUploadModal();
-      } else {
-        console.error('Task tidak ditemukan with ID:', taskId);
-        alert('Error: Task tidak ditemukan (ID: ' + taskId + '). Pastikan Anda membuka tugas dengan benar.');
       }
     }
 
