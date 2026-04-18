@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ClassTeams - Announcements</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#737686",
+                        "outline-variant": "#c3c6d7",
+                        "on-primary-fixed": "#00174b",
+                        "surface-bright": "#f7f9fb",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#943700",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "tertiary-container": "#bc4800",
+                        "secondary-fixed": "#dbe1ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary": "#495c95",
+                        "on-tertiary-container": "#ffede6",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "on-secondary-fixed-variant": "#31447b",
+                        "on-tertiary-fixed": "#360f00",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-container": "#394c84",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary-fixed": "#ffdbcd",
+                        "inverse-primary": "#b4c5ff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-surface-variant": "#434655",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#eeefff",
+                        "surface": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "background": "#f7f9fb",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary": "#004ac6",
+                        "surface-container-high": "#e6e8ea",
+                        "on-background": "#191c1e",
+                        "primary-container": "#2563eb",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-container": "#acbfff",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#0053db",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed": "#00174b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen flex flex-col md:flex-row">
+    
+<!-- TopNavBar (Web) -->
+<nav class="hidden md:flex justify-between items-center w-full px-6 py-3 max-w-full bg-white/80 backdrop-blur-xl docked full-width top-0 z-50 shadow-sm shadow-blue-900/5 tonal shift using surface-container-low fixed">
+<div class="flex items-center gap-6">
+<div class="text-2xl font-bold tracking-tighter text-primary font-headline">ClassTeams</div>
+</div>
+<div class="flex-1 flex justify-end items-center gap-4">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-high border-none rounded-full text-sm font-body text-on-surface focus:ring-2 focus:ring-primary focus:outline-none transition-shadow outline-variant outline-opacity-15" placeholder="Search..." type="text"/>
+</div>
+<button class="p-2 text-primary hover:text-primary-container transition-colors scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-primary hover:text-primary-container transition-colors scale-95 duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-surface-container-highest" data-alt="Portrait of a young professional with a neutral expression, wearing a dark blue shirt, well-lit studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqVbTi9Cj429kHz7NSiDkQ7U-JnO1Z-wo78pojleqdudBz6JxRltvTdomtT43IL1KQ3S6dFsK4je0FI4TRCvyplGime47x22ovxHyM7iDF9d_bGVTtvTMdweH6EF-zDd_vRa02QD5s6vNhEncaJHiFERyUVQ31mMjlPIbgw99e9HucPG8Hj25bZyQGM5HaETf4X9M-cowOp8V92n_OqIttp6ZumqPMN4BJ92NyrbxzZjKTHqqAEJLcUYrNToZcfdCAJM-9HEnxTi8p"/>
+</div>
+</nav>
+<!-- SideNavBar (Web) -->
+<aside class="hidden md:flex flex-col gap-2 p-4 border-r border-slate-200/50 bg-surface-container-low h-screen w-64 fixed left-0 top-0 overflow-y-auto pt-20 tonal contrast against surface flat">
+<div class="px-4 py-4 mb-4">
+<div class="flex items-center gap-3 mb-2">
+<img alt="School Logo" class="w-10 h-10 rounded-full object-cover" data-alt="Close up of an open book with soft library lighting in the background, out of focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlCXvnqTSdnZqVqOnP35iDUqvpKsdJ3yGIGWUjSYxAgR8AVtF_J_RO7oBCitgiMIIUektVGmNhfVdXB1DDjScF7YESZA5nhshYstDLSjKPA7OlBvxXmsrWybT6JTDStBeo2vuCSRQbwoaOlSNWaa_Ipq1xPwmL3OR1aX5zN4PnVrbfwi07f29AH4XoPjvbpmZgKKrVFQlE_SPIfmcyWnorbgiEYq-rOhqpptpNGALji9RJvattAG-D95a8WqzWSCyjAoUifdxXeYtv"/>
+<div>
+<h2 class="font-headline font-extrabold text-primary text-base">Academic Portal</h2>
+<p class="text-xs font-label text-on-surface-variant">Fall Semester 2024</p>
+</div>
+</div>
+</div>
+<button class="w-full mb-6 py-3 px-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-label text-sm font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-[0_8px_32px_rgba(0,23,75,0.06)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+            New Entry
+        </button>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-label text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform ease-out duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-label bg-white text-primary shadow-sm font-semibold hover:translate-x-1 transition-transform ease-out duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
+                Announcements
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-label text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform ease-out duration-300" href="#">
+<span class="material-symbols-outlined">assignment</span>
+                Assignments
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-label text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform ease-out duration-300" href="#">
+<span class="material-symbols-outlined">quiz</span>
+                Quizzes
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-label text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform ease-out duration-300" href="#">
+<span class="material-symbols-outlined">group</span>
+                Directory
+            </a>
+</nav>
+<div class="mt-auto flex flex-col gap-1 pt-4 border-t border-surface-variant">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-label text-slate-600 hover:bg-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">help</span>
+                Help
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-label text-slate-600 hover:bg-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+                Settings
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 pt-6 md:pt-24 px-4 md:px-12 pb-24 md:pb-12 max-w-5xl mx-auto w-full">
+<!-- Header -->
+<header class="mb-12">
+<h1 class="font-headline text-3xl md:text-4xl lg:text-[40px] font-extrabold text-on-surface tracking-tight leading-tight mb-2">CS301: Advanced Algorithms</h1>
+<p class="font-body text-lg text-on-surface-variant">Latest updates and announcements from your instructors.</p>
+</header>
+<!-- Feed Section -->
+<section class="flex flex-col gap-8">
+<!-- Announcement Card 1: Urgent/Important -->
+<article class="bg-surface-container-lowest rounded-xl p-8 relative overflow-hidden group">
+<!-- Highlight Ribbon -->
+<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-primary-container to-tertiary"></div>
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<img alt="Instructor" class="w-10 h-10 rounded-full object-cover" data-alt="Professional portrait of a male professor wearing a blue button-down shirt, slightly out of focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBatZYxDzGOD2CHk_3FWZmQ45Cx-ZUsBCLUkSapMsX22MngJvyI2m0BXPsjo2jqT6f6alVcZCgr_7Z1YvnchGw_g9q6M7Uv2-zvLwVoH3ZeXgrKQ7SVL32PeUSj2StNNo_HozjPQsE0OlNTZZYqAYUqRUnSDGojawhIP-jl0iwApmlkNgXLdaaBDiV1Yq72TZhMtlnYlEqLnKHG0mA9Xnyl2r9s17nTdMbL7JcKjsmhbp7ls5My-2q9RhCv8LT-m9lKQtz2IwFWOihF"/>
+<div>
+<h3 class="font-headline text-base font-bold text-on-surface">Dr. Alan Turing</h3>
+<p class="font-label text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                Today, 09:00 AM
+                            </p>
+</div>
+</div>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label text-xs font-semibold uppercase tracking-wider">Important</span>
+</div>
+<h2 class="font-headline text-xl font-bold text-on-surface mb-3">Midterm Exam Format Change</h2>
+<div class="font-body text-sm text-on-surface-variant space-y-4">
+<p>Due to the recent feedback regarding the complexity of the dynamic programming assignments, we are adjusting the format for the upcoming midterm.</p>
+<p>The exam will now consist of three parts, with a heavier emphasis on algorithm design rather than pure implementation. Please review the updated study guide posted in the resources section. We will dedicate the first half of Thursday's lecture to a Q&amp;A session regarding this change.</p>
+</div>
+</article>
+<!-- Announcement Card 2: Standard -->
+<article class="bg-surface-container-lowest rounded-xl p-8">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<img alt="TA" class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a female teaching assistant with glasses, smiling lightly, well lit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4ONSkJDc19wj1xKdKq0NqwEb17pDa2V1PN0khj5G7i2vsGSx7KSKUIA1oPOj6FBifhOypVZrCnKf7ez26nqUCpxqLX7r7pI8JBw-WeDfytnjUCBxi3OAve3NgJTMHoUwszpuFO-JfRgrTyJXG019GV0dYkPWT7LmUdc4LtPlqQHZnrDX3OBjqXt9w_tTAMVSmg3tqmv1axy3tEZpxV3FL7mh8WmPcPhT3SaTvGLkYtgWrg9H4CDVlyEh329_VEDyg9JuNUDkmEd6Y"/>
+<div>
+<h3 class="font-headline text-base font-bold text-on-surface">Sarah Connor (TA)</h3>
+<p class="font-label text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                Yesterday, 14:30 PM
+                            </p>
+</div>
+</div>
+</div>
+<h2 class="font-headline text-xl font-bold text-on-surface mb-3">Assignment 3 Grades Posted</h2>
+<div class="font-body text-sm text-on-surface-variant space-y-4">
+<p>Grades for Assignment 3 (Graph Traversals) have been released. Overall, the class performed well, particularly on the BFS implementation section.</p>
+<p>Common issues were found in edge case handling for disconnected graphs. If you have questions about your specific grade, please attend my office hours tomorrow from 2-4 PM.</p>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="px-4 py-2 rounded-full border border-outline-variant bg-surface text-primary font-label text-sm font-semibold hover:bg-surface-container-low transition-colors">View Grades</button>
+</div>
+</article>
+<!-- Announcement Card 3: Resources -->
+<article class="bg-surface-container-lowest rounded-xl p-8">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<img alt="Instructor" class="w-10 h-10 rounded-full object-cover" data-alt="Professional portrait of a male professor wearing a blue button-down shirt, slightly out of focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo2Ghm_6OOvPKoKBMUMThDHSX1D9wXzXXwG0lf7LR6x59TiV7dEicrCUDrWSR9qHAyU74fEACIt5XEa07i9XnUpky3GwHXenAVqKyspGlmCb2SrqxhGpRrDb4ac_qKmDCCI0l1ZjarqmXjSkQPO-PppUZJyCCiK36CxlKemoCIGZgdd5iS2HTx_9Km5OzxPS5Rum4Y_2NQ4oKL_ZeSa-N1xO8CApM10cNvzbGdJmcM4SlbMSodaMsuStKLAkhTfZSJM0zSQGwVndjN"/>
+<div>
+<h3 class="font-headline text-base font-bold text-on-surface">Dr. Alan Turing</h3>
+<p class="font-label text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                Oct 12, 10:15 AM
+                            </p>
+</div>
+</div>
+</div>
+<h2 class="font-headline text-xl font-bold text-on-surface mb-3">Recommended Reading: NP-Completeness</h2>
+<div class="font-body text-sm text-on-surface-variant space-y-4">
+<p>As we transition into our module on NP-Completeness next week, I strongly recommend reading chapters 8 and 9 of the textbook. I have also uploaded a supplementary paper discussing modern approaches to the Traveling Salesperson Problem.</p>
+</div>
+<div class="mt-6 bg-surface-container-low rounded-lg p-4 flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container rounded flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-headline text-sm font-bold text-on-surface">TSP_Modern_Approaches.pdf</p>
+<p class="font-label text-xs text-on-surface-variant">2.4 MB</p>
+</div>
+<button class="ml-auto p-2 text-primary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</article>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pt-2 pb-6 md:hidden bg-white/90 backdrop-blur-md border-t border-slate-100 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-2xl z-50">
+<a class="flex flex-col items-center justify-center text-slate-400 opacity-80 active:scale-90 transition-all font-inter text-[10px] uppercase tracking-widest gap-1" href="#">
+<span class="material-symbols-outlined text-2xl">dashboard</span>
+<span>Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary bg-blue-50 rounded-xl px-4 py-1 active:scale-90 transition-all font-inter text-[10px] uppercase tracking-widest gap-1" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<span>Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 opacity-80 active:scale-90 transition-all font-inter text-[10px] uppercase tracking-widest gap-1" href="#">
+<span class="material-symbols-outlined text-2xl">assignment</span>
+<span>Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 opacity-80 active:scale-90 transition-all font-inter text-[10px] uppercase tracking-widest gap-1" href="#">
+<span class="material-symbols-outlined text-2xl">quiz</span>
+<span>Quizzes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 opacity-80 active:scale-90 transition-all font-inter text-[10px] uppercase tracking-widest gap-1" href="#">
+<span class="material-symbols-outlined text-2xl">group</span>
+<span>People</span>
+</a>
+</nav>
+</body></html>
