@@ -280,7 +280,19 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="flex justify-between items-center px-8 py-6 w-full bg-white dark:bg-slate-900 border-t border-outline border-opacity-30">
+      <p class="text-[10px] font-mono uppercase tracking-tighter text-slate-500">
+        © 2026 CLASSTEAMS ACADEMIC CLARITY SYSTEM
+      </p>
+      <nav aria-label="Footer links" class="flex gap-8">
+        <a class="text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Privacy</a>
+        <a class="text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Terms</a>
+        <a class="text-[10px] font-mono uppercase tracking-tighter text-primary hover:underline transition-opacity font-bold" href="#">Support</a>
+      </nav>
+    </footer>
   </main>
 
   <!-- Upload Modal Pop-out -->
@@ -438,18 +450,6 @@
       </main>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer class="flex justify-between items-center px-8 py-6 w-full mt-auto bg-white dark:bg-slate-900 border-t border-outline border-opacity-30">
-    <p class="text-[10px] font-mono uppercase tracking-tighter text-slate-500">
-      © 2026 CLASSTEAMS ACADEMIC CLARITY SYSTEM
-    </p>
-    <nav aria-label="Footer links" class="flex gap-8">
-      <a class="text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Privacy</a>
-      <a class="text-[10px] font-mono uppercase tracking-tighter text-slate-400 hover:text-primary transition-opacity" href="#">Terms</a>
-      <a class="text-[10px] font-mono uppercase tracking-tighter text-primary hover:underline transition-opacity font-bold" href="#">Support</a>
-    </nav>
-  </footer>
 
   
   <!-- JavaScript Functions -->
@@ -727,30 +727,12 @@
       }
     }
 
-    // Request Extension - Open extension request form
+    // Request Extension
     function requestExtension() {
-      console.log('Request extension clicked');
-      alert('Submitting extension request\n\nPlease provide reason for extension request');
-      // Implement extension request form here
-      const reason = prompt('Please state your reason for requesting an extension:');
+      const reason = prompt('Berikan alasan untuk meminta perpanjangan:');
       if (reason) {
-        console.log('Extension reason:', reason);
-        alert('Extension request submitted\nReason: ' + reason);
+        alert('Permintaan perpanjangan dikirim dengan alasan: ' + reason);
       }
-    }
-
-    // Handle Notifications - Open notifications panel
-    function handleNotifications() {
-      console.log('Notifications clicked');
-      alert('You have 3 new notifications\n- Assignment grade posted\n- Deadline reminder\n- Resource added');
-      // Implement notifications panel here
-    }
-
-    // Handle Profile - Open profile menu
-    function handleProfile() {
-      console.log('Profile clicked');
-      alert('Profile menu opened\nYou can edit profile, settings, or logout here');
-      // Implement profile menu here
     }
 
     // Close modal when clicking outside
