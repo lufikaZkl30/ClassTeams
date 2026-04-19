@@ -15,7 +15,7 @@
   function setActiveNavItem() {
     // Dapatkan path URL saat ini
     const currentPath = window.location.pathname;
-    const currentFile = currentPath.split('/').pop() || 'index.html';
+    const currentFile = currentPath.split('/').pop() || 'index.html'; // Default ke index.html jika root
 
     // Definisikan mapping antara file dengan data-page attribute
     const pageMap = {
