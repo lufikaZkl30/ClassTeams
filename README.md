@@ -1,4 +1,4 @@
-# 🚀 ClassTeams — Smart Academic Dashboard
+# 🚀 ClassTeams — Smart Academic Dashboard (VERS HTML)
 
 > Built for students who want control, not chaos. 🎯
 
