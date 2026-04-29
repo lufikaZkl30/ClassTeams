@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Advanced Algorithms - ClassTeams</title>
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<!-- Styles -->
+<link rel="stylesheet" href="../public/navbar.css" />
+<link rel="stylesheet" href="../public/styles.css" />
+
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c3c6d7",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-secondary-fixed-variant": "#31447b",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "secondary-fixed": "#dbe1ff",
+                        "primary-container": "#2563eb",
+                        "on-surface": "#191c1e",
+                        "on-background": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "surface": "#f7f9fb",
+                        "on-primary-container": "#eeefff",
+                        "error": "#ba1a1a",
+                        "secondary": "#495c95",
+                        "tertiary": "#943700",
+                        "primary-fixed": "#dbe1ff",
+                        "primary": "#004ac6",
+                        "on-secondary-fixed": "#00174b",
+                        "background": "#f7f9fb",
+                        "inverse-surface": "#2d3133",
+                        "on-surface-variant": "#434655",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed": "#00174b",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-bright": "#f7f9fb",
+                        "surface-tint": "#0053db",
+                        "on-tertiary-fixed": "#360f00",
+                        "on-secondary-container": "#394c84",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface-container": "#eceef0",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#ffede6",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-container": "#acbfff",
+                        "outline": "#737686",
+                        "tertiary-container": "#bc4800",
+                        "primary-fixed-dim": "#b4c5ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex overflow-hidden">
+
+<!-- Left SideNavBar -->
+<!-- Side Navigation Bar -->
+  <nav class="sidebar">
+    
+    <!-- Brand Section -->
+    <header class="sidebar-header">
+      <h2 class="sidebar-header-title">Navigation</h2>
+      <p class="sidebar-header-subtitle">Academic Ledger</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="sidebar-nav">
+      <ul class="sidebar-nav-list">
+        <!-- Dashboard (Active) -->
+        <li>
+          <a href="/index.html" class="sidebar-nav-item" data-page="dashboard">
+            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="dashboard">dashboard</span>
+            <span class="sidebar-nav-text">Dashboard</span>
+          </a>
+        </li>
+
+        <!-- Assignments -->
+        <li>
+          <a href="/assets/pages/Assignments.html" class="sidebar-nav-item" data-page="assignments">
+            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="assignment">assignment</span>
+            <span class="sidebar-nav-text">Assignments</span>
+          </a>
+        </li>
+
+        <!-- Schedule -->
+        <li>
+          <a href="/assets/pages/Schedule.html" class="sidebar-nav-item" data-page="schedule">
+            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="calendar_today">calendar_today</span>
+            <span class="sidebar-nav-text">Schedule</span>
+          </a>
+        </li>
+
+        <!-- Resources -->
+        <li>
+          <a href="/assets/pages/Resources.html" class="sidebar-nav-item" data-page="resources">
+            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="folder">folder</span>
+            <span class="sidebar-nav-text">Resources</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Settings Footer -->
+    <footer class="sidebar-footer">
+      <ul class="sidebar-footer-list">
+        <li>
+          <a href="/assets/pages/Settings.html" class="sidebar-nav-item" data-page="settings">
+            <span class="material-symbols-outlined sidebar-nav-icon" data-icon="settings">settings</span>
+            <span class="sidebar-nav-text">Settings</span>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+  </nav>
+
+<!-- Center Content Area -->
+<main class="flex-1 ml-0 md:ml-64 mr-0 md:mr-72 h-screen overflow-y-auto bg-surface-container-low px-8 py-12">
+<!-- Course Header -->
+<header class="mb-12">
+<h1 class="font-display text-4xl font-extrabold text-on-surface tracking-tight mb-2">Advanced Algorithms</h1>
+<p class="font-body text-on-surface-variant text-base">CS401 • Fall Semester</p>
+<!-- Course Tabs -->
+<nav class="mt-8 border-b border-surface-dim/30">
+<ul class="flex space-x-8">
+<li>
+<a class="inline-block py-3 px-1 font-label text-sm font-semibold text-primary border-b-2 border-primary" href="#">Posts</a>
+</li>
+<li>
+<a class="inline-block py-3 px-1 font-label text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors" href="#">Files</a>
+</li>
+<li>
+<a class="inline-block py-3 px-1 font-label text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors" href="#">Notes</a>
+</li>
+</ul>
+</nav>
+</header>
+<!-- Collaborative Feed -->
+<section class="max-w-3xl space-y-6">
+<!-- New Post Input -->
+<div class="bg-surface-container-lowest rounded-lg p-4 shadow-[0_4px_32px_rgba(25,28,30,0.06)] flex gap-4 items-start">
+<img alt="User Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="Close up portrait of a young male student looking confident, well-lit studio lighting, soft blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKXWVUUfjvzgG9Viv2q7zdnNVOpzSVxxCjXfkd-_CleIEAhcSt3LEf9g_Uc1v8LQUnFlvozOYsVNpDhn_g3OTZOvHnLQATVdZK7cNwhE_syKYLS9o55SEdF-XhUx2tiH4JiZQ8Ku-VP2doewZNQrO00DGeazl8QKxYSPG47DUIRiA7F4JZh-IyKKQ3znmnOMYwDptNA7r32i31ZEEhHgBJTRumJOaTL0h5CRFH7COoL4hBDqQ7KwA2DsMDulUliqOw0D5sQDCz9NBy"/>
+<div class="flex-1">
+<textarea class="w-full bg-surface-container-low border-0 rounded-lg p-3 text-sm font-body text-on-surface placeholder:text-on-surface-variant/70 focus:ring-2 focus:ring-primary/20 resize-none" placeholder="Start a new conversation..." rows="2"></textarea>
+<div class="mt-3 flex justify-end">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary font-label text-sm font-semibold py-2 px-6 rounded-full hover:opacity-90 transition-opacity">Post</button>
+</div>
+</div>
+</div>
+<!-- Announcement Post 1 -->
+<article class="bg-surface-container-lowest rounded-lg p-6 shadow-[0_4px_32px_rgba(25,28,30,0.06)] border border-outline-variant/15">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<img alt="Instructor Avatar" class="w-12 h-12 rounded-full object-cover" data-alt="Portrait of a female professor looking professional, soft natural lighting, blurred academic background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdGO1cfQ-s9BcggDb5Zq_IqRH1iG2N_DaevJQZGB641qra3S7YneZi4m-E1O2vw-dhLUectMrgoJWsAW7pBEVqYZYk4qHaZdLCC1ju5xwZoyIeAGV00NgF-izt2Sr8q8Mz4PDggAzCsSb01vXsXWcbJqRn8H6612f-IGYu3US2BFQ7vVgaJthkHwFLqmNCvGvU5WmKYostjAt9OjTPlTVnnKVhARpESNfotnmlLSR-gn0Kwp6tukCkXJXM0cMOSjcHCZ9_SwnQPH6j"/>
+<div>
+<h3 class="font-headline font-bold text-on-surface text-base">Dr. Sarah Jenkins</h3>
+<p class="font-label text-xs text-on-surface-variant">Instructor • Oct 24, 09:00 AM</p>
+</div>
+</div>
+<span class="bg-tertiary/10 text-tertiary text-[10px] font-bold uppercase tracking-wider py-1 px-2 rounded-full">Important</span>
+</div>
+<h4 class="font-headline font-semibold text-lg text-on-surface mb-2">Midterm Review Session Scheduled</h4>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed mb-4">We will be holding a comprehensive review session for the upcoming midterm this Friday at 4 PM in Room 302. Please bring your notes on dynamic programming.</p>
+<div class="flex items-center gap-4 border-t border-surface-dim/30 pt-4 mt-4">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors text-sm font-label">
+<span class="material-symbols-outlined text-lg">thumb_up</span> Like (12)
+                    </button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors text-sm font-label">
+<span class="material-symbols-outlined text-lg">chat_bubble_outline</span> Reply (3)
+                    </button>
+</div>
+</article>
+<!-- Regular Post -->
+<article class="bg-surface-container-lowest rounded-lg p-6 shadow-[0_4px_32px_rgba(25,28,30,0.06)] border border-outline-variant/15">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-headline font-bold text-lg">MJ</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface text-base">Michael Johnson</h3>
+<p class="font-label text-xs text-on-surface-variant">Student • Oct 23, 02:15 PM</p>
+</div>
+</div>
+</div>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed mb-4">Does anyone have recommendations for good resources to understand red-black trees better? The textbook chapter was a bit dense for me.</p>
+<div class="flex items-center gap-4 border-t border-surface-dim/30 pt-4 mt-4">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors text-sm font-label">
+<span class="material-symbols-outlined text-lg">thumb_up</span> Like (4)
+                    </button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors text-sm font-label">
+<span class="material-symbols-outlined text-lg">chat_bubble_outline</span> Reply (1)
+                    </button>
+</div>
+</article>
+</section>
+</main>
+<!-- Right SideNavBar (Course Tools) -->
+<aside aria-label="Course Tools" class="bg-white dark:bg-slate-900 font-manrope font-semibold fixed right-0 h-full w-72 flex flex-col border-l border-slate-100 dark:border-slate-800 z-40 hidden md:flex">
+<div class="p-8 pb-4">
+<h2 class="text-on-surface font-headline font-bold text-lg tracking-tight mb-1">Course Tools</h2>
+<p class="text-on-surface-variant font-label text-xs">Active Session</p>
+</div>
+<div class="flex flex-col w-full">
+<a class="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-none flex items-center gap-4 py-4 px-8 w-full Active: opacity-90" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<span>Announcements</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center gap-4 py-4 px-8 w-full" href="#">
+<span class="material-symbols-outlined text-xl">video_chat</span>
+<span>Meetings</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center gap-4 py-4 px-8 w-full" href="#">
+<span class="material-symbols-outlined text-xl">grade</span>
+<span>Grades</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center gap-4 py-4 px-8 w-full" href="#">
+<span class="material-symbols-outlined text-xl">quiz</span>
+<span>Quizzes</span>
+</a>
+</div>
+</aside>
+</body></html>
